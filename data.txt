@@ -1,0 +1,7 @@
+this file exists as a place to store the data for the
+attributes of the different objects we want to have
+(i.e health of different plants/zombies)
+
+Normal zombie: 10 peas kills it
+
+peas: shoot every 1.5 sec.
