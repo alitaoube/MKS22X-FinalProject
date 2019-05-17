@@ -1,4 +1,4 @@
 interface Displayable{
   void display();
-  void changeDisplay();
+  //void changeDisplay();
 }
