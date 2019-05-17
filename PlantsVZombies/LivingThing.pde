@@ -1,9 +1,11 @@
-abstract class LivingThing{
+abstract class LivingThing implements displayable{
   int health, row, col, x, y;
   PImage image;
   boolean alive;
   
   abstract void attack();
+  abstract void display();
+  abstract void changeDisplay();
   
   void die(){
     alive = false;

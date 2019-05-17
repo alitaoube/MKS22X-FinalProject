@@ -1,0 +1,2 @@
+class Peashooter extends Plant{
+}
