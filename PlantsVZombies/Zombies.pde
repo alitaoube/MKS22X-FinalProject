@@ -1,15 +1,13 @@
-class Zombies extends LivingThing{
+abstract class Zombies extends LivingThing{
+  int health;
   int speed;
 
-  Zombies(int r, int c, int xcor, int ycor, String picture, String type){
+  Zombies(int r, int c, int xcor, int ycor, String picture, String type, int hp, int spd){
     super(r,  c,  xcor, ycor, picture, type);
+    health = hp;
+    speed = spd;
   }
   
-  void move(){
-    
-  }
-  
-  void attack(){
-    
-  }
+  abstract void move();
+  abstract void attack();
 }
