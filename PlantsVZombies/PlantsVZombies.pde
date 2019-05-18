@@ -5,4 +5,6 @@ void setup(){
   background(board);
   Peashooter p = new Peashooter(1,1, 380, 140, "Peashooter.png", "normal", 100);
   p.display();
+  Board b = new Board();
+  Coordinate[][] backyard = b.board();
 }
