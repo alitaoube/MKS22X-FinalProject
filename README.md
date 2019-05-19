@@ -1,12 +1,12 @@
 # Plants v. Zombies (PvZ)
 
-#Devlog
+# Devlog
 
-#2019/5/18
+# 2019/5/18
 
 Created LivingThing class
 
-#2019/5/19
+# 2019/5/19
 
 Created Zombie and Plant abstract classes.
 Extended Zombie and Plant classes with Peashooter and Garden Zombie classes.
