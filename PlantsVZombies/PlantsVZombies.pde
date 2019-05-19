@@ -7,10 +7,10 @@ void setup(){
   
   size(1334, 750);
 
-  Peashooter p = new Peashooter(1,1, 380, 140, "Peashooter.png", "normal", 100);
+  Peashooter p = new Peashooter(1,1, 380, 140, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
     
-  GardenZombie g = new GardenZombie(1, 10, 700, 300, "zombie.png", "normal", 100, 100);
+  GardenZombie g = new GardenZombie(1, 10, 700, 300, "images/zombie.png", "normal", 100, 100);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   Board b = new Board();
@@ -18,7 +18,7 @@ void setup(){
 }
 
 void draw(){
-  PImage board = loadImage("board.jpg");
+  PImage board = loadImage("images/board.jpg");
   board.resize(1334, 750);
   background(board);
   for (Displayable thing: thingsToDisplay){
