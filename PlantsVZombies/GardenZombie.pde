@@ -6,7 +6,7 @@ class GardenZombie extends Zombies{
  }
  
  void move(){
-   y += 1;
+   x -= 1;
  }
  
  void attack(){

@@ -1,4 +1,4 @@
-abstract class Zombies extends LivingThing{
+abstract class Zombies extends LivingThing implements Moveable{
   int health;
   int speed;
 
