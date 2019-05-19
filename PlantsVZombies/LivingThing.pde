@@ -1,7 +1,7 @@
-abstract class LivingThing implements Displayable{
+abstract class LivingThing implements Displayable, Collideable{
   int health, row, col, x, y;
   String type;
-  PImage image;
+  PImage image; 
   boolean alive;
   
   abstract void attack();
@@ -23,5 +23,4 @@ abstract class LivingThing implements Displayable{
   void modImage(int w, int h){
     image.resize(w, h);
   }
-
 }
