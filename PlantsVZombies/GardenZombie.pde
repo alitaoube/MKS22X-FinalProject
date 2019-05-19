@@ -6,7 +6,12 @@ class GardenZombie extends Zombies{
  }
  
  void move(){
-   x -= 1;
+   for (Collideable c: ListOfCollideables){
+     if (c.isTouching(this)){
+       break;
+     }
+   }
+   x-=speed;
  }
  
  void attack(){

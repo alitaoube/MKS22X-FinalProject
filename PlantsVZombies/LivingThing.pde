@@ -15,11 +15,11 @@ abstract class LivingThing implements Displayable, Collideable{
     row = r; col = c; x = xcor; y = ycor; image = loadImage(picture); alive = true; type = Type; 
     
   }
-  
+
   void display(){
     image(image, x, y);
   }
-  
+     
   void modImage(int w, int h){
     image.resize(w, h);
   }

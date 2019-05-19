@@ -10,4 +10,14 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable{
   
   abstract void move();
   abstract void attack();
+  
+  void display(){
+   image(image, x, y);
+   for (Collideable c: ListOfCollideables){
+     System.out.println(c.isTouching(this));
+     if (!c.isTouching(this)){
+       this.move();
+     }
+   }
+ }
 }
