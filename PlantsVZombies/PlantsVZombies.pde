@@ -1,14 +1,19 @@
 //plants.jpg: 69x338
 //sun.jpg: 198x64
+//green starts: 380, 100. green ends: 1300, 720
+import java.util.Random;
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 int sun;
+int sunRate;
+int seconds;
+Random r;
 
 void setup(){
   sun = 0;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  
+  r = new Random();
   size(1334, 750);
 
   Peashooter p = new Peashooter(1,1, 380, 140, "images/Peashooter.png", "normal", 100);
@@ -24,6 +29,8 @@ void draw(){
   board.resize(1334, 750);
   background(board);
   displaySun();
+  displayPlantsBar();
+  displayMouse();
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
@@ -39,9 +46,21 @@ void displaySun(){
   image(Sun, 150, 7);
   fill(252, 237, 178);
   rect(210, 11, 130, 50);
+  textSize(32);
+  fill(0, 0, 0);
+  text(sun + "", 240, 48);
 }
 
+void displayPlantsBar(){
+  PImage Plants = loadImage("images/plants.jpg");
+  Plants.resize(138, 676);
+  image(Plants, 3, 7);
+}
   
+void displayMouse(){
+  textSize(15);
+  text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 20);
+}
 
 Coordinate[][] board(){
   Coordinate[][] output = new Coordinate[5][9];
