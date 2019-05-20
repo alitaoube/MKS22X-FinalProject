@@ -74,9 +74,10 @@ void displayMouse(){
 
 void collectSun(){
   for (int idx = 0; idx < suns.size(); idx ++){
-    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 100){
+    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15 && mousePressed){
       thingsToDisplay.remove(suns.get(idx));
       suns.remove(idx);
+      sun += 25;
     }
   }
 }
