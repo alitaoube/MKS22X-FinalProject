@@ -4,6 +4,7 @@
 import java.util.Random;
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
+ArrayList<Sun> suns;
 int sun, sunRate, seconds;
 boolean makeSun;
 Random r;
@@ -15,6 +16,7 @@ void setup(){
   makeSun = false;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
+  suns = new ArrayList<Sun>();
   r = new Random();
   size(1334, 750);
 
@@ -33,9 +35,11 @@ void draw(){
   displaySun();
   displayPlantsBar();
   displayMouse();
+  collectSun();
   if (frameCount % (60 * sunRate) == 0){
-    Sun s = new Sun(r.nextInt(1300-780-30) + 410, r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
+    suns.add(s);
   }
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
@@ -66,6 +70,15 @@ void displayPlantsBar(){
 void displayMouse(){
   textSize(15);
   text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 20);
+}
+
+void collectSun(){
+  for (int idx = 0; idx < suns.size(); idx ++){
+    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 100){
+      thingsToDisplay.remove(suns.get(idx));
+      suns.remove(idx);
+    }
+  }
 }
 
 Coordinate[][] board(){
