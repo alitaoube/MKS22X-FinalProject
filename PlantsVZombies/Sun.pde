@@ -2,13 +2,13 @@ class Sun implements Displayable{
  
   float x, y; 
   
-  Sun(){
-    x = 4;
-    y = 4;
+  Sun(float xcor, float ycor){
+    x = xcor;
+    y = ycor;
   }
   
   void display(){
     fill(255, 255, 50);
-    ellipse(x, y, 7, 7);
+    ellipse(x, y, 30, 30);
   }
 }

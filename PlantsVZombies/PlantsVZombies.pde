@@ -4,13 +4,15 @@
 import java.util.Random;
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
-int sun;
-int sunRate;
-int seconds;
+int sun, sunRate, seconds;
+boolean makeSun;
 Random r;
 
 void setup(){
+  frameRate(60);
   sun = 0;
+  sunRate = 1;
+  makeSun = false;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   r = new Random();
@@ -31,6 +33,10 @@ void draw(){
   displaySun();
   displayPlantsBar();
   displayMouse();
+  if (frameCount % (60 * sunRate) == 0){
+    Sun s = new Sun(r.nextInt(1300-780-30) + 410, r.nextInt(720-130) + 130);
+    thingsToDisplay.add(s);
+  }
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
