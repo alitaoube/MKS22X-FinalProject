@@ -1,7 +1,11 @@
+//plants.jpg: 69x338
+//sun.jpg: 198x64
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
+int sun;
 
 void setup(){
+  sun = 0;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   
@@ -19,6 +23,7 @@ void draw(){
   PImage board = loadImage("images/board.jpg");
   board.resize(1334, 750);
   background(board);
+  displaySun();
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
@@ -28,6 +33,15 @@ void draw(){
   }
   board();
 }
+
+void displaySun(){
+  PImage Sun = loadImage("images/sun.jpg");
+  image(Sun, 150, 7);
+  fill(252, 237, 178);
+  rect(210, 11, 130, 50);
+}
+
+  
 
 Coordinate[][] board(){
   Coordinate[][] output = new Coordinate[5][9];
