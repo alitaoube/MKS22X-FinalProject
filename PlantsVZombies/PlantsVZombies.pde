@@ -13,7 +13,7 @@ void setup(){
   thingsToDisplay.add(p);
   ListOfCollideables.add(p);
     
-  GardenZombie g = new GardenZombie(10, 50, 700, 50, "images/zombie.png", "normal", 100, 5);
+  GardenZombie g = new GardenZombie(1, 1, 380, 140, "images/zombie.png", "normal", 100, 5);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   ListOfCollideables.add(g);
@@ -29,7 +29,6 @@ void draw(){
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
- 
   for (Moveable one: thingsToMove){
     //for (Collideable c: ListOfCollideables){
       //if (!c.isTouching(this)){

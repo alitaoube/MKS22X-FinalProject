@@ -1,0 +1,3 @@
+interface Bobbable{
+  void bob();
+}
