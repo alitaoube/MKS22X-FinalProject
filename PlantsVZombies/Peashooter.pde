@@ -7,5 +7,7 @@ class Peashooter extends Plant{
 
   void attack(){}
   
-  
+ boolean isTouching(Zombies other){
+   return (dist(this.x, this.y, other.x, other.y) <= 10);
+ }
 }

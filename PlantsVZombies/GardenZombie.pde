@@ -6,11 +6,6 @@ class GardenZombie extends Zombies{
  }
  
  void move(){
-   for (Collideable c: ListOfCollideables){
-     if (c.isTouching(this)){
-       break;
-     }
-   }
    x-=speed;
  }
  
@@ -18,6 +13,6 @@ class GardenZombie extends Zombies{
  }
  
  boolean isTouching(LivingThing other){
-   return ((Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2))) <= 50);
+   return (dist(this.x, this.y, other.x, other.y) <= 10);
  }
 }
