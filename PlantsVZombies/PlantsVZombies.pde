@@ -5,15 +5,15 @@ import java.util.Random;
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
-int sun, sunRate, seconds;
-boolean makeSun;
+int sun, sunRate;
+int sunFrame;
 Random r;
 
 void setup(){
   frameRate(60);
+  sunFrame = 0;
   sun = 0;
   sunRate = 1;
-  makeSun = false;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   suns = new ArrayList<Sun>();
@@ -52,13 +52,12 @@ void draw(){
 }
 
 void displaySun(){
-  PFont font = createFont("pvz.ttf", 32);
+  //PFont font = createFont("pvz.ttf", 32);
   PImage Sun = loadImage("images/sun.jpg");    
   image(Sun, 150, 7);
   fill(252, 237, 178);
   rect(210, 11, 130, 50);
-  textFont(font);
-  
+  //textFont(font);
   fill(0, 0, 0);
   text(sun + "", 240, 48);
 }
