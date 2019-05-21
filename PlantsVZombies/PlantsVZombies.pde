@@ -36,7 +36,7 @@ void draw(){
   displayPlantsBar();
   displayMouse();
   collectSun();
-  sunFrame ++;
+  makeSun();
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
@@ -70,16 +70,18 @@ void displayMouse(){
 }
 
 void makeSun(){
-    if (frameCount % (60 * sunRate) == 0){
+  if (sunFrame > 60){
     Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
+    sunFrame = 0;
   }
+  sunFrame++;
 }
 
 void collectSun(){
   for (int idx = 0; idx < suns.size(); idx ++){
-    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15 && mousePressed){
+    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15){
       thingsToDisplay.remove(suns.get(idx));
       suns.remove(idx);
       sun += 25;
