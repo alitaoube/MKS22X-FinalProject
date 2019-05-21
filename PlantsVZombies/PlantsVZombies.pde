@@ -36,11 +36,7 @@ void draw(){
   displayPlantsBar();
   displayMouse();
   collectSun();
-  if (frameCount % (60 * sunRate) == 0){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);
-    thingsToDisplay.add(s);
-    suns.add(s);
-  }
+  sunFrame ++;
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
@@ -71,6 +67,14 @@ void displayPlantsBar(){
 void displayMouse(){
   textSize(15);
   text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 20);
+}
+
+void makeSun(){
+    if (frameCount % (60 * sunRate) == 0){
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);
+    thingsToDisplay.add(s);
+    suns.add(s);
+  }
 }
 
 void collectSun(){
