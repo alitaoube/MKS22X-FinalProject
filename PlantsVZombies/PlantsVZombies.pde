@@ -56,7 +56,7 @@ void draw(){
 }
 
 void selectPlant(){
-  if (mousePressed && mouseX > 10 && mouseY < 135){
+  if (mousePressed && mouseX > 10 && mouseX < 135){
     if (mouseY > 110 && mouseY < 185 && sun > 100){
       selected = true;
       selectedPlant = "Peashooter";
