@@ -10,6 +10,8 @@ int sunFrame;
 Random r;
 PImage board;
 boolean selected;
+String selectedPlant;
+Board backyard;
 
 void setup(){
   frameRate(60);
@@ -22,9 +24,9 @@ void setup(){
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
-  Peashooter p = new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
+  backyard = new Board();
+  Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
-    
   GardenZombie g = new GardenZombie(1, 4, "images/zombie.png", "normal", 100, 100);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
@@ -39,6 +41,8 @@ void draw(){
   displayMouse();
   collectSun();
   makeSun();
+  selectPlant();
+  placePlant();
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
@@ -52,7 +56,32 @@ void draw(){
 }
 
 void selectPlant(){
-  if (mousePressed && mouseX > 10 && mouseY < 135){}
+  if (mousePressed && mouseX > 10 && mouseY < 135){
+    if (mouseY > 110 && mouseY < 185 && sun > 100){
+      selected = true;
+      selectedPlant = "Peashooter";
+    }
+  }
+}
+
+void placePlant(){
+  int r = 0; int c = 0;
+  float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
+  if (selected && mousePressed){
+    for (int idx = 0; idx < backyard.board.length; idx ++){
+      for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
+        float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
+        if (dis < minDistance){
+          minDistance = dis;
+          r = idx; c = idx2;
+        }
+      }
+    }
+    if (selectedPlant.equals("Peashooter")){
+      Peashooter p2 = backyard.makePea(r, c);
+      thingsToDisplay.add(p2);
+    }
+  }
 }
 
 void displaySun(){

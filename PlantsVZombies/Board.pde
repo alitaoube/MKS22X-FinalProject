@@ -27,6 +27,7 @@ boolean[][] occupied;
   
   Peashooter makePea(int r, int c){
     Peashooter p = new Peashooter(r, c, "normal", 100);
+    occupied[r][c] = true;
     return p;
   }
   
