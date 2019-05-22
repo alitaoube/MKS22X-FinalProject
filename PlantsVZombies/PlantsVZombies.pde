@@ -6,6 +6,8 @@ ArrayList<Zombies> ListOfZombies;
 void setup(){
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
+  ListOfPlants = new ArrayList<Plant>();
+  ListOfZombies = new ArrayList<Zombies>();
   
   size(1334, 750);
 
@@ -13,7 +15,7 @@ void setup(){
   thingsToDisplay.add(p);
   ListOfPlants.add(p);
     
-  GardenZombie g = new GardenZombie(1, 1, 380, 140, "images/zombie.png", "normal", 100, 5);
+  GardenZombie g = new GardenZombie(1, 1, 700, 140, "images/zombie.png", "normal", 100, 5);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   ListOfZombies.add(g);

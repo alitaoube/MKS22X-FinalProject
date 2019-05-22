@@ -1,4 +1,4 @@
-abstract class Zombies extends LivingThing implements Moveable, Collideable{
+abstract class Zombies extends LivingThing implements Moveable{
   int health;
   int speed;
 
@@ -10,13 +10,4 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable{
   
   abstract void move();
   abstract void attack();
-  
-  void display(){
-   image(image, x, y);
-   for (Collideable c: ListOfCollideables){
-     if (!c.isTouching(this)){
-       this.move();
-     }
-   }
- }
 }

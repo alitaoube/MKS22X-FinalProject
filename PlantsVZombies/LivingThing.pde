@@ -1,4 +1,4 @@
-abstract class LivingThing implements Displayable, Collideable{
+abstract class LivingThing implements Displayable{
   int health, row, col, x, y;
   String type;
   PImage image; 
