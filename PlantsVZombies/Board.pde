@@ -1,11 +1,15 @@
 class Board{
 
 Coordinate[][] board;
+boolean[][] occupied;
   
   Board(){
+    initializeBoard();
+    occupied = new boolean[5][9];
   }
   
   void initializeBoard(){
+    board = new Coordinate[5][9];
     fill(0, 0, 0);
     int x = 420;
     int y = 150;
@@ -20,4 +24,11 @@ Coordinate[][] board;
       x = 420;
     }
   }
+  
+  Peashooter makePea(int r, int c){
+    Peashooter p = new Peashooter(r, c, "normal", 100);
+    return p;
+  }
+  
+  
 }
