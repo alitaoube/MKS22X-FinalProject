@@ -9,6 +9,7 @@ int sun, sunRate;
 int sunFrame;
 Random r;
 PImage board;
+boolean selected;
 
 void setup(){
   frameRate(60);
@@ -50,6 +51,10 @@ void draw(){
   board();
 }
 
+void selectPlant(){
+  if (mousePressed && mouseX > 10 && mouseY < 135){}
+}
+
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);
   PImage Sun = loadImage("images/sun.jpg");    
@@ -69,7 +74,18 @@ void displayPlantsBar(){
   
 void displayMouse(){
   textSize(15);
-  text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 20);
+  if (mouseX < 600 && mouseY > 300){
+    text("X: " + mouseX + "  Y: " + mouseY, mouseX + 100, mouseY - 20);
+  }
+  else if (mouseX < 600 && mouseY < 300){
+    text("X: " + mouseX + "  Y: " + mouseY, mouseX + 100, mouseY + 20);
+  }
+  else if (mouseX > 600 && mouseY < 300){
+    text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY + 20);
+  }
+  else {
+    text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 30);
+  }
 }
 
 void makeSun(){
