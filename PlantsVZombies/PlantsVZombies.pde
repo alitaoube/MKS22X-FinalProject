@@ -8,6 +8,7 @@ ArrayList<Sun> suns;
 int sun, sunRate;
 int sunFrame;
 Random r;
+PImage board;
 
 void setup(){
   frameRate(60);
@@ -19,24 +20,26 @@ void setup(){
   suns = new ArrayList<Sun>();
   r = new Random();
   size(1334, 750);
-
-  Peashooter p = new Peashooter(1,1, 380, 140, "images/Peashooter.png", "normal", 100);
+  board = loadImage("images/board.jpg");
+  Peashooter p = new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
     
-  GardenZombie g = new GardenZombie(1, 10, 700, 300, "images/zombie.png", "normal", 100, 100);
+  GardenZombie g = new GardenZombie(1, 4, "images/zombie.png", "normal", 100, 100);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
 }
 
 void draw(){
-  PImage board = loadImage("images/board.jpg");
-  board.resize(1334, 750);
+  //PImage board = loadImage("images/board.jpg");
+  //board.resize(1334, 750);
   background(board);
   displaySun();
   displayPlantsBar();
   displayMouse();
   collectSun();
   makeSun();
+  //String s = p.image.width + "";
+  //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }

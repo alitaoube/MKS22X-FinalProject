@@ -1,5 +1,6 @@
 abstract class LivingThing implements Displayable, Collideable{
-  int health, row, col, x, y;
+  int health, row, col;
+  float x, y;
   String type;
   PImage image; 
   boolean alive;
@@ -11,9 +12,13 @@ abstract class LivingThing implements Displayable, Collideable{
     alive = false;
   }
   
-  LivingThing(int r, int c, int xcor, int ycor, String picture, String Type){
-    row = r; col = c; x = xcor; y = ycor; image = loadImage(picture); alive = true; type = Type; 
-    
+  LivingThing(int r, int c, String picture, String Type){
+    Coordinate[][] backyard = board();
+    row = r; col = c; image = loadImage(picture); alive = true; type = Type; 
+    x = backyard[r][c].getX();// - (image.width)/2;
+    textSize(100);
+    //text(image.width + "", 500, 500);
+    y = backyard[r][c].getY();// - image.height/2;
   }
   
   void display(){
