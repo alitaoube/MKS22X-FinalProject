@@ -7,10 +7,6 @@ class Coordinate{
     orderedPair = new float[]{x, y};
   }
   
-  Coordinate(int r, int c){
-    
-  }
-  
   float getX() {return x;}
   float getY() {return y;}
   float[] getOp() {return orderedPair;}
