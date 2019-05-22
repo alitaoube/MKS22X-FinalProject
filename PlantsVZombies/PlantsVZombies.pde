@@ -24,11 +24,11 @@ void setup(){
   r = new Random();
   size(1334, 750);
 
-  Peashooter p = new Peashooter(1, 1, "images/Peashooter.png", "normal", 100);
+  Peashooter p = new Peashooter(0, 0, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
   ListOfPlants.add(p);
     
-  GardenZombie g = new GardenZombie(1, 3, "images/zombie.png", "normal", 100, 5);
+  GardenZombie g = new GardenZombie(0, 3, "images/zombie.png", "normal", 100, 5);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   ListOfZombies.add(g);
