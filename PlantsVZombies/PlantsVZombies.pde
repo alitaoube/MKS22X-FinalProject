@@ -67,7 +67,7 @@ void selectPlant(){
 void placePlant(){
   int r = 0; int c = 0;
   float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
-  if (selected && mousePressed){
+  if (selected && mousePressed && backyard.mouseOn()){
     for (int idx = 0; idx < backyard.board.length; idx ++){
       for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
         float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
@@ -77,12 +77,12 @@ void placePlant(){
         }
       }
     }
-    if (selectedPlant.equals("Peashooter")){
+    if (selectedPlant.equals("Peashooter") && !backyard.occupied(r, c)){
       Peashooter p2 = backyard.makePea(r, c);
       thingsToDisplay.add(p2);
-      //sun -= 100;
-      //selected = false;
-      //selectedPlant = null
+      sun -= 100;
+      selected = false;
+      selectedPlant = null;
     }
   }
 }
