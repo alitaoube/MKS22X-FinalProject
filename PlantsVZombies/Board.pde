@@ -31,6 +31,10 @@ boolean[][] occupied;
     return p;
   }
   
+  boolean occupied(int r, int c){
+    return occupied[r][c];
+  }
+  
   boolean mouseOn(){
     return (mouseX < 1285 && mouseX > 380 && mouseY < 715 && mouseY > 100);
   }
