@@ -57,7 +57,7 @@ void draw(){
 
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135){
-    if (mouseY > 110 && mouseY < 185 && sun > 100){
+    if (mouseY > 110 && mouseY < 185 && sun >= 100){
       selected = true;
       selectedPlant = "Peashooter";
     }
@@ -80,7 +80,9 @@ void placePlant(){
     if (selectedPlant.equals("Peashooter")){
       Peashooter p2 = backyard.makePea(r, c);
       thingsToDisplay.add(p2);
-      sun -= 100;
+      //sun -= 100;
+      //selected = false;
+      //selectedPlant = null
     }
   }
 }
