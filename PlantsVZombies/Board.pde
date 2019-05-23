@@ -31,5 +31,7 @@ boolean[][] occupied;
     return p;
   }
   
-  
+  boolean mouseOn(){
+    return (mouseX < 1285 && mouseX > 380 && mouseY < 715 && mouseY > 100);
+  }
 }
