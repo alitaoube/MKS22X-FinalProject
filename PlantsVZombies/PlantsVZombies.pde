@@ -80,6 +80,7 @@ void placePlant(){
     if (selectedPlant.equals("Peashooter")){
       Peashooter p2 = backyard.makePea(r, c);
       thingsToDisplay.add(p2);
+      sun -= 100;
     }
   }
 }
