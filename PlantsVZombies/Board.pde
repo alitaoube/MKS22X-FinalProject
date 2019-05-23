@@ -2,6 +2,7 @@ class Board{
 
 Coordinate[][] board;
 boolean[][] occupied;
+ArrayList<ArrayList<Zombies>> zombieLanes;
   
   Board(){
     initializeBoard();
@@ -10,6 +11,10 @@ boolean[][] occupied;
   
   void initializeBoard(){
     board = new Coordinate[5][9];
+    zombieLanes = new ArrayList<ArrayList<Zombies>>();
+    for (int idx = 0; idx < 5; idx ++){
+      zombieLanes.add(new ArrayList<Zombies>());
+    }
     fill(0, 0, 0);
     int x = 420;
     int y = 150;
