@@ -5,6 +5,7 @@ import java.util.Random;
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
+ArrayList<Peashooter> peashooters;
 int sun, sunRate;
 int sunFrame;
 Random r;
@@ -21,6 +22,7 @@ void setup(){
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   suns = new ArrayList<Sun>();
+  peashooters = new ArrayList<peashooter<>();
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
