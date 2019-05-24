@@ -36,6 +36,12 @@ ArrayList<ArrayList<Zombies>> zombieLanes;
     return p;
   }
   
+  GardenZombie makeGardenZombie(int r, int c){
+    GardenZombie z = new GardenZombie(r, c);
+    zombieLanes.get(r).add(z);
+    return z;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }

@@ -1,7 +1,7 @@
 class GardenZombie extends Zombies{
   
- GardenZombie(int r, int c, String picture, String type, int hp, int spd){
-   super(r, c, picture, type, hp, spd);
+ GardenZombie(int r, int c){
+   super(r, c, "images/zombie.png", "garden", 10, 50);
    modImage(90, 150);
  }
  

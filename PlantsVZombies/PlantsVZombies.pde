@@ -27,7 +27,7 @@ void setup(){
   backyard = new Board();
   Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
-  GardenZombie g = new GardenZombie(1, 4, "images/zombie.png", "normal", 100, 100);
+  GardenZombie g = backyard.makeGardenZombie(0, 8);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
 }
