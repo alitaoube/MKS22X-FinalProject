@@ -2,7 +2,8 @@ class GardenZombie extends Zombies{
   
  GardenZombie(int r, int c){
    super(r, c, "images/zombie.png", "garden", 10, 50);
-   modImage(90, 150);
+   modImage(70, 120);
+   y -= 20;
  }
  
  void move(){
