@@ -1,8 +1,9 @@
 class Pea implements Displayable, Moveable{
   
   float x, y;
+  int row;
   
-  Pea(float xcor, float ycor) {x = xcor; y = ycor;}
+  Pea(float xcor, float ycor, int r) {x = xcor; y = ycor; row = r;}
   
   void display(){
     fill(0, 255, 0);
@@ -10,5 +11,8 @@ class Pea implements Displayable, Moveable{
   }
   
   void move(){x += 15;}
+  
+  void hitZombie(){
+    for (Zombie z: backyard.get(
     
 }
