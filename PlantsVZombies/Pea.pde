@@ -6,9 +6,9 @@ class Pea implements Displayable, Moveable{
   
   void display(){
     fill(0, 255, 0);
-    ellipse(x, y, 18, 18);
+    ellipse(x, y, 22, 22);
   }
   
-  void move(){x += 30;}
+  void move(){x += 15;}
     
 }
