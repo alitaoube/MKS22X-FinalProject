@@ -6,6 +6,7 @@ ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
 ArrayList<Peashooter> peashooters;
+ArrayList<Pea> peas;
 int sun, sunRate;
 int sunFrame;
 Random r;
@@ -22,7 +23,8 @@ void setup(){
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   suns = new ArrayList<Sun>();
-  peashooters = new ArrayList<peashooter<>();
+  peashooters = new ArrayList<Peashooter>();
+  peas = new ArrayList<Pea>();
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -45,6 +47,8 @@ void draw(){
   makeSun();
   selectPlant();
   placePlant();
+  peasShoot();
+  movePeas();
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
@@ -55,6 +59,18 @@ void draw(){
     one.move();
   }
   board();
+}
+
+void movePeas(){
+  for (Pea p: peas){
+    p.move();
+  }
+}
+
+void peasShoot(){
+  for (Peashooter p: peashooters){
+    p.makePea();
+  }
 }
 
 void selectPlant(){
