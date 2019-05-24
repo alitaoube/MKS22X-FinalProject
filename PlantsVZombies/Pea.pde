@@ -1,6 +1,14 @@
-class Pea implements Displayable{
+class Pea implements Displayable, Moveable{
   
   float x, y;
   
-  Pea(int xcor, int ycor) {x = xcor; y = ycor;}
+  Pea(float xcor, float ycor) {x = xcor; y = ycor;}
+  
+  void display(){
+    fill(0, 255, 0);
+    ellipse(x, y, 18, 18);
+  }
+  
+  void move(){x += 200;}
+    
 }
