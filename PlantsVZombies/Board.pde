@@ -32,6 +32,7 @@ ArrayList<ArrayList<Zombies>> zombieLanes;
   
   Peashooter makePea(int r, int c){
     Peashooter p = new Peashooter(r, c, "normal", 100);
+    peashooters.add(p);
     occupied[r][c] = true;
     return p;
   }
