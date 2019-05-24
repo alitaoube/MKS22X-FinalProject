@@ -9,8 +9,13 @@ int peaFrame;
   void makePea(){
     if (peaFrame >= 90){
       Pea p = new Pea(this.x - this.image.width/2, this.y - this.image.height/2);
-      
+      peas.add(p);
+      thingsToDisplay.add(p);
+      peaFrame = 0;
+    }
+    peaFrame++;
   }
+  
   
   
 }
