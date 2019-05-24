@@ -61,10 +61,16 @@ void draw(){
     thing.display(); 
   }
  
-  for (   plant: ListOfPlant){
-      if (!backyard.zombieLanes.get(plant.row).isEmpty()){
-        for (Zombies zombie: ListOfZombies){
-
+  for (Zombies zombie: ListOfZombies){
+      if (!backyard.plantLanes.get(zombie.row).isEmpty()){
+        for (Plant plant: ListOfPlant){
+          if (!plant.isTouching(zombie)){
+            zombie.move();
+          }
+        }
+      }
+      else{
+        zombie.move();
       }
   }
   board();
