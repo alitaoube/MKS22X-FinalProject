@@ -5,7 +5,7 @@ abstract class LivingThing implements Displayable, Collideable{
   PImage image; 
   boolean alive;
   
-  abstract void attack();
+  //abstract void attack();
   //abstract void changeDisplay();
   
   void die(){
