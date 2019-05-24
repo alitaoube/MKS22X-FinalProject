@@ -30,7 +30,7 @@ void setup(){
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
   r = new Random();
-  size(1334, 750);ss
+  size(1334, 750);
   board = loadImage("images/board.jpg");
   backyard = new Board();
   Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
@@ -61,16 +61,11 @@ void draw(){
     thing.display(); 
   }
  
-  for (Zombies zombie: ListOfZombies){
-    for (Plant plant: ListOfPlant){
-      if (!plant.isTouching(zombie)){
-        zombie.move();
+  for (   plant: ListOfPlant){
+      if (!backyard.zombieLanes.get(plant.row).isEmpty()){
+        for (Zombies zombie: ListOfZombies){
+
       }
-    }
-  }
- 
-  for (Moveable one: thingsToMove){
-    one.move();
   }
   board();
 }

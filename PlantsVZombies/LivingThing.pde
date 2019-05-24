@@ -4,6 +4,7 @@ abstract class LivingThing implements Displayable, Collideable{
   String type;
   PImage image; 
   boolean alive;
+  String name = "jeffrey";
   
   //abstract void attack();
   //abstract void changeDisplay();
@@ -29,5 +30,9 @@ abstract class LivingThing implements Displayable, Collideable{
   
   void modImage(int w, int h){
     image.resize(w, h);
+  }
+  
+  String toString(){
+    return name;
   }
 }
