@@ -155,6 +155,7 @@ void makeSun(){
     Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
+    thingsToMove.add(s);
     sunFrame = 0;
   }
   sunFrame++;
