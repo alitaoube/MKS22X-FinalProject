@@ -6,7 +6,8 @@ class Sun implements Displayable, Moveable{
   Sun(float xcor, float ycor){
     x = xcor;
     y = ycor;
-    finalY = 400;
+    Random r = new Random();
+    finalY = (float)(r.nextInt(600) + 100);
   }
   
   void display(){
@@ -14,6 +15,6 @@ class Sun implements Displayable, Moveable{
     ellipse(x, y, 30, 30);
   }
   
-  void move(){if (y < finalY) y += 15;}
+  void move(){if (y < finalY) y += 2;}
   
 }
