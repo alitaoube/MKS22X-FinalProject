@@ -20,15 +20,16 @@ class Pea implements Displayable, Moveable{
     return false;
   }
   
-  Zombies hitZombie(){
-    Zombie z = backyard.zombieLanes.get(this.row).get(0);
+  Zombies findZombie(){
+    Zombies z = backyard.zombieLanes.get(this.row).get(0);
     float minDistance = dist(this.x, this.y, backyard.zombieLanes.get(this.row).get(0).x, backyard.zombieLanes.get(this.row).get(0).y);
     for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
       Zombies tempZ = backyard.zombieLanes.get(this.row).get(idx);
-      int newDistance = dist(this.x, this.y, temp.x, temp.y);
+      float newDistance = dist(this.x, this.y, tempZ.x, tempZ.y);
       if (newDistance < minDistance){
         minDistance = newDistance;
         z = tempZ;
+      }
     }
     return z;
   }
