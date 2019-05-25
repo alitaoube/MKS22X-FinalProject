@@ -61,6 +61,7 @@ void draw(){
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
+  
  
   for (Zombies zombie: ListOfZombies){
       if (!backyard.plantLanes.get(zombie.row).isEmpty()){
