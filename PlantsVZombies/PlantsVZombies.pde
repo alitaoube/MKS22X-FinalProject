@@ -9,6 +9,7 @@ ArrayList<Peashooter> peashooters;
 ArrayList<Plant> ListOfPlant;
 ArrayList<Zombies> ListOfZombies;
 ArrayList<Pea> peas;
+ArrayList<Sunflower> sunflowers;
 int sun, sunRate;
 int sunFrame;
 Random r;
@@ -29,6 +30,7 @@ void setup(){
   peas = new ArrayList<Pea>();
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
+  sunflowers = new ArrayList<Sunflower>();
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -62,6 +64,8 @@ void draw(){
     thing.display(); 
   }
   
+  
+  for (Moveable one: thingsToMove) one.move();
  
   for (Zombies zombie: ListOfZombies){
       if (!backyard.plantLanes.get(zombie.row).isEmpty()){
@@ -75,7 +79,15 @@ void draw(){
         zombie.move();
       }
   }
-  board();
+  //board();
+}
+
+void sunflowerMakeSun(){
+  for (Sunflower s: sunflowers){
+    if (s.makeSun()){
+      
+    }
+  }
 }
 
 void hitZombie(){
@@ -100,13 +112,22 @@ void peasShoot(){
     p.makePea();
   }
 }
-
+//10, 10  135, 675
 void selectPlant(){
-  if (mousePressed && mouseX > 10 && mouseX < 135){
-    if (mouseY > 110 && mouseY < 185 && sun >= 100){
-      selected = true;
-      selectedPlant = "Peashooter";
-    }
+  if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
+    selected = true;
+    if (mouseY > 600) selectedPlant = "flytrap";
+    else if (mouseY > 500) selectedPlant = "potato";
+    else if (mouseY > 400) selectedPlant = "cherry";
+    else if (mouseY > 300) selectedPlant = "walnut";
+    else if (mouseY > 200) selectedPlant = "snowpea";
+    else if (mouseY > 100) selectedPlant = "peashooter";
+    else if (mouseY > 10) selectedPlant = "sunflower";
+    else selected = false;
+    //if (mouseY > 110 && mouseY < 185 && sun >= 100){
+    //  selected = true;
+    //  selectedPlant = "Peashooter";
+    //}
   }
 }
 
@@ -123,7 +144,7 @@ void placePlant(){
         }
       }
     }
-    if (selectedPlant.equals("Peashooter") && !backyard.occupied(r, c)){
+    if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
       Peashooter p2 = backyard.makePea(r, c);
       thingsToDisplay.add(p2);
       sun -= 100;
