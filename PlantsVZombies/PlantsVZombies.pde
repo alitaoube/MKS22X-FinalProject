@@ -49,6 +49,7 @@ void draw(){
   placePlant();
   peasShoot();
   movePeas();
+  hitZombie();
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
@@ -59,6 +60,17 @@ void draw(){
     one.move();
   }
   board();
+}
+
+void hitZombie(){
+  for (int idx = 0; idx < peas.size(); idx ++){
+    if (peas.get(idx).touchingZombie()){
+      Zombies z = peas.get(idx).findZombie();
+      z.health -= 1;
+      thingsToDisplay.remove(peas.get(idx));
+      peas.remove(idx);
+    }
+  }
 }
 
 void movePeas(){
