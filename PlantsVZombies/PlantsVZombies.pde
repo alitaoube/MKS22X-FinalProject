@@ -6,6 +6,8 @@ ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
 ArrayList<Peashooter> peashooters;
+ArrayList<Plant> ListOfPlant;
+ArrayList<Zombies> ListOfZombies;
 ArrayList<Pea> peas;
 int sun, sunRate;
 int sunFrame;
@@ -25,15 +27,19 @@ void setup(){
   suns = new ArrayList<Sun>();
   peashooters = new ArrayList<Peashooter>();
   peas = new ArrayList<Pea>();
+  ListOfZombies = new ArrayList<Zombies>();
+  ListOfPlant = new ArrayList<Plant>();
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
   backyard = new Board();
   Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
+  ListOfPlant.add(p);
   GardenZombie g = backyard.makeGardenZombie(0, 8);
   thingsToDisplay.add(g);
   thingsToMove.add(g);
+  ListOfZombies.add(g);
 }
 
 void draw(){
@@ -56,8 +62,17 @@ void draw(){
     thing.display(); 
   }
  
-  for (Moveable one: thingsToMove){
-    one.move();
+  for (Zombies zombie: ListOfZombies){
+      if (!backyard.plantLanes.get(zombie.row).isEmpty()){
+        for (Plant plant: ListOfPlant){
+          if (!plant.isTouching(zombie)){
+            zombie.move();
+          }
+        }
+      }
+      else{
+        zombie.move();
+      }
   }
   board();
 }
