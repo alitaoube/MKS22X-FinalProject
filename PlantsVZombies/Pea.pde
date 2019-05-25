@@ -15,7 +15,7 @@ class Pea implements Displayable, Moveable{
   boolean touchingZombie(){
     for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
       Zombies z = backyard.zombieLanes.get(this.row).get(idx);
-      if (z.x - this.x < 11) return true;
+      if (z.x - this.x < -20) return true;
     }
     return false;
   }
