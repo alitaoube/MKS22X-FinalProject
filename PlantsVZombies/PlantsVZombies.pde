@@ -68,6 +68,9 @@ void draw(){
     if (plant.health <= 0){
       ListOfPlant.remove(plant);
       thingsToDisplay.remove(plant);
+      if (plant instanceof Peashooter){
+        peashooters.remove(plant);
+      }
     }
   }
   
