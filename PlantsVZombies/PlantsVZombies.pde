@@ -110,7 +110,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 20;
+      z.health -= 0;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
