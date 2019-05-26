@@ -64,6 +64,7 @@ void draw(){
   
   for (int x = 0; x < ListOfPlant.size(); x++){
     Plant plant = ListOfPlant.get(x);
+    System.out.println(plant.health);
     if (plant.health <= 0){
       ListOfPlant.remove(plant);
       thingsToDisplay.remove(plant);
@@ -75,17 +76,28 @@ void draw(){
   }
   
   for (Sun sun: ListOfSun){
-    System.out.println("hello");
     sun.move();
   }
   
   for (Zombies zombie: ListOfZombies){
-    for (Plant plant: ListOfPlant){
-      float x = dist(zombie.x, zombie.y, plant.x, plant.y);
-      if (x > 60){
+    for (int x = 0; x < ListOfPlant.size(); x++){
+      Plant plant = ListOfPlant.get(x);
+      float i = dist(zombie.x, zombie.y, plant.x, plant.y);
+
+      if (i > 60){
         zombie.move();
       }
+      else{
+        zombie.attack(plant);
+      }
     }
+
+    //for (Plant plant: ListOfPlant){
+    //  float x = dist(zombie.x, zombie.y, plant.x, plant.y);
+    //  if (x > 60){
+    //    zombie.move();
+    //  }
+    //}
   }
   board();
 }

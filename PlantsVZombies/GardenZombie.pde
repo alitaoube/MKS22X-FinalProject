@@ -7,11 +7,12 @@ class GardenZombie extends Zombies{
  }
  
  void move(){
-   x -= 1;
+   x -= 3;
  }
  
  void attack(Plant plant){
    plant.health -= 20;
+   System.out.println(plant.health);
  }
  
  boolean isTouching(LivingThing other){
