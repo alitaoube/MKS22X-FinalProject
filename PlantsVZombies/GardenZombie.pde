@@ -10,12 +10,6 @@ class GardenZombie extends Zombies{
    x -= 1;
  }
  
- void move(Plant plant){
-   if (!this.isTouching(plant)){
-     x -= 1;
-   }
- }
- 
  void attack(){
  }
  

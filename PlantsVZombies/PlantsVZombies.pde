@@ -8,6 +8,7 @@ ArrayList<Sun> suns;
 ArrayList<Peashooter> peashooters;
 ArrayList<Plant> ListOfPlant;
 ArrayList<Zombies> ListOfZombies;
+ArrayList<Sun> ListOfSun;
 ArrayList<Pea> peas;
 int sun, sunRate;
 int sunFrame;
@@ -29,6 +30,7 @@ void setup(){
   peas = new ArrayList<Pea>();
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
+  ListOfSun = new ArrayList<Sun>();
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -62,11 +64,13 @@ void draw(){
     thing.display(); 
   }
   
+  for (Sun sun: ListOfSun){
+    sun.move();
+  }
  
   for (Zombies zombie: ListOfZombies){
     for (Plant plant: ListOfPlant){
       float x = dist(zombie.x, zombie.y, plant.x, plant.y);
-      System.out.println(x);
       if (x > 60){
         zombie.move();
       }
