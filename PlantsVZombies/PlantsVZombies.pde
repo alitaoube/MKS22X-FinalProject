@@ -64,13 +64,20 @@ void draw(){
   
   for (int x = 0; x < ListOfPlant.size(); x++){
     Plant plant = ListOfPlant.get(x);
-    System.out.println(plant.health);
     if (plant.health <= 0){
       ListOfPlant.remove(plant);
       thingsToDisplay.remove(plant);
       if (plant instanceof Peashooter){
         peashooters.remove(plant);
       }
+    }
+  }
+  
+   for (int x = 0; x < ListOfZombies.size(); x++){
+    Zombies zombie = ListOfZombies.get(x);
+    if (zombie.health <= 0){
+      ListOfZombies.remove(zombie);
+      thingsToDisplay.remove(zombie);
     }
   }
   
@@ -82,11 +89,12 @@ void draw(){
     sun.move();
   }
   
-  for (Zombies zombie: ListOfZombies){
+  for (int y = 0; y < ListOfZombies.size(); y++){
+    Zombies zombie = ListOfZombies.get(y);
     for (int x = 0; x < ListOfPlant.size(); x++){
-      Plant plant = ListOfPlant.get(x);
-      float i = dist(zombie.x, zombie.y, plant.x, plant.y);
-
+     Plant plant = ListOfPlant.get(x);
+     float i = dist(zombie.x, zombie.y, plant.x, plant.y);
+      
       if (i > 60){
         zombie.move();
       }
@@ -94,13 +102,6 @@ void draw(){
         zombie.attack(plant);
       }
     }
-
-    //for (Plant plant: ListOfPlant){
-    //  float x = dist(zombie.x, zombie.y, plant.x, plant.y);
-    //  if (x > 60){
-    //    zombie.move();
-    //  }
-    //}
   }
   board();
 }
@@ -109,7 +110,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 1;
+      z.health -= 20;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
