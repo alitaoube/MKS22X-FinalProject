@@ -21,7 +21,7 @@ Board backyard;
 void setup(){
   frameRate(60);
   sunFrame = 0;
-  sun = 0;
+  sun = 100;
   sunRate = 1;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -121,7 +121,7 @@ void selectPlant(){
     else if (mouseY > 400) selectedPlant = "cherry";
     else if (mouseY > 300) selectedPlant = "walnut";
     else if (mouseY > 200) selectedPlant = "snowpea";
-    else if (mouseY > 100) selectedPlant = "peashooter";
+    else if (mouseY > 100 && sun >= 100) selectedPlant = "peashooter";
     else if (mouseY > 10) selectedPlant = "sunflower";
     else selected = false;
     //if (mouseY > 110 && mouseY < 185 && sun >= 100){
@@ -134,23 +134,20 @@ void selectPlant(){
 void placePlant(){
   int r = 0; int c = 0;
   float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
-  if (selected && mousePressed && backyard.mouseOn()){
-    for (int idx = 0; idx < backyard.board.length; idx ++){
-      for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
-        float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
-        if (dis < minDistance){
-          minDistance = dis;
-          r = idx; c = idx2;
-        }
+  if (!(selected && mousePressed && backyard.mouseOn())) return;
+  for (int idx = 0; idx < backyard.board.length; idx ++){
+    for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
+      float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
+      if (dis < minDistance){
+        minDistance = dis;
+        r = idx; c = idx2;
       }
     }
-    if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
-      Peashooter p2 = backyard.makePea(r, c);
-      thingsToDisplay.add(p2);
-      sun -= 100;
-      selected = false;
-      selectedPlant = null;
-    }
+  }
+  if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
+    Peashooter p2 = backyard.makePea(r, c);
+    selected = false;
+    selectedPlant = null;
   }
 }
 

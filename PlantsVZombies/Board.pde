@@ -36,7 +36,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
   }
   
   void makeSun(int r, int c){
-    Sun s = new Sun(board[r][c].x + 10, board[r][c].x - 10);
+    Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
     thingsToDisplay.add(s);
     suns.add(s);
  }
@@ -44,7 +44,10 @@ ArrayList<ArrayList<Plant>> plantLanes;
   Peashooter makePea(int r, int c){
     Peashooter p = new Peashooter(r, c, "normal", 100);
     peashooters.add(p);
+    thingsToDisplay.add(p);
+    ListOfPlant.add(p);
     occupied[r][c] = true;
+    sun -= 100;
     return p;
   }
   
