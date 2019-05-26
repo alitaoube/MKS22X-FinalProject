@@ -64,16 +64,13 @@ void draw(){
   
  
   for (Zombies zombie: ListOfZombies){
-      if (!backyard.plantLanes.get(zombie.row).isEmpty()){
-        for (Plant plant: ListOfPlant){
-          if (!plant.isTouching(zombie)){
-            zombie.move();
-          }
-        }
-      }
-      else{
+    for (Plant plant: ListOfPlant){
+      float x = dist(zombie.x, zombie.y, plant.x, plant.y);
+      System.out.println(x);
+      if (x > 60){
         zombie.move();
       }
+    }
   }
   board();
 }
