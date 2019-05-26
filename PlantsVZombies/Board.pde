@@ -18,7 +18,6 @@ ArrayList<ArrayList<Plant>> plantLanes;
     for (int idx = 0; idx < 5; idx ++){
       zombieLanes.add(new ArrayList<Zombies>());
       plantLanes.add(new ArrayList<Plant>());
-
     }
     fill(0, 0, 0);
     int x = 420;
@@ -49,6 +48,16 @@ ArrayList<ArrayList<Plant>> plantLanes;
     occupied[r][c] = true;
     sun -= 100;
     return p;
+  }
+  
+  Sunflower makeSunflower(int r, int c){
+    Sunflower s = new Sunflower(r, c);
+    sunflowers.add(s);
+    thingsToDisplay.add(s);
+    ListOfPlant.add(s);
+    occupied[r][c] = true;
+    sun -= 50;
+    return s;
   }
   
   GardenZombie makeGardenZombie(int r, int c){

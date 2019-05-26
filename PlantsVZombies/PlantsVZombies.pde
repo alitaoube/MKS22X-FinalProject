@@ -116,13 +116,13 @@ void peasShoot(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
-    if (mouseY > 610 && mouseY < 680) selectedPlant = "flytrap";
-    if (mouseY > 510 && mouseY < 580) selectedPlant = "potato";
-    if (mouseY > 410 && mouseY < 480) selectedPlant = "cherry";
-    if (mouseY > 310 && mouseY < 380) selectedPlant = "walnut";
-    if (mouseY > 210 && mouseY < 280) selectedPlant = "snowpea";
-    if (mouseY > 110 && mouseY < 180 && sun >= 100) selectedPlant = "peashooter";
-    if (mouseY > 10 && mouseY < 80 && sun >= 50) selectedPlant = "sunflower";
+    if (mouseY > 610 && mouseY < 680) {selectedPlant = "flytrap"; return;}
+    if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
+    if (mouseY > 410 && mouseY < 480) {selectedPlant = "cherry"; return;}
+    if (mouseY > 310 && mouseY < 380) {selectedPlant = "walnut"; return;}
+    if (mouseY > 210 && mouseY < 280) {selectedPlant = "snowpea"; return;}
+    if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
+    if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
     else selected = false;
     //if (mouseY > 110 && mouseY < 185 && sun >= 100){
     //  selected = true;
@@ -145,7 +145,7 @@ void placePlant(){
     }
   }
   if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
-    Peashooter p = backyard.makePea(r, c);
+    backyard.makePea(r, c);
     selected = false;
   }
   else if (selectedPlant.equals("sunflower") && !backyard.occupied(r, c)){
