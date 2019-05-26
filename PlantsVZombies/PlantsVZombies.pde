@@ -116,13 +116,13 @@ void peasShoot(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
-    if (mouseY > 600) selectedPlant = "flytrap";
-    else if (mouseY > 500) selectedPlant = "potato";
-    else if (mouseY > 400) selectedPlant = "cherry";
-    else if (mouseY > 300) selectedPlant = "walnut";
-    else if (mouseY > 200) selectedPlant = "snowpea";
-    else if (mouseY > 100 && sun >= 100) selectedPlant = "peashooter";
-    else if (mouseY > 10) selectedPlant = "sunflower";
+    if (mouseY > 610 && mouseY < 680) selectedPlant = "flytrap";
+    if (mouseY > 510 && mouseY < 580) selectedPlant = "potato";
+    if (mouseY > 410 && mouseY < 480) selectedPlant = "cherry";
+    if (mouseY > 310 && mouseY < 380) selectedPlant = "walnut";
+    if (mouseY > 210 && mouseY < 280) selectedPlant = "snowpea";
+    if (mouseY > 110 && mouseY < 180 && sun >= 100) selectedPlant = "peashooter";
+    if (mouseY > 10 && mouseY < 80 && sun >= 50) selectedPlant = "sunflower";
     else selected = false;
     //if (mouseY > 110 && mouseY < 185 && sun >= 100){
     //  selected = true;
@@ -132,9 +132,9 @@ void selectPlant(){
 }
 
 void placePlant(){
+  if (!(selected && mousePressed && backyard.mouseOn())) return;
   int r = 0; int c = 0;
   float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
-  if (!(selected && mousePressed && backyard.mouseOn())) return;
   for (int idx = 0; idx < backyard.board.length; idx ++){
     for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
       float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
@@ -145,9 +145,12 @@ void placePlant(){
     }
   }
   if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
-    Peashooter p2 = backyard.makePea(r, c);
+    Peashooter p = backyard.makePea(r, c);
     selected = false;
-    selectedPlant = null;
+  }
+  else if (selectedPlant.equals("sunflower") && !backyard.occupied(r, c)){
+    backyard.makeSunflower(r, c);
+    selected = false;
   }
 }
 
