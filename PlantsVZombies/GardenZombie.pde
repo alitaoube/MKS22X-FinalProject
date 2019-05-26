@@ -1,4 +1,4 @@
-class GardenZombie extends Zombies{
+class GardenZombie extends Zombies{  
   
  GardenZombie(int r, int c){
    super(r, c, "images/zombie.png", "garden", 10, 50);
@@ -10,7 +10,8 @@ class GardenZombie extends Zombies{
    x -= 1;
  }
  
- void attack(){
+ void attack(Plant plant){
+   plant.health -= 20;
  }
  
  boolean isTouching(LivingThing other){

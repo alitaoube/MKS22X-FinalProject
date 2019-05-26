@@ -20,7 +20,6 @@ abstract class LivingThing implements Displayable, Collideable{
     x = backyard[r][c].getX() - (image.width)/2;
     textSize(100);
     //text(image.width + "", 500, 500);
-    System.out.println(image.height);
     y = backyard[r][c].getY() - image.height/2;
   }
   

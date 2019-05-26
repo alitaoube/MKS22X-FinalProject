@@ -2,6 +2,7 @@
 //sun.jpg: 198x64
 //green starts: 380, 100. green ends: 1300, 720
 import java.util.Random;
+
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
@@ -60,14 +61,24 @@ void draw(){
   hitZombie();
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
+  
+  for (int x = 0; x < ListOfPlant.size(); x++){
+    Plant plant = ListOfPlant.get(x);
+    if (plant.health <= 0){
+      ListOfPlant.remove(plant);
+      thingsToDisplay.remove(plant);
+    }
+  }
+  
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
   
   for (Sun sun: ListOfSun){
+    System.out.println("hello");
     sun.move();
   }
- 
+  
   for (Zombies zombie: ListOfZombies){
     for (Plant plant: ListOfPlant){
       float x = dist(zombie.x, zombie.y, plant.x, plant.y);
@@ -169,11 +180,12 @@ void displayMouse(){
 
 void makeSun(){
   if (sunFrame > 60){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(1300-380-30) + 410);//r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
     thingsToMove.add(s);
     sunFrame = 0;
+    ListOfSun.add(s);
   }
   sunFrame++;
 }
