@@ -55,11 +55,13 @@ void draw(){
   placePlant();
   peasShoot();
   movePeas();
+  hitZombie();
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
+  
  
   for (Zombies zombie: ListOfZombies){
       if (!backyard.plantLanes.get(zombie.row).isEmpty()){
@@ -74,6 +76,17 @@ void draw(){
       }
   }
   board();
+}
+
+void hitZombie(){
+  for (int idx = 0; idx < peas.size(); idx ++){
+    if (peas.get(idx).touchingZombie()){
+      Zombies z = peas.get(idx).findZombie();
+      z.health -= 1;
+      thingsToDisplay.remove(peas.get(idx));
+      peas.remove(idx);
+    }
+  }
 }
 
 void movePeas(){
@@ -155,9 +168,10 @@ void displayMouse(){
 
 void makeSun(){
   if (sunFrame > 60){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
+    thingsToMove.add(s);
     sunFrame = 0;
   }
   sunFrame++;
