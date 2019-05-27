@@ -1,18 +1,36 @@
 class GardenZombie extends Zombies{  
   
  GardenZombie(int r, int c){
-   super(r, c, "images/zombie.png", "garden", 10, 50);
+   super(r, c, "images/zombie.png", "garden", 200, 50);
    modImage(70, 120);
    y -= 20;
  }
  
  void move(){
-   x -= 3;
+   x -= 1;
  }
  
  void attack(Plant plant){
    plant.health -= 20;
-   System.out.println(plant.health);
+ }
+ 
+ void dead(){
+  if (health <= 0){
+   ListOfZombies.remove(this);
+   thingsToDisplay.remove(this);
+   thingsToMove.remove(this);
+  }
+ }
+ 
+ void update(Plant plant){
+  dead();
+  float i = dist(this.x, this.y, plant.x, plant.y);
+  if (i < 60){
+    this.attack(plant);
+  }
+  else{
+    this.move();
+  }
  }
  
  boolean isTouching(LivingThing other){
