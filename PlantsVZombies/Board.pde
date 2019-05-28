@@ -18,7 +18,6 @@ ArrayList<ArrayList<Plant>> plantLanes;
     for (int idx = 0; idx < 5; idx ++){
       zombieLanes.add(new ArrayList<Zombies>());
       plantLanes.add(new ArrayList<Plant>());
-
     }
     fill(0, 0, 0);
     int x = 420;
@@ -35,11 +34,30 @@ ArrayList<ArrayList<Plant>> plantLanes;
     }
   }
   
+  void makeSun(int r, int c){
+    Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
+    thingsToDisplay.add(s);
+    suns.add(s);
+ }
+  
   Peashooter makePea(int r, int c){
     Peashooter p = new Peashooter(r, c, "normal", 100);
     peashooters.add(p);
+    thingsToDisplay.add(p);
+    ListOfPlant.add(p);
     occupied[r][c] = true;
+    sun -= 100;
     return p;
+  }
+  
+  Sunflower makeSunflower(int r, int c){
+    Sunflower s = new Sunflower(r, c);
+    sunflowers.add(s);
+    thingsToDisplay.add(s);
+    ListOfPlant.add(s);
+    occupied[r][c] = true;
+    sun -= 50;
+    return s;
   }
   
   GardenZombie makeGardenZombie(int r, int c){
