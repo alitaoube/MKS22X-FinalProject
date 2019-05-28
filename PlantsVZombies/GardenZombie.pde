@@ -22,15 +22,35 @@ class GardenZombie extends Zombies{
   }
  }
  
- void update(Plant plant){
+ //plantLanes
+ 
+ //void update(Plant plant){
+ // dead();
+  
+ // float i = dist(this.x, this.y, plant.x, plant.y);
+ // if (i < 60){
+ //   this.attack(plant);
+ // }
+ // else{
+ //   this.move();
+ // }
+ //}
+ 
+ void update(){
   dead();
-  float i = dist(this.x, this.y, plant.x, plant.y);
-  if (i < 60){
-    this.attack(plant);
+   
+  if (!backyard.plantLanes.get(this.row).isEmpty()){
+    if (!backyard.plantLanes.get(this.row).isEmpty()){
+      float i = dist(this.x, this.y, backyard.plantLanes.get(this.row).get(this.col - 1).x, backyard.plantLanes.get(this.row).get(this.col - 1).y);
+      if (i < 60){
+        this.attack(backyard.plantLanes.get(this.row).get(this.col - 1));
+      }
+      else{
+        this.move();
+      }
+    }
   }
-  else{
-    this.move();
-  }
+  if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
  }
  
  boolean isTouching(LivingThing other){

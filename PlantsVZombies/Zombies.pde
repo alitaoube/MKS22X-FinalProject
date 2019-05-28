@@ -10,5 +10,5 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable{
   
   abstract void move();
   abstract void attack(Plant plant);
-  abstract void update(Plant plant);
+  abstract void update();
 }

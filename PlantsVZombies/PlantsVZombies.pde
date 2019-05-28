@@ -123,10 +123,11 @@ void draw(){
   for (int y = 0; y < ListOfZombies.size(); y++){
     Zombies zombie = ListOfZombies.get(y);
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-    for (int x = 0; x < ListOfPlant.size(); x++){
-     Plant plant = ListOfPlant.get(x);
-     zombie.update(plant);
-    }
+    //for (int x = 0; x < ListOfPlant.size(); x++){
+    // Plant plant = ListOfPlant.get(x);
+    // zombie.update(plant);
+    //}
+    zombie.update();
   }
   //board();
 }
@@ -143,7 +144,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 100;
+      z.health -= 0;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
