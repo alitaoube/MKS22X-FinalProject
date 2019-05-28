@@ -34,5 +34,8 @@ Started writing a method to make the peas stop and disappear when they hit a zom
 ### 2019/5/25
 Coded the peas to stop and disappear once they hit the zombie. This involved looping through the list of all the peas on the board and determining if they are touching a zombie. Also made the sun generate at the top of the screen and then fall down until they hit a certain randomly determined point, like in the real game.
 
-### 2019/26/2019
+### 2019/5/26
 Added the feature of being able to put a sunflower on the board as well as a peashooter. This entailed reformatting the method that selected the plant to be added as well as the method that actually added the plant. These methods were reformatted in such a way that adding in other plants will be as simple as generating a constructor for that plant and importing an image.
+
+### 2019/5/27
+Fixed merge conflicts
