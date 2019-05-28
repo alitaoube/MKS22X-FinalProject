@@ -17,6 +17,8 @@ int peaFrame;
     peaFrame++;
   }
   
-  
+  void update(){
+    makePea();
+  }
   
 }

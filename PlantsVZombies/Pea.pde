@@ -33,6 +33,4 @@ class Pea implements Displayable, Moveable{
     }
     return z;
   }
-    
-    
 }

@@ -32,11 +32,8 @@ void setup(){
   peas = new ArrayList<Pea>();
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
-//<<<<<<< HEAD
   ListOfSun = new ArrayList<Sun>();
-//=======
   sunflowers = new ArrayList<Sunflower>();
-//>>>>>>> plant2
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -61,7 +58,7 @@ void draw(){
   makeSun();
   selectPlant();
   placePlant();
-  peasShoot();
+  //peasShoot();
   movePeas();
   hitZombie();
   //String s = p.image.width + "";
@@ -95,27 +92,40 @@ void draw(){
     sun.move();
   }
   
+  for (Peashooter p: peashooters){
+  p.update();
+}
 //<<<<<<< HEAD
 //=======
   
-  for (Moveable one: thingsToMove) one.move();
  
 //>>>>>>> plant2
   //for (Zombies zombie: ListOfZombies){
 //=======
+//  for (int y = 0; y < ListOfZombies.size(); y++){
+//    Zombies zombie = ListOfZombies.get(y);
+////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
+//    for (int x = 0; x < ListOfPlant.size(); x++){
+//     Plant plant = ListOfPlant.get(x);
+//     float i = dist(zombie.x, zombie.y, plant.x, plant.y);
+      
+//      if (i > 60){
+//        zombie.move();
+//      }
+//      else{
+//        zombie.attack(plant);
+//      }
+//    }
+//  }
+//  //board();
+//}
+
   for (int y = 0; y < ListOfZombies.size(); y++){
     Zombies zombie = ListOfZombies.get(y);
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
     for (int x = 0; x < ListOfPlant.size(); x++){
      Plant plant = ListOfPlant.get(x);
-     float i = dist(zombie.x, zombie.y, plant.x, plant.y);
-      
-      if (i > 60){
-        zombie.move();
-      }
-      else{
-        zombie.attack(plant);
-      }
+     zombie.update(plant);
     }
   }
   //board();
@@ -133,7 +143,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 20;
+      z.health -= 100;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
@@ -146,11 +156,11 @@ void movePeas(){
   }
 }
 
-void peasShoot(){
-  for (Peashooter p: peashooters){
-    p.makePea();
-  }
-}
+//void peasShoot(){
+//  for (Peashooter p: peashooters){
+//    p.makePea();
+//  }
+//}
 //10, 10  135, 675
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
