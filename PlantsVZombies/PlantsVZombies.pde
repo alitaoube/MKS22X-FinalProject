@@ -110,7 +110,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 0;
+      z.health -= 20;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
@@ -195,7 +195,7 @@ void displayMouse(){
 }
 
 void makeSun(){
-  if (sunFrame > 60){
+  if (sunFrame > 60 && ListOfSun.size() < 10){
     Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
@@ -212,6 +212,7 @@ void collectSun(){
       thingsToDisplay.remove(suns.get(idx));
       suns.remove(idx);
       sun += 25;
+      ListOfSun.remove(idx);
     }
   }
 }
