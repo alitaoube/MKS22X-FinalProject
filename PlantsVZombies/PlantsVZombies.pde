@@ -46,6 +46,11 @@ void setup(){
   thingsToMove.add(g);
   ListOfZombies.add(g);
   
+  ConeZombie z = backyard.makeConeZombie(0, 8);
+  thingsToDisplay.add(z);
+  thingsToMove.add(z);
+  ListOfZombies.add(z);
+
 }
 
 void draw(){
