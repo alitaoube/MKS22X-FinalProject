@@ -123,13 +123,13 @@ void draw(){
   for (int y = 0; y < ListOfZombies.size(); y++){
     Zombies zombie = ListOfZombies.get(y);
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-    //for (int x = 0; x < ListOfPlant.size(); x++){
-    // Plant plant = ListOfPlant.get(x);
-    // zombie.update(plant);
-    //}
-    zombie.update();
+    for (int x = 0; x < ListOfPlant.size(); x++){
+     Plant plant = ListOfPlant.get(x);
+     zombie.update(plant);
+    }
+    //zombie.update();
   }
-  //board();
+  board();
 }
 
 void sunflowerMakeSun(){
