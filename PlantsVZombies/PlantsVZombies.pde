@@ -1,3 +1,4 @@
+//plant2
 //plants.jpg: 69x338
 //sun.jpg: 198x64
 //green starts: 380, 100. green ends: 1300, 720
@@ -58,6 +59,7 @@ void draw(){
   peasShoot();
   movePeas();
   hitZombie();
+  print(sunflowers.size());
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (Displayable thing: thingsToDisplay){
