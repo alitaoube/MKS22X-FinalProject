@@ -9,6 +9,10 @@ class ConeZombie extends Zombies{
      x-=1;
    }
    
+   
+    void attack(Plant plant){
+   plant.health -= 0;
+ }
  void dead(){
   if (health <= 100 && health > 0){
     image = loadImage("/images/zombie.png/");

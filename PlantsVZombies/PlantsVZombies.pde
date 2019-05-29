@@ -45,6 +45,7 @@ void setup(){
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   ListOfZombies.add(g);
+  
 }
 
 void draw(){

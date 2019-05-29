@@ -66,6 +66,12 @@ ArrayList<ArrayList<Plant>> plantLanes;
     return z;
   }
   
+  ConeZombie makeConeZombie(int r, int c){
+    ConeZombie z = new ConeZombie(r, c);
+    zombieLanes.get(r).add(z);
+    return z;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }
