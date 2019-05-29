@@ -64,6 +64,8 @@ void draw(){
   peasShoot();
   movePeas();
   hitZombie();
+  for (Sunflower s: sunflowers) s.display();
+  print(sunflowers.size());
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   
