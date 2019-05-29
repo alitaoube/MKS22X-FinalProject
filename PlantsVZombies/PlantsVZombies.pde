@@ -76,7 +76,7 @@ void draw(){
       ListOfPlant.remove(plant);
       thingsToDisplay.remove(plant);
       if (plant instanceof Peashooter){
-        peashooters.remove(plant);
+      peashooters.remove(plant);
       }
     }
   }

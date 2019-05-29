@@ -63,12 +63,18 @@ ArrayList<ArrayList<Plant>> plantLanes;
   GardenZombie makeGardenZombie(int r, int c){
     GardenZombie z = new GardenZombie(r, c);
     zombieLanes.get(r).add(z);
+    thingsToDisplay.add(z);
+    listOfZombies.add(z);
+    thingsToMove.add(z);
     return z;
   }
   
   ConeZombie makeConeZombie(int r, int c){
     ConeZombie z = new ConeZombie(r, c);
     zombieLanes.get(r).add(z);
+    thingsToDisplay.add(z);
+    ListOfZombies.add(z);
+    thingsToMove.add(z);
     return z;
   }
   

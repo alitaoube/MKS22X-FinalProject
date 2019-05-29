@@ -16,8 +16,12 @@ class ConeZombie extends Zombies{
    
    void dead(){
     if (health <= 100 && health > 0){
-      image = loadImage("images/zombie.png");
-      modImage(70, 120);
+      //image = loadImage("images/zombie.png");
+      //modImage(70, 120);
+      ListOfZombies.remove(this);
+      thingsToDisplay.remove(this);
+      thingsToMove.remove(this);
+      backyard.makeGardenZombie(this.row, this.col);
     }
     if (health <= 0){
      ListOfZombies.remove(this);
