@@ -3,12 +3,14 @@
 //sun.jpg: 198x64
 //green starts: 380, 100. green ends: 1300, 720
 import java.util.Random;
+
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 ArrayList<Sun> suns;
 ArrayList<Peashooter> peashooters;
 ArrayList<Plant> ListOfPlant;
 ArrayList<Zombies> ListOfZombies;
+ArrayList<Sun> ListOfSun;
 ArrayList<Pea> peas;
 ArrayList<Sunflower> sunflowers;
 int sun, sunRate;
@@ -31,7 +33,11 @@ void setup(){
   peas = new ArrayList<Pea>();
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
+//<<<<<<< HEAD
+  ListOfSun = new ArrayList<Sun>();
+//=======
   sunflowers = new ArrayList<Sunflower>();
+//>>>>>>> plant2
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -59,27 +65,64 @@ void draw(){
   peasShoot();
   movePeas();
   hitZombie();
-  print(sunflowers.size());
+//<<<<<<< HEAD
+//=======
+  for (Sunflower s: sunflowers) s.display();
+//>>>>>>> master
+  //print(sunflowers.size());
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
+  
+  for (int x = 0; x < ListOfPlant.size(); x++){
+    Plant plant = ListOfPlant.get(x);
+    if (plant.health <= 0){
+      ListOfPlant.remove(plant);
+      thingsToDisplay.remove(plant);
+      if (plant instanceof Peashooter){
+        peashooters.remove(plant);
+      }
+    }
+  }
+  
+   for (int x = 0; x < ListOfZombies.size(); x++){
+    Zombies zomb = ListOfZombies.get(x);
+    if (zomb.health <= 0){
+      ListOfZombies.remove(zomb);
+      thingsToDisplay.remove(zomb);
+    }
+  }
+  
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
   }
   
+//<<<<<<< HEAD
+  for (Sun sun: ListOfSun){
+    sun.move();
+  }
+  
+//<<<<<<< HEAD
+//=======
   
   for (Moveable one: thingsToMove) one.move();
  
-  for (Zombies zombie: ListOfZombies){
-      if (!backyard.plantLanes.get(zombie.row).isEmpty()){
-        for (Plant plant: ListOfPlant){
-          if (!plant.isTouching(zombie)){
-            zombie.move();
-          }
-        }
-      }
-      else{
+//>>>>>>> plant2
+  //for (Zombies zombie: ListOfZombies){
+//=======
+  for (int y = 0; y < ListOfZombies.size(); y++){
+    Zombies zombie = ListOfZombies.get(y);
+//>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
+    for (int x = 0; x < ListOfPlant.size(); x++){
+     Plant plant = ListOfPlant.get(x);
+     float i = dist(zombie.x, zombie.y, plant.x, plant.y);
+      
+      if (i > 60){
         zombie.move();
       }
+      else{
+        zombie.attack(plant);
+      }
+    }
   }
   //board();
 }
@@ -87,7 +130,7 @@ void draw(){
 void sunflowerMakeSun(){
   for (Sunflower s: sunflowers){
     if (s.makeSun()){
-      
+      backyard.makeSun(s.row, s.col);
     }
   }
 }
@@ -96,7 +139,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 1;
+      z.health -= 0;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
@@ -191,11 +234,12 @@ void displayMouse(){
 
 void makeSun(){
   if (sunFrame > 60){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
     thingsToMove.add(s);
     sunFrame = 0;
+    ListOfSun.add(s);
   }
   sunFrame++;
 }

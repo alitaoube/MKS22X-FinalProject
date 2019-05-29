@@ -5,9 +5,9 @@ class Sun implements Displayable, Moveable{
   
   Sun(float xcor, float ycor){
     x = xcor;
-    y = ycor;
+    finalY = ycor;
     Random r = new Random();
-    finalY = (float)(r.nextInt(600) + 100);
+    y = 0;
   }
   
   void display(){

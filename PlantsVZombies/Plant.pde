@@ -7,7 +7,7 @@ abstract class Plant extends LivingThing{
   }
   
   boolean isTouching(LivingThing other){
-   return (row == other.row && col == other.col);
+   return (this.x == other.x);
  }
  
 }
