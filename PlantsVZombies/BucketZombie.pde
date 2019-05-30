@@ -14,6 +14,10 @@ class BucketZombie extends Zombies{
     x-=.5;
   }
   
+  void update(){
+    move();
+  }
+  
   void dead(){
     if (health <= 100 && health > 0){
       image = sprites.get(1);

@@ -42,6 +42,10 @@ class ConeZombie extends Zombies{
       this.move();
     }
    }
+   
+   void update(){
+     move();
+   }
  
   boolean isTouching(LivingThing other){
    return ((Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2))) <= 50);

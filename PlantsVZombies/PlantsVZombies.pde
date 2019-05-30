@@ -66,11 +66,23 @@ void draw(){
    s.display(); 
   }
   
+//<<<<<<< HEAD
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (int x = 0; x < ListOfPlant.size(); x++){
    ListOfPlant.get(x).update();
   }
+//=======
+   //for (int x = 0; x < ListOfZombies.size(); x++){
+   // Zombies zomb = ListOfZombies.get(x);
+   // if (zomb.health <= 0){
+   //   ListOfZombies.remove(zomb);
+   //   thingsToDisplay.remove(zomb);
+   // }
+  //}
+  
+  for (Zombies z: ListOfZombies) z.update();
+//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
   
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
@@ -81,9 +93,9 @@ void draw(){
     sun.move();
   }
   
-  for (Peashooter p: peashooters){
-  p.update();
-}
+  //for (int idx = 0; idx < peashooters.size(); idx ++){
+  //peashooters.get(idx).update();
+  //}
 //<<<<<<< HEAD
 //=======
   
@@ -109,24 +121,37 @@ void draw(){
 //  //board();
 //}
 
+//<<<<<<< HEAD
   for (int x = 0; x < peas.size(); x++){
     peas.get(x).update();
   }
   
-  for (int y = 0; y < ListOfZombies.size(); y++){
-    Zombies zombie = ListOfZombies.get(y);
-//>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-    for (int x = 0; x < ListOfPlant.size(); x++){
-     Plant plant = ListOfPlant.get(x);
-     if (plant.health > 0 && plant.row == zombie.row){
-       zombie.update(plant);
-     }
-     else{
-      zombie.move();
-     }
-    }
-  }
+//  for (int y = 0; y < ListOfZombies.size(); y++){
+//    Zombies zombie = ListOfZombies.get(y);
+////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
+//    for (int x = 0; x < ListOfPlant.size(); x++){
+//     Plant plant = ListOfPlant.get(x);
+//     if (plant.health > 0 && plant.row == zombie.row){
+//       zombie.update(plant);
+//     }
+//     else{
+//      zombie.move();
+//     }
+//    }
+//  }
   //board();
+//=======
+  //for (int y = 0; y < ListOfZombies.size(); y++){
+  //  Zombies zombie = ListOfZombies.get(y);
+////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
+  //  for (int x = 0; x < ListOfPlant.size(); x++){
+  //   Plant plant = ListOfPlant.get(x);
+  //   zombie.update(plant);
+  //  }
+  //  //zombie.update();
+  //}
+  board();
+//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
 }
 
 void sunflowerMakeSun(){
@@ -137,6 +162,31 @@ void sunflowerMakeSun(){
   }
 }
 
+//<<<<<<< HEAD
+//=======
+void hitZombie(){
+  for (int idx = 0; idx < peas.size(); idx ++){
+    if (peas.get(idx).touchingZombie()){
+      Zombies z = peas.get(idx).findZombie();
+      z.health -= 0;
+      thingsToDisplay.remove(peas.get(idx));
+      peas.remove(idx);
+    }
+  }
+}
+
+void movePeas(){
+  for (Pea p: peas){
+    p.move();
+  }
+}
+
+//void peasShoot(){
+//  for (Peashooter p: peashooters){
+//    p.makePea();
+//  }
+//}
+//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
 //10, 10  135, 675
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
