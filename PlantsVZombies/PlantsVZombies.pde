@@ -75,13 +75,15 @@ void draw(){
     }
   }
   
-   for (int x = 0; x < ListOfZombies.size(); x++){
-    Zombies zomb = ListOfZombies.get(x);
-    if (zomb.health <= 0){
-      ListOfZombies.remove(zomb);
-      thingsToDisplay.remove(zomb);
-    }
-  }
+   //for (int x = 0; x < ListOfZombies.size(); x++){
+   // Zombies zomb = ListOfZombies.get(x);
+   // if (zomb.health <= 0){
+   //   ListOfZombies.remove(zomb);
+   //   thingsToDisplay.remove(zomb);
+   // }
+  //}
+  
+  for (Zombies z: ListOfZombies) z.update();
   
   for (Displayable thing: thingsToDisplay){
     thing.display(); 
@@ -92,9 +94,9 @@ void draw(){
     sun.move();
   }
   
-  for (Peashooter p: peashooters){
-  p.update();
-}
+  for (int idx = 0; idx < peashooters.size(); idx ++){
+  peashooters.get(idx).update();
+  }
 //<<<<<<< HEAD
 //=======
   
@@ -120,15 +122,15 @@ void draw(){
 //  //board();
 //}
 
-  for (int y = 0; y < ListOfZombies.size(); y++){
-    Zombies zombie = ListOfZombies.get(y);
-//>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-    for (int x = 0; x < ListOfPlant.size(); x++){
-     Plant plant = ListOfPlant.get(x);
-     zombie.update(plant);
-    }
-    //zombie.update();
-  }
+  //for (int y = 0; y < ListOfZombies.size(); y++){
+  //  Zombies zombie = ListOfZombies.get(y);
+////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
+  //  for (int x = 0; x < ListOfPlant.size(); x++){
+  //   Plant plant = ListOfPlant.get(x);
+  //   zombie.update(plant);
+  //  }
+  //  //zombie.update();
+  //}
   board();
 }
 

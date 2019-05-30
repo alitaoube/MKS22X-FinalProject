@@ -11,7 +11,7 @@ class GardenZombie extends Zombies {
   }
 
   void attack(Plant plant) {
-    plant.health -= 0;
+    plant.health -= 10;
   }
 
   void dead() {
@@ -19,6 +19,7 @@ class GardenZombie extends Zombies {
       ListOfZombies.remove(this);
       thingsToDisplay.remove(this);
       thingsToMove.remove(this);
+      backyard.zombieLanes.get(this.row).remove(this);
     }
   }
 
@@ -36,40 +37,53 @@ class GardenZombie extends Zombies {
    }
   }
 
-//  void update() {
-//    dead();
-
-//    if (!backyard.plantLanes.get(this.row).isEmpty()) {    
-//      ArrayList<Plant> lane = backyard.plantLanes.get(this.row);
+  void update() {
+    dead();
+    if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
+    else {
+      boolean hasAttacked = false;
+      boolean isTouching = false;
+      for (int idx = backyard.plantLanes.get(this.row).size() - 1; idx >= 0; idx --){
+        Plant maybeAttack = backyard.plantLanes.get(this.row).get(idx);
+        isTouching = this.isTouching(maybeAttack);
+        if (isTouching) {
+          this.attack(maybeAttack);
+          hasAttacked = true;
+        }
+      }
+      if (!hasAttacked) this.move();
+    }
+  }
+      //ArrayList<Plant> lane = backyard.plantLanes.get(this.row);
       
       
-//      for (int x = this.col - 1; x > -1; x--){
+      //for (int x = this.col - 1; x > -1; x--){
         
-//        if (backyard.occupied(this.row, x)){
-//          float i = dist(this.x, this.y, backyard.plantLanes.get(this.row).get(x).x, backyard.plantLanes.get(this.row).get(x).y);
-//          if (i < 60){
-//            this.attack(backyard.plantLanes.get(this.row).get(x));
-//          }
-//          else{
-//            this.move();
-//          }
-//        }
-//      }
-//      //  float i = dist(this.x, this.y, backyard.plantLanes.get(this.row).get(this.col).x, backyard.plantLanes.get(this.row).get(this.col - 1).y);
+      //  if (backyard.occupied(this.row, x)){
+      //    float i = dist(this.x, this.y, backyard.plantLanes.get(this.row).get(x).x, backyard.plantLanes.get(this.row).get(x).y);
+      //    if (i < 60){
+      //      this.attack(backyard.plantLanes.get(this.row).get(x));
+      //    }
+      //    else{
+      //      this.move();
+      //    }
+      //  }
+      //}
+      //  float i = dist(this.x, this.y, backyard.plantLanes.get(this.row).get(this.col).x, backyard.plantLanes.get(this.row).get(this.col - 1).y);
 
-//      //if (i < 60) {
-//      //  this.attack(backyard.plantLanes.get(this.row).get(this.col));
-//      //} else {
-//      //  this.move();
-//      //}
-//    }
-//    else{
-//      this.move();
-//    }
-//    //if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
-//  }
+      //if (i < 60) {
+      //  this.attack(backyard.plantLanes.get(this.row).get(this.col));
+      //} else {
+      //  this.move();
+      //}
+   // }
+   // else{
+   //   this.move();
+  //  }
+    //if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
+ // }
 
   boolean isTouching(LivingThing other) {
-    return ((Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2))) <= 50);
+    return Math.abs(this.x - other.x) <= 60;
   }
 }

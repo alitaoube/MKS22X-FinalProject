@@ -45,6 +45,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     peashooters.add(p);
     thingsToDisplay.add(p);
     ListOfPlant.add(p);
+    plantLanes.get(r).add(p);
     occupied[r][c] = true;
     sun -= 100;
     return p;

@@ -19,6 +19,13 @@ int peaFrame;
   
   void update(){
     makePea();
+    if (health <= 0){
+      backyard.occupied[this.row][this.col] = false;
+      ListOfPlant.remove(this);
+      thingsToDisplay.remove(this);
+      peashooters.remove(this);
+      backyard.plantLanes.get(this.row).remove(this);
+    }
   }
   
 }
