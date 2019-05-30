@@ -1,0 +1,244 @@
+[33mcommit 50c310c8fcb32c51c4422f262ef6db17a6ebce24[m[33m ([m[1;36mHEAD -> [m[1;32mCleanUp[m[33m, [m[1;31morigin/CleanUp[m[33m)[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Thu May 30 00:59:31 2019 -0400
+
+    Successfully added bucketZombie and it displays properly
+
+[33mcommit 18b3333bce12a9acccb53c3c01dd8542a7fad769[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Thu May 30 00:56:41 2019 -0400
+
+    Added bucketHead class
+
+[33mcommit ede13c9db0ca2bd304dfb4ed01b49c785aace320[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Thu May 30 00:39:59 2019 -0400
+
+    Attempting to stop zombies from stopping after killing plant
+
+[33mcommit 7832a38a363023f34ce55cc71acfcfc2b4364445[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Thu May 30 00:11:04 2019 -0400
+
+    Add update method to Plants, but Zombies do not advance after killing plants
+
+[33mcommit a067b0c41fddf0b986d4bffb14e58c1935e8f7f7[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:55:28 2019 -0400
+
+    Added update method to Peas
+
+[33mcommit e8c16627ef05d5236e0e2b1aa99d27e916ee4349[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:51:28 2019 -0400
+
+    Put hitZombie method in peas class
+
+[33mcommit e150200baed8f6afcd054a1fa50f8051ffea31dc[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 3c62ec4 767b085
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:47:24 2019 -0400
+
+    Merging
+
+[33mcommit 767b085a8bcf0fcb6998b56618d5e82017f68e76[m[33m ([m[1;31morigin/Cones[m[33m, [m[1;32mCones[m[33m)[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:44:11 2019 -0400
+
+    Working on inconsistencies in plant eating
+
+[33mcommit 345745afe3c9213f809853ec78f2dce457cc18c5[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:35:00 2019 -0400
+
+    Updated coneZombie image, but if the coneZombie is too close it does not take damage
+
+[33mcommit 3fa01bd939f93a3979e546d2001c901b911680f2[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:25:16 2019 -0400
+
+    Fix coneZombies switching between coneZombie image and gardenZombie image after the cone breaking
+
+[33mcommit 3c62ec4ee574cd27fd2b049a81fa83f8dce22bee[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 23:16:58 2019 -0400
+
+    Fix error that let zombies move past a plant they were in front of when an adjacent plant was placed
+
+[33mcommit 15130c259de170dc9333e60b04611fca15f6d2cb[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Wed May 29 09:47:49 2019 -0400
+
+    Implement makeConeZombie method in Board
+
+[33mcommit ef7b64a73e9397b7e7ecda5164ed6989720c4d2f[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 22:54:26 2019 -0400
+
+    The zombie now switches when its health is low enough, however, the game stalls significantly afterwards
+
+[33mcommit ab97a39f2a2d9ac726b7d772c37b91aaf4069a75[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 22:48:59 2019 -0400
+
+    Added coneZombie construction to Board class, but need to fix image switching
+
+[33mcommit c0cfae4b25f934557a49e3e85849a7a73430dd93[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 22:47:40 2019 -0400
+
+    Added makeConeZombie method to Board class
+
+[33mcommit 705ed4950a9aa90ce146ebb6732fd4a9afdb1edc[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 22:45:38 2019 -0400
+
+    Added a few missing methods to conezombies
+
+[33mcommit d1480835a128856ebd1a39a60451fa9f5972c948[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 22:44:41 2019 -0400
+
+    Added conezombie class
+
+[33mcommit 172f544ff54d1d40a3e5ceb24d8ce527de7bfbfb[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 10:13:05 2019 -0400
+
+    Added update method for Zombies and Peashooters
+
+[33mcommit f12d127276e7e4f411a3ee5b3680f5cb0d68e860[m
+Merge: a5d6ecc 7f5c63c
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 00:17:34 2019 -0400
+
+    Merge branch 'master' of https://github.com/alitaoube/PvZ
+
+[33mcommit a5d6eccb5ecbe46f9ffb216dfd9a327535ef7ac9[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Tue May 28 00:17:31 2019 -0400
+
+    Added update method to Zombies class
+
+[33mcommit 7f5c63c7b53f448a90394a30714e7e4be38ab8f4[m
+Merge: 1a661c8 ca5571b
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Mon May 27 23:33:55 2019 -0400
+
+    fixed merge conflicts gut messed up parts of plant developments
+
+[33mcommit 1a661c859cb765c98de4ce0b96aeeb599e451de6[m
+Merge: e897ed4 24017c9
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Mon May 27 23:19:24 2019 -0400
+
+    merged zombie updates with plant updates
+
+[33mcommit 24017c9a51e79823de4922b011120b304189f089[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Mon May 27 23:10:22 2019 -0400
+
+    extra file
+
+[33mcommit 830700d3b46d2af8b4bc86e9e40c22d40afc17e6[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Mon May 27 23:09:28 2019 -0400
+
+    updated devlog
+
+[33mcommit 6a7797923b24ce3907b1d4aabebea986d2346751[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 20:03:47 2019 -0400
+
+    Add update method to allow for more modularity
+
+[33mcommit ca5571b0635bf332d7ba1485e6dbe4617bbb8023[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 19:25:09 2019 -0400
+
+    Now cap sun at 10
+
+[33mcommit 691610e111fe568b5270d2f74f7779dc24ae5d17[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 19:10:01 2019 -0400
+
+    The plant can now kill the zombie, and the zombie is removed from the board, but the peashooter continues firing shots
+
+[33mcommit 7e87692c0a93b77676ca93e1226e721876e932d8[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Sun May 26 15:44:51 2019 -0400
+
+    you can now add peashooters and sunflowers to teh board
+
+[33mcommit 7fb8b7900b530894368f9dacaa44a0e36d95668c[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Sun May 26 15:39:36 2019 -0400
+
+    modified placePlant method so that it puts down a sunflower
+
+[33mcommit e7ac78e18f1bd88a4fd0994af83cb1d8479375c4[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Sun May 26 15:08:41 2019 -0400
+
+    rewrote placePlant and select plant method so that it works with other plants
+
+[33mcommit 3de8c2dddb91b5142c5588e60885dcafd08a98dc[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 04:03:40 2019 -0400
+
+    Fix error where dead peashooter would continue firing peas
+
+[33mcommit e897ed4173996f90cb10e445462bb25dfa4ce4aa[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 03:32:35 2019 -0400
+
+    Zombie now consumes plant, however, does not continue moving and peas continue to be fired
+
+[33mcommit dc5d98c708210dbeb65de9b75ed9a260d9281748[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:54:15 2019 -0400
+
+    Implement methods for zombie to eat plant
+
+[33mcommit 5da117d5953159b47554ed6fc54234c972a79573[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:36:58 2019 -0400
+
+    Sun now 'fall' down, starting from y = 0, to a random y value
+
+[33mcommit 239e67e61943cf77f781dd15aba9112890b568a0[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:31:45 2019 -0400
+
+    Randomize y value of spawned suns
+
+[33mcommit f59b4faa6a829688ea9c44a9dd1742d30682eaf5[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:28:25 2019 -0400
+
+    Fix collision by simplifying loop in main file. Zombie now stops sufficient distance from the plant
+
+[33mcommit 478cb2a53d29b328427c90fb35bbd3fdd91864f8[m
+Merge: 0287d44 a260534
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:16:58 2019 -0400
+
+    Merge branch 'master' of https://github.com/alitaoube/PvZ
+
+[33mcommit 0287d44b9bca345f701550756c73eefe3e88f214[m
+Author: Ali Taoube <ataoube00@stuy.edu>
+Date:   Sun May 26 02:16:47 2019 -0400
+
+    Modified isTouching method
+
+[33mcommit 97bd4323ae3fe373d168e953dcd4ae3bb826e2d0[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Sat May 25 18:34:44 2019 -0400
+
+    modified select plant method in PlantsVZombies class so that you can soon choose plants other than peashooter
+
+[33mcommit 94d14791c01157b7a186a67dfcd379bc6731f510[m
+Author: sbrink00 <sbrink00@stuy.edu>
+Date:   Sat May 25 18:23:58 2019 -0400
+
+    wrote method makeSun in boar

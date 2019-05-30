@@ -39,14 +39,13 @@ void setup(){
   board = loadImage("images/board.jpg");
   backyard = new Board();
   
-  Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
-  ListOfPlant.add(p);
-  GardenZombie g = backyard.makeGardenZombie(0, 8);
-  ListOfZombies.add(g);
+  backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   
-  ConeZombie z = backyard.makeConeZombie(0, 8);
+  backyard.makeGardenZombie(0, 8);
+  
+  backyard.makeConeZombie(0, 8);
 
-  BucketZombie b = backyard.makeBucketZombie(0, 7);
+  backyard.makeBucketZombie(0, 7);
 
   }
 
