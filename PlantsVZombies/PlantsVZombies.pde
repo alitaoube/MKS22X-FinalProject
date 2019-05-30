@@ -65,11 +65,6 @@ void draw(){
   selectPlant();
   placePlant();
   //peasShoot();
-  movePeas();
-  
-  for (int x = 0; x < peas.size(); x++){
-    peas.get(x).hitZombie();
-  }
   
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
@@ -130,6 +125,10 @@ void draw(){
 //  //board();
 //}
 
+  for (int x = 0; x < peas.size(); x++){
+    peas.get(x).update();
+  }
+  
   for (int y = 0; y < ListOfZombies.size(); y++){
     Zombies zombie = ListOfZombies.get(y);
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
