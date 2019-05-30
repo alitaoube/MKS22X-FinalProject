@@ -27,6 +27,8 @@ class ConeZombie extends Zombies{
      ListOfZombies.remove(this);
      thingsToDisplay.remove(this);
      thingsToMove.remove(this);
+     backyard.zombieLanes.get(this.row).remove(this);
+
     }
    }
  
