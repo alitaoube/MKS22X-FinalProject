@@ -45,6 +45,12 @@ void setup(){
   thingsToDisplay.add(g);
   thingsToMove.add(g);
   ListOfZombies.add(g);
+  
+  ConeZombie z = backyard.makeConeZombie(0, 8);
+  thingsToDisplay.add(z);
+  thingsToMove.add(z);
+  ListOfZombies.add(z);
+
 }
 
 void draw(){
@@ -70,7 +76,7 @@ void draw(){
       ListOfPlant.remove(plant);
       thingsToDisplay.remove(plant);
       if (plant instanceof Peashooter){
-        peashooters.remove(plant);
+      peashooters.remove(plant);
       }
     }
   }
@@ -145,7 +151,11 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
+<<<<<<< HEAD
       z.health -= 00;
+=======
+      z.health -= 50;
+>>>>>>> Cones
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
