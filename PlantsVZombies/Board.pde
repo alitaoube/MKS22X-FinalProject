@@ -64,7 +64,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     GardenZombie z = new GardenZombie(r, c);
     zombieLanes.get(r).add(z);
     thingsToDisplay.add(z);
-    listOfZombies.add(z);
+    ListOfZombies.add(z);
     thingsToMove.add(z);
     return z;
   }

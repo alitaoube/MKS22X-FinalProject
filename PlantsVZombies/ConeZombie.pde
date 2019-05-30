@@ -1,8 +1,12 @@
 class ConeZombie extends Zombies{
+  ArrayList<PImage> sprites;
    ConeZombie(int r, int c){
    super(r, c, "images/cone.jpg", "cone", 300, 50);
    modImage(70, 120);
    y -= 20;
+   sprites = new ArrayList<PImage>();
+   sprites.add(loadImage("images/cone.jpg"));
+   sprites.add(loadImage("images/zombie.png"));
    }
    
    void move(){
@@ -16,12 +20,8 @@ class ConeZombie extends Zombies{
    
    void dead(){
     if (health <= 100 && health > 0){
-      //image = loadImage("images/zombie.png");
-      //modImage(70, 120);
-      ListOfZombies.remove(this);
-      thingsToDisplay.remove(this);
-      thingsToMove.remove(this);
-      backyard.makeGardenZombie(this.row, this.col);
+      image = sprites.get(1);
+      modImage(70, 120);
     }
     if (health <= 0){
      ListOfZombies.remove(this);
