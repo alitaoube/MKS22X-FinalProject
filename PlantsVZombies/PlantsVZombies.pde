@@ -66,7 +66,11 @@ void draw(){
   placePlant();
   //peasShoot();
   movePeas();
-  hitZombie();
+  
+  for (int x = 0; x < peas.size(); x++){
+    peas.get(x).hitZombie();
+  }
+  
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   
@@ -143,21 +147,6 @@ void sunflowerMakeSun(){
   for (Sunflower s: sunflowers){
     if (s.makeSun()){
       backyard.makeSun(s.row, s.col);
-    }
-  }
-}
-
-void hitZombie(){
-  for (int idx = 0; idx < peas.size(); idx ++){
-    if (peas.get(idx).touchingZombie()){
-      Zombies z = peas.get(idx).findZombie();
-<<<<<<< HEAD
-      z.health -= 00;
-=======
-      z.health -= 50;
->>>>>>> Cones
-      thingsToDisplay.remove(peas.get(idx));
-      peas.remove(idx);
     }
   }
 }
