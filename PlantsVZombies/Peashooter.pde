@@ -24,6 +24,7 @@ int peaFrame;
       ListOfPlant.remove(this);
       thingsToDisplay.remove(this);
       peashooters.remove(this);
+      backyard.plantLanes.remove(this);
     }
   }
   

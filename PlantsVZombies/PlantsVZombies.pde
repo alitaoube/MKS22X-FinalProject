@@ -68,17 +68,8 @@ void draw(){
   
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
-  
   for (int x = 0; x < ListOfPlant.size(); x++){
    ListOfPlant.get(x).update();
-  }
-  
-   for (int x = 0; x < ListOfZombies.size(); x++){
-    Zombies zomb = ListOfZombies.get(x);
-    if (zomb.health <= 0){
-      ListOfZombies.remove(zomb);
-      thingsToDisplay.remove(zomb);
-    }
   }
   
   for (Displayable thing: thingsToDisplay){
@@ -127,8 +118,11 @@ void draw(){
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
     for (int x = 0; x < ListOfPlant.size(); x++){
      Plant plant = ListOfPlant.get(x);
-     if (plant.row == zombie.row){
+     if (plant.health > 0 && plant.row == zombie.row){
        zombie.update(plant);
+     }
+     else{
+      zombie.move();
      }
     }
   }

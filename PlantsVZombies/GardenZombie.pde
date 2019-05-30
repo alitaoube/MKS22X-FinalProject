@@ -19,17 +19,22 @@ class GardenZombie extends Zombies{
    ListOfZombies.remove(this);
    thingsToDisplay.remove(this);
    thingsToMove.remove(this);
+   backyard.zombieLanes.get(this.row).remove(this);
   }
  }
  
  void update(Plant plant){
   dead();
-  float i = dist(this.x, this.y, plant.x, plant.y);
-  if (i < 60){
-    this.attack(plant);
-  }
-  else{
-    this.move();
+  System.out.println("Plant row: " + plant.row);
+  System.out.println("Zomb row: " + this.row);
+  if (plant.row == this.row){
+    float i = dist(this.x, this.y, plant.x, plant.y);
+    if (i < 60){
+      this.attack(plant);
+    }
+    else{
+      this.move();
+    }
   }
  }
  
