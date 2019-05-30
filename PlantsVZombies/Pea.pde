@@ -37,7 +37,7 @@ class Pea implements Displayable, Moveable{
   void hitZombie(){
     if (this.touchingZombie()){
       Zombies z = this.findZombie();
-      z.health -= 00;
+      z.health -= 20;
       thingsToDisplay.remove(this);
       peas.remove(this);
     }
