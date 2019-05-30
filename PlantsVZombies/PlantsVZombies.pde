@@ -125,7 +125,9 @@ void draw(){
 //>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
     for (int x = 0; x < ListOfPlant.size(); x++){
      Plant plant = ListOfPlant.get(x);
-     zombie.update(plant);
+     if (plant.row == zombie.row){
+       zombie.update(plant);
+     }
     }
   }
   //board();
@@ -143,7 +145,7 @@ void hitZombie(){
   for (int idx = 0; idx < peas.size(); idx ++){
     if (peas.get(idx).touchingZombie()){
       Zombies z = peas.get(idx).findZombie();
-      z.health -= 100;
+      z.health -= 00;
       thingsToDisplay.remove(peas.get(idx));
       peas.remove(idx);
     }
