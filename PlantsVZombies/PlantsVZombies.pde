@@ -40,18 +40,15 @@ void setup(){
   backyard = new Board();
   
   Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
-  thingsToDisplay.add(p);
   ListOfPlant.add(p);
   GardenZombie g = backyard.makeGardenZombie(0, 8);
-  thingsToDisplay.add(g);
-  thingsToMove.add(g);
   ListOfZombies.add(g);
   
   ConeZombie z = backyard.makeConeZombie(0, 8);
-  thingsToDisplay.add(z);
-  thingsToMove.add(z);
-  ListOfZombies.add(z);
-}
+
+  BucketZombie b = backyard.makeBucketZombie(0, 7);
+
+  }
 
 void draw(){
   //PImage board = loadImage("images/board.jpg");

@@ -78,6 +78,15 @@ ArrayList<ArrayList<Plant>> plantLanes;
     return z;
   }
   
+  BucketZombie makeBucketZombie(int r, int c){
+    BucketZombie z = new BucketZombie(r, c);
+    zombieLanes.get(r).add(z);
+    thingsToDisplay.add(z);
+    ListOfZombies.add(z);
+    thingsToMove.add(z);
+    return z;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }
