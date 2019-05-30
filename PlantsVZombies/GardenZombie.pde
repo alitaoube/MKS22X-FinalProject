@@ -11,7 +11,7 @@ class GardenZombie extends Zombies{
  }
  
  void attack(Plant plant){
-   plant.health -= 0;
+   plant.health -= 200;
  }
  
  void dead(){

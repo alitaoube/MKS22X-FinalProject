@@ -19,6 +19,12 @@ int peaFrame;
   
   void update(){
     makePea();
+    
+    if (health <= 0){
+      ListOfPlant.remove(this);
+      thingsToDisplay.remove(this);
+      peashooters.remove(this);
+    }
   }
   
 }

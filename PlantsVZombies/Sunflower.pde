@@ -11,4 +11,7 @@ class Sunflower extends Plant{
     if (genSun < 120) {genSun ++; return false;}
     else {genSun = 0; return true;}
   }
+  
+  void update(){
+  }
 }

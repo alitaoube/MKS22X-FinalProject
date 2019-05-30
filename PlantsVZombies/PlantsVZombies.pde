@@ -38,6 +38,7 @@ void setup(){
   size(1334, 750);
   board = loadImage("images/board.jpg");
   backyard = new Board();
+  
   Peashooter p = backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
   thingsToDisplay.add(p);
   ListOfPlant.add(p);
@@ -50,7 +51,6 @@ void setup(){
   thingsToDisplay.add(z);
   thingsToMove.add(z);
   ListOfZombies.add(z);
-
 }
 
 void draw(){
@@ -70,14 +70,7 @@ void draw(){
   //text(p.image.width + ", 400, 400);
   
   for (int x = 0; x < ListOfPlant.size(); x++){
-    Plant plant = ListOfPlant.get(x);
-    if (plant.health <= 0){
-      ListOfPlant.remove(plant);
-      thingsToDisplay.remove(plant);
-      if (plant instanceof Peashooter){
-      peashooters.remove(plant);
-      }
-    }
+   ListOfPlant.get(x).update();
   }
   
    for (int x = 0; x < ListOfZombies.size(); x++){
@@ -150,17 +143,6 @@ void sunflowerMakeSun(){
   }
 }
 
-void movePeas(){
-  for (Pea p: peas){
-    p.move();
-  }
-}
-
-//void peasShoot(){
-//  for (Peashooter p: peashooters){
-//    p.makePea();
-//  }
-//}
 //10, 10  135, 675
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){

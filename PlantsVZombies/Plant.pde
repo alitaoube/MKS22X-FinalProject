@@ -10,4 +10,5 @@ abstract class Plant extends LivingThing{
    return (this.x == other.x);
  }
  
+ abstract void update();
 }
