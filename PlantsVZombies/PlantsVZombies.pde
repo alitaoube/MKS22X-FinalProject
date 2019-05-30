@@ -62,6 +62,10 @@ void draw(){
   placePlant();
   //peasShoot();
   
+  for (Sunflower s: sunflowers){
+   s.display(); 
+  }
+  
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
   for (int x = 0; x < ListOfPlant.size(); x++){
