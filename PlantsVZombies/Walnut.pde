@@ -17,6 +17,7 @@ class Walnut extends Plant implements Updateable{
  }
  
   boolean isTouching(LivingThing other) {
-    return Math.abs(this.x - other.x) <= 100;
+   return Math.abs(this.x - other.x) <= 110;
   }
+  
 }
