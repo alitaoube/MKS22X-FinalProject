@@ -157,7 +157,9 @@ void gameOver(){
   end.resize(1334, 750);
   thingsToUpdate.clear();
   thingsToDisplay.clear();
+  delay(100);
   background(board);
+  delay(100);
   board = end;
  }
 }
