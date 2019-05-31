@@ -41,7 +41,7 @@ class Pea implements Displayable, Moveable{
       z.health -= 20;
       thingsToDisplay.remove(this);
       peas.remove(this);
-    }
+     }
    }
 
   void update(){
