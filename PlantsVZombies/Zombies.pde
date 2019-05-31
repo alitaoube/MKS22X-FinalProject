@@ -8,7 +8,38 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable{
     speed = spd;
   }
   
-  abstract void move();
-  abstract void attack(Plant plant);
-  abstract void update();
+  void attack(Plant plant){
+   plant.health -= 10; 
+  }
+  
+  void update() {
+    dead();
+    if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
+    else {
+      boolean hasAttacked = false;
+      boolean isTouching = false;
+      for (int idx = backyard.plantLanes.get(this.row).size() - 1; idx >= 0; idx --){
+        Plant maybeAttack = backyard.plantLanes.get(this.row).get(idx);
+        isTouching = this.isTouching(maybeAttack);
+        if (isTouching) {
+          this.attack(maybeAttack);
+          hasAttacked = true;
+        }
+      }
+      if (!hasAttacked) this.move();
+    }
+  }
+  
+  void dead(){
+    if (health <= 0){
+       ListOfZombies.remove(this);
+       thingsToDisplay.remove(this);
+       thingsToMove.remove(this);
+       backyard.zombieLanes.get(this.row).remove(this);
+    }
+ }
+ 
+ void move(){
+  x-=1; 
+ }
 }

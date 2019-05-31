@@ -9,15 +9,6 @@ class ConeZombie extends Zombies{
    sprites.add(loadImage("images/zombie.png"));
    }
    
-   void move(){
-     x-=.5;
-   }
-   
-   
-   void attack(Plant plant){
-     plant.health -= 0;
-   }
-   
    void dead(){
     if (health <= 100 && health > 0){
       image = sprites.get(1);
@@ -30,20 +21,5 @@ class ConeZombie extends Zombies{
      backyard.zombieLanes.get(this.row).remove(this);
 
     }
-   }
- 
-   void update(Plant plant){
-    dead();
-    float i = dist(this.x, this.y, plant.x, plant.y);
-    if (i < 60){
-      this.attack(plant);
-    }
-    else{
-      this.move();
-    }
-   }
-   
-   void update(){
-     move();
    }   
 }
