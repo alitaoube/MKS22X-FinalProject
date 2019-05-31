@@ -1,4 +1,4 @@
-class Pea implements Displayable, Moveable{
+class Pea implements Displayable, Moveable, Updateable{
  //testing branch 
   float x, y;
   int row;

@@ -1,4 +1,4 @@
-class Peashooter extends Plant{
+class Peashooter extends Plant implements Updateable{
 int peaFrame; 
   Peashooter(int r, int c, String type, int price){
     super(r, c, "images/Peashooter.png", type, price);

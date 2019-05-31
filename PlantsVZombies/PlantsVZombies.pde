@@ -12,6 +12,7 @@ ArrayList<Zombies> ListOfZombies;
 ArrayList<Sun> ListOfSun;
 ArrayList<Pea> peas;
 ArrayList<Sunflower> sunflowers;
+ArrayList<Updateable> thingsToUpdate;
 int sun, sunRate;
 int sunFrame;
 Random r;
@@ -27,13 +28,15 @@ void setup(){
   sunRate = 1;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  suns = new ArrayList<Sun>();
-  peashooters = new ArrayList<Peashooter>();
-  peas = new ArrayList<Pea>();
+  thingsToUpdate = new ArrayList<Updateable>();
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
   ListOfSun = new ArrayList<Sun>();
+  suns = new ArrayList<Sun>();
+  peashooters = new ArrayList<Peashooter>();
+  peas = new ArrayList<Pea>();
   sunflowers = new ArrayList<Sunflower>();
+  
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
@@ -55,11 +58,10 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
-  for (int x = 0; x < ListOfPlant.size(); x++) ListOfPlant.get(x).update();
-  for (int idx = 0; idx < ListOfZombies.size(); idx ++) ListOfZombies.get(idx).update();
-  for (Displayable thing: thingsToDisplay) thing.display(); 
-  for (Sun sun: suns) sun.update();
-  for (int x = 0; x < peas.size(); x++) peas.get(x).update();
+  for (Displayable thing: thingsToDisplay) thing.display();   
+  for (int x = 0; x < thingsToUpdate.size(); x++){
+   thingsToUpdate.get(x).update(); 
+  }
   board();
 }
 

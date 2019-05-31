@@ -37,6 +37,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
  void makeSunSunflower(int r, int c){
     Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
     thingsToDisplay.add(s);
+    thingsToUpdate.add(s);
     suns.add(s);
  }
  
@@ -47,6 +48,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     suns.add(s);
     thingsToMove.add(s);
     sunFrame = 0;
+    thingsToUpdate.add(s);
   }
   sunFrame++;
 }
@@ -57,6 +59,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToDisplay.add(p);
     ListOfPlant.add(p);
     plantLanes.get(r).add(p);
+    thingsToUpdate.add(p);
     occupied[r][c] = true;
     sun -= 100;
     return p;
@@ -68,6 +71,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToDisplay.add(s);
     ListOfPlant.add(s);
     plantLanes.get(r).add(s);
+    thingsToUpdate.add(s);
     occupied[r][c] = true;
     sun -= 50;
     return s;
@@ -79,6 +83,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToDisplay.add(z);
     ListOfZombies.add(z);
     thingsToMove.add(z);
+    thingsToUpdate.add(z);
     return z;
   }
   
@@ -88,6 +93,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToDisplay.add(z);
     ListOfZombies.add(z);
     thingsToMove.add(z);
+    thingsToUpdate.add(z);
     return z;
   }
   
@@ -97,6 +103,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToDisplay.add(z);
     ListOfZombies.add(z);
     thingsToMove.add(z);
+    thingsToUpdate.add(z);
     return z;
   }
   

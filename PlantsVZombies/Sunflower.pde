@@ -1,4 +1,4 @@
-class Sunflower extends Plant{
+class Sunflower extends Plant implements Updateable{
   
   int genSun;
   

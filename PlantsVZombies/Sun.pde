@@ -1,4 +1,4 @@
-class Sun implements Displayable, Moveable{
+class Sun implements Displayable, Moveable, Updateable{
  
   float x, y;
   float finalY;
