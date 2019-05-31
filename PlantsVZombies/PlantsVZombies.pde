@@ -57,9 +57,16 @@ void draw(){
   displayPlantsBar();
   displayMouse();
   collectSun();
-  makeSun();
+  backyard.makeSunSky();
   selectPlant();
   placePlant();
+  for (int x = 0; x < ListOfPlant.size(); x++) ListOfPlant.get(x).update();
+  for (Zombies z: ListOfZombies) z.update();
+  for (Displayable thing: thingsToDisplay) thing.display(); 
+  for (Sun sun: suns) sun.update();
+  for (int x = 0; x < peas.size(); x++) peas.get(x).update();
+  board();
+}
   //peasShoot();
   
   //for (Sunflower s: sunflowers){
@@ -69,9 +76,8 @@ void draw(){
 //<<<<<<< HEAD
   //String s = p.image.width + "";
   //text(p.image.width + ", 400, 400);
-  for (int x = 0; x < ListOfPlant.size(); x++){
-   ListOfPlant.get(x).update();
-  }
+
+  
 //=======
    //for (int x = 0; x < ListOfZombies.size(); x++){
    // Zombies zomb = ListOfZombies.get(x);
@@ -81,18 +87,14 @@ void draw(){
    // }
   //}
   
-  for (Zombies z: ListOfZombies) z.update();
+  
   //for (Sunflower s: sunflowers) s.update();
 //>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
-  
-  for (Displayable thing: thingsToDisplay){
-    thing.display(); 
-  }
+
+
   
 //<<<<<<< HEAD
-  for (Sun sun: ListOfSun){
-    sun.move();
-  }
+
   
   //for (int idx = 0; idx < peashooters.size(); idx ++){
   //peashooters.get(idx).update();
@@ -123,9 +125,7 @@ void draw(){
 //}
 
 //<<<<<<< HEAD
-  for (int x = 0; x < peas.size(); x++){
-    peas.get(x).update();
-  }
+
   
 //  for (int y = 0; y < ListOfZombies.size(); y++){
 //    Zombies zombie = ListOfZombies.get(y);
@@ -151,17 +151,16 @@ void draw(){
   //  }
   //  //zombie.update();
   //}
-  board();
 //>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
-}
+//}
 
-void sunflowerMakeSun(){
-  for (Sunflower s: sunflowers){
-    if (s.makeSun()){
-      backyard.makeSun(s.row, s.col);
-    }
-  }
-}
+//void sunflowerMakeSun(){
+//  for (Sunflower s: sunflowers){
+//    if (s.makeSun()){
+//      backyard.makeSun(s.row, s.col);
+//    }
+//  }
+//}
 
 //<<<<<<< HEAD
 //=======
@@ -263,17 +262,17 @@ void displayMouse(){
   }
 }
 
-void makeSun(){
-  if (sunFrame > 60 && ListOfSun.size() < 10){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
-    thingsToDisplay.add(s);
-    suns.add(s);
-    thingsToMove.add(s);
-    sunFrame = 0;
-    ListOfSun.add(s);
-  }
-  sunFrame++;
-}
+//void makeSun(){
+//  if (sunFrame > 60 && ListOfSun.size() < 10){
+//    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
+//    thingsToDisplay.add(s);
+//    suns.add(s);
+//    thingsToMove.add(s);
+//    sunFrame = 0;
+//    ListOfSun.add(s);
+//  }
+//  sunFrame++;
+//}
 
 void collectSun(){
   for (int idx = 0; idx < suns.size(); idx ++){
@@ -281,7 +280,7 @@ void collectSun(){
       thingsToDisplay.remove(suns.get(idx));
       suns.remove(idx);
       sun += 25;
-      ListOfSun.remove(idx);
+      //ListOfSun.remove(idx);
     }
   }
 }

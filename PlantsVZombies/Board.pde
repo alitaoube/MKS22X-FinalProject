@@ -34,11 +34,22 @@ ArrayList<ArrayList<Plant>> plantLanes;
     }
   }
   
-  void makeSun(int r, int c){
+ void makeSunSunflower(int r, int c){
     Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
     thingsToDisplay.add(s);
     suns.add(s);
  }
+ 
+ void makeSunSky(){
+  if (sunFrame > 60 && suns.size() < 10){
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
+    thingsToDisplay.add(s);
+    suns.add(s);
+    thingsToMove.add(s);
+    sunFrame = 0;
+  }
+  sunFrame++;
+}
   
   Peashooter makePea(int r, int c){
     Peashooter p = new Peashooter(r, c, "normal", 100);

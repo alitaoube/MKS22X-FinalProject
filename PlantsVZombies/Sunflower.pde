@@ -15,7 +15,7 @@ class Sunflower extends Plant{
   
   void update(){
     display();
-    makeSun();
+    if (makeSun()) backyard.makeSunSunflower(row, col);
     if (health <= 0){
       backyard.occupied[this.row][this.col] = false;
       ListOfPlant.remove(this);

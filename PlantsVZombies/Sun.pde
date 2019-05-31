@@ -7,13 +7,14 @@ class Sun implements Displayable, Moveable{
     x = xcor;
     finalY = ycor;
     Random r = new Random();
-    y = 0;}
-  
-  void display(){
-       fill(255, 255, 50);
-    ellipse(x, y, 30, 30);
+    y = 0;
   }
   
-  void move(){if (y < finalY) y += 2;}
+  void display(){
+    fill(255, 255, 50);
+    ellipse(x, y, 30, 30);
+  }
+  void update(){if (y < finalY) move();}
+  void move(){y += 2;}
   
 }
