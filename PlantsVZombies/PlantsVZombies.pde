@@ -155,6 +155,8 @@ void gameOver(){
  if (gameOver == true){
   PImage end = loadImage("images/gameover.jpg");
   end.resize(1334, 750);
+  thingsToUpdate.clear();
+  thingsToDisplay.clear();
   board = end;
  }
 }
