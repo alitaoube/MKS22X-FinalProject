@@ -14,6 +14,9 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
   
   void update() {
     dead();
+    
+    if (x <= 370) gameOver = true;
+    
     if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
     else {
       boolean hasAttacked = false;

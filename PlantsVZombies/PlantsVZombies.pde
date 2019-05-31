@@ -19,6 +19,7 @@ Random r;
 PImage board;
 boolean selected;
 String selectedPlant;
+boolean gameOver;
 Board backyard;
 
 void setup(){
@@ -58,9 +59,13 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
+  gameOver();
   for (Displayable thing: thingsToDisplay) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
    thingsToUpdate.get(x).update(); 
+  }
+  for (int x = 0; x < peas.size(); x++){
+   peas.get(x).update(); 
   }
   board();
 }
@@ -144,6 +149,14 @@ void collectSun(){
       //ListOfSun.remove(idx);
     }
   }
+}
+
+void gameOver(){
+ if (gameOver == true){
+  PImage end = loadImage("images/gameover.jpg");
+  end.resize(1334, 750);
+  board = end;
+ }
 }
 
 Coordinate[][] board(){
