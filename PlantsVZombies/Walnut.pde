@@ -1,4 +1,4 @@
-class Walnut extends Plant{
+class Walnut extends Plant implements Updateable{
  Walnut(int r,int c, String type, int price){
    super(r, c, "images/walnut.png", type, price);
    health = 1000;

@@ -34,6 +34,17 @@ ArrayList<ArrayList<Plant>> plantLanes;
     }
   }
   
+  Walnut makeWalnut(int r, int c){
+    Walnut w = new Walnut(r, c, "walnut", 50);
+    ListOfPlant.add(w);
+    plantLanes.get(r).add(w);
+    thingsToUpdate.add(w);
+    occupied[r][c] = true;
+    sun -= 50;
+    
+    return w;
+  }
+  
  void makeSunSunflower(int r, int c){
     Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
     thingsToDisplay.add(s);
