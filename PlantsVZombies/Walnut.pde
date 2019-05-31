@@ -4,7 +4,7 @@ class Walnut extends Plant implements Updateable{
    health = 1000;
    modImage(200, 150);
    x-=50;
-   y-=25;
+   y-=32;
  }
  
  void update(){
@@ -15,4 +15,8 @@ class Walnut extends Plant implements Updateable{
     backyard.plantLanes.get(this.row).remove(this);
   }
  }
+ 
+  boolean isTouching(LivingThing other) {
+    return Math.abs(this.x - other.x) <= 100;
+  }
 }
