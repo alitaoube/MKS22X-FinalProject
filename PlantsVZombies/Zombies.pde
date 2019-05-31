@@ -9,7 +9,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable{
   }
   
   void attack(Plant plant){
-   plant.health -= 10; 
+   plant.health -= 5; 
   }
   
   void update() {
