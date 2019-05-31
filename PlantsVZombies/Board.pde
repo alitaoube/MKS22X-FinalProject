@@ -56,6 +56,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     sunflowers.add(s);
     thingsToDisplay.add(s);
     ListOfPlant.add(s);
+    plantLanes.get(r).add(s);
     occupied[r][c] = true;
     sun -= 50;
     return s;
