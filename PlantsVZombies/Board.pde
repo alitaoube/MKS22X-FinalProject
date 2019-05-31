@@ -35,15 +35,16 @@ ArrayList<ArrayList<Plant>> plantLanes;
   }
   
  void makeSunSunflower(int r, int c){
-    Sun s = new Sun(board[r][c].x + 10, board[r][c].y - 10);
+    Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55);
     thingsToDisplay.add(s);
-    thingsToUpdate.add(s);
+    //thingsToUpdate.add(s);
     suns.add(s);
+    //print("made");
  }
  
  void makeSunSky(){
   if (sunFrame > 60 && suns.size() < 10){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
     thingsToMove.add(s);

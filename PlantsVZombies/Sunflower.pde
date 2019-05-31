@@ -21,6 +21,7 @@ class Sunflower extends Plant implements Updateable{
       ListOfPlant.remove(this);
       thingsToDisplay.remove(this);
       sunflowers.remove(this);
+      thingsToUpdate.remove(this);
       backyard.plantLanes.get(this.row).remove(this);
     }
   }
