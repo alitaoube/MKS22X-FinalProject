@@ -6,9 +6,5 @@ abstract class Plant extends LivingThing{
     cost = price;
   }
   
-  boolean isTouching(LivingThing other){
-   return (this.x == other.x);
- }
- 
  abstract void update();
 }

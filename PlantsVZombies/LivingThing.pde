@@ -34,4 +34,8 @@ abstract class LivingThing implements Displayable, Collideable{
   String toString(){
     return name;
   }
+  
+  boolean isTouching(LivingThing other) {
+    return Math.abs(this.x - other.x) <= 60;
+  }
 }
