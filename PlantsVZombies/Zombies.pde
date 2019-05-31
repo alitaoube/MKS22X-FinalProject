@@ -43,6 +43,6 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
  }
  
  void move(){
-  x-=2; 
+  x-=1; 
  }
 }

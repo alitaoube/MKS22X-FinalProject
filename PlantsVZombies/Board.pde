@@ -39,6 +39,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     ListOfPlant.add(w);
     plantLanes.get(r).add(w);
     thingsToUpdate.add(w);
+    thingsToDisplay.add(w);
     occupied[r][c] = true;
     sun -= 50;
     

@@ -76,7 +76,7 @@ void selectPlant(){
     if (mouseY > 610 && mouseY < 680) {selectedPlant = "flytrap"; return;}
     if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
     if (mouseY > 410 && mouseY < 480) {selectedPlant = "cherry"; return;}
-    if (mouseY > 310 && mouseY < 380) {selectedPlant = "walnut"; return;}
+    if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
     if (mouseY > 210 && mouseY < 280) {selectedPlant = "snowpea"; return;}
     if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
     if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
@@ -103,6 +103,10 @@ void placePlant(){
   }
   else if (selectedPlant.equals("sunflower") && !backyard.occupied(r, c)){
     backyard.makeSunflower(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
+    backyard.makeWalnut(r, c);
     selected = false;
   }
 }

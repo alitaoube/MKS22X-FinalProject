@@ -4,7 +4,6 @@ int peaFrame;
     super(r, c, "images/Peashooter.png", type, price);
     peaFrame = 0;
     health = 100;
-    //modImage(75, 75);
   }
 
   void makePea(){
