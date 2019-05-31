@@ -39,19 +39,14 @@ void setup(){
   board = loadImage("images/board.jpg");
   backyard = new Board();
   
-  backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100);
-  
+  backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   backyard.makeGardenZombie(0, 8);
-  
   backyard.makeConeZombie(0, 8);
-
   backyard.makeBucketZombie(0, 7);
 
   }
 
 void draw(){
-  //PImage board = loadImage("images/board.jpg");
-  //board.resize(1334, 750);
   background(board);
   displaySun();
   displayPlantsBar();
@@ -67,127 +62,7 @@ void draw(){
   for (int x = 0; x < peas.size(); x++) peas.get(x).update();
   board();
 }
-  //peasShoot();
-  
-  //for (Sunflower s: sunflowers){
-  // s.display(); 
-  //}
-  
-//<<<<<<< HEAD
-  //String s = p.image.width + "";
-  //text(p.image.width + ", 400, 400);
 
-  
-//=======
-   //for (int x = 0; x < ListOfZombies.size(); x++){
-   // Zombies zomb = ListOfZombies.get(x);
-   // if (zomb.health <= 0){
-   //   ListOfZombies.remove(zomb);
-   //   thingsToDisplay.remove(zomb);
-   // }
-  //}
-  
-  
-  //for (Sunflower s: sunflowers) s.update();
-//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
-
-
-  
-//<<<<<<< HEAD
-
-  
-  //for (int idx = 0; idx < peashooters.size(); idx ++){
-  //peashooters.get(idx).update();
-  //}
-//<<<<<<< HEAD
-//=======
-  
- 
-//>>>>>>> plant2
-  //for (Zombies zombie: ListOfZombies){
-//=======
-//  for (int y = 0; y < ListOfZombies.size(); y++){
-//    Zombies zombie = ListOfZombies.get(y);
-////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-//    for (int x = 0; x < ListOfPlant.size(); x++){
-//     Plant plant = ListOfPlant.get(x);
-//     float i = dist(zombie.x, zombie.y, plant.x, plant.y);
-      
-//      if (i > 60){
-//        zombie.move();
-//      }
-//      else{
-//        zombie.attack(plant);
-//      }
-//    }
-//  }
-//  //board();
-//}
-
-//<<<<<<< HEAD
-
-  
-//  for (int y = 0; y < ListOfZombies.size(); y++){
-//    Zombies zombie = ListOfZombies.get(y);
-////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-//    for (int x = 0; x < ListOfPlant.size(); x++){
-//     Plant plant = ListOfPlant.get(x);
-//     if (plant.health > 0 && plant.row == zombie.row){
-//       zombie.update(plant);
-//     }
-//     else{
-//      zombie.move();
-//     }
-//    }
-//  }
-  //board();
-//=======
-  //for (int y = 0; y < ListOfZombies.size(); y++){
-  //  Zombies zombie = ListOfZombies.get(y);
-////>>>>>>> ca5571b0635bf332d7ba1485e6dbe4617bbb8023
-  //  for (int x = 0; x < ListOfPlant.size(); x++){
-  //   Plant plant = ListOfPlant.get(x);
-  //   zombie.update(plant);
-  //  }
-  //  //zombie.update();
-  //}
-//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
-//}
-
-//void sunflowerMakeSun(){
-//  for (Sunflower s: sunflowers){
-//    if (s.makeSun()){
-//      backyard.makeSun(s.row, s.col);
-//    }
-//  }
-//}
-
-//<<<<<<< HEAD
-//=======
-void hitZombie(){
-  for (int idx = 0; idx < peas.size(); idx ++){
-    if (peas.get(idx).touchingZombie()){
-      Zombies z = peas.get(idx).findZombie();
-      z.health -= 0;
-      thingsToDisplay.remove(peas.get(idx));
-      peas.remove(idx);
-    }
-  }
-}
-
-void movePeas(){
-  for (Pea p: peas){
-    p.move();
-  }
-}
-
-//void peasShoot(){
-//  for (Peashooter p: peashooters){
-//    p.makePea();
-//  }
-//}
-//>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
-//10, 10  135, 675
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
@@ -199,10 +74,6 @@ void selectPlant(){
     if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
     if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
     else selected = false;
-    //if (mouseY > 110 && mouseY < 185 && sun >= 100){
-    //  selected = true;
-    //  selectedPlant = "Peashooter";
-    //}
   }
 }
 
@@ -261,18 +132,6 @@ void displayMouse(){
     text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 30);
   }
 }
-
-//void makeSun(){
-//  if (sunFrame > 60 && ListOfSun.size() < 10){
-//    Sun s = new Sun(r.nextInt(1300-380-30) + 410, r.nextInt(720-130) + 130);//r.nextInt(720-130) + 130);
-//    thingsToDisplay.add(s);
-//    suns.add(s);
-//    thingsToMove.add(s);
-//    sunFrame = 0;
-//    ListOfSun.add(s);
-//  }
-//  sunFrame++;
-//}
 
 void collectSun(){
   for (int idx = 0; idx < suns.size(); idx ++){
