@@ -14,7 +14,7 @@ class Sunflower extends Plant implements Updateable{
   }
   
   void update(){
-    display();
+    //display();
     if (makeSun()) backyard.makeSunSunflower(row, col);
     if (health <= 0){
       backyard.occupied[this.row][this.col] = false;
