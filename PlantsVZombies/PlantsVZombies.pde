@@ -62,9 +62,9 @@ void draw(){
   placePlant();
   //peasShoot();
   
-  for (Sunflower s: sunflowers){
-   s.display(); 
-  }
+  //for (Sunflower s: sunflowers){
+  // s.display(); 
+  //}
   
 //<<<<<<< HEAD
   //String s = p.image.width + "";
@@ -82,6 +82,7 @@ void draw(){
   //}
   
   for (Zombies z: ListOfZombies) z.update();
+  //for (Sunflower s: sunflowers) s.update();
 //>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814
   
   for (Displayable thing: thingsToDisplay){
