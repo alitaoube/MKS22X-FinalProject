@@ -135,9 +135,5 @@ void dead(){
   //  }
     //if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
  // }
-
-  boolean isTouching(LivingThing other) {
-    return Math.abs(this.x - other.x) <= 60;
-  }
 }
 //>>>>>>> 9bc860c4237a56faad72951bcbb783f4c226e814

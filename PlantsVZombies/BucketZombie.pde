@@ -45,11 +45,5 @@ class BucketZombie extends Zombies{
    
    void attack(Plant plant){
      plant.health -= 0;
-   }
-   
-   
-  boolean isTouching(LivingThing other){
-   return ((Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2))) <= 50);
-  }
-   
+   } 
 }
