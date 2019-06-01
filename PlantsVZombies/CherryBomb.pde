@@ -7,5 +7,7 @@ class CherryBomb extends Plant implements Updateable{
     super(r, c, "cherrybomb.jpg", "CherryBomb", 150);
   }
   
-  void update(){}
+  void update(){
+    display();
+  }
 }
