@@ -8,7 +8,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
     super(r,  c, picture, type);
     health = hp;
     speed = spd;
-    cherryFrame = 0;
+    cherryFrame = frameCount;
     cherried = false;
   }
   
