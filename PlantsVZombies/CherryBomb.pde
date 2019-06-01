@@ -40,7 +40,7 @@ class CherryBomb extends Plant implements Updateable{
       Zombies z = ListOfZombies.get(idx);
       float myX = backyard.board[this.row][this.col].getX();
       float myY = backyard.board[this.row][this.col].getY();
-      if (abs(dist(this.x, this.y, z.x, z.y)) < 200) z.health = 0;
+      if (abs(dist(this.x, this.y, z.x, z.y)) < 200) z.health = 0; z.cherried = true;
     }
   }
   
