@@ -105,6 +105,10 @@ void placePlant(){
     backyard.makeSunflower(r, c);
     selected = false;
   }
+    else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
+    backyard.makeCherryBomb(r, c);
+    selected = false;
+  }
 }
 
 void displaySun(){
