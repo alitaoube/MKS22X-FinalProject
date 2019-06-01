@@ -51,6 +51,7 @@ void setup(){
   }
 
 void draw(){
+  noTint();
   background(board);
   displaySun();
   displayPlantsBar();
