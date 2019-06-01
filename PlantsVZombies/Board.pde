@@ -68,13 +68,13 @@ ArrayList<ArrayList<Plant>> plantLanes;
   
   CherryBomb makeCherryBomb(int r, int c){
     CherryBomb cb = new CherryBomb(r, c);
-    thingsToDisplay.add(cb);
+    //thingsToDisplay.add(cb);
     ListOfPlant.add(cb);
     //plantLanes.get(r).add(c);
     thingsToUpdate.add(cb);
     occupied[r][c] = true;
     sun -= 150;
-    return s;  
+    return cb;  
   }
   
   Sunflower makeSunflower(int r, int c){
