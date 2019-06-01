@@ -13,17 +13,16 @@ class CherryBomb extends Plant implements Updateable{
     if (!explode) super.display();
     else{
       tint(0);
-      image(image, this.x, this.y);
+ image(image, this.x, this.y); noTint();
     }
   }
     
   
   void update(){
     display();
-    getBig();
+    if (!explode) getBig();
+    else exploding();
     if (image.width > 150 && image.height > 150) explode = true;
-    //if (!explode) display();
-    //else {tint(255); display(); exploding();}
   }
   
   //void getBig(){modImage((int)(1.2*image.width), (int)(1.01*image.height));}
