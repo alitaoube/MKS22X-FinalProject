@@ -13,9 +13,4 @@ class Walnut extends Plant implements Updateable{
     backyard.plantLanes.get(this.row).remove(this);
   }
  }
- 
-  boolean isTouching(LivingThing other) {
-   return Math.abs(this.x - other.x) <= 110;
-  }
-  
 }
