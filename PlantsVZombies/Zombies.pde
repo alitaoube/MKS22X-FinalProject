@@ -13,10 +13,11 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
   }
   
   void attack(Plant plant){
-   plant.health -= 5; 
+   plant.health -= 1; 
   }
   
 void update(){
+  if (x < 320) gameOver = true;
   if (cherried){
     dead();
     if (cherryFrame + 90 > frameCount){
@@ -56,6 +57,6 @@ void dead(){
 }
  
  void move(){
-  x-=0; 
+  x-= .35; 
  }
 }
