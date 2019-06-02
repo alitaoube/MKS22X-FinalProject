@@ -12,7 +12,6 @@ class BucketZombie extends Zombies{
   
   void dead(){
     if (health <= 100 && health > 0){
-      image = sprites.get(1);
       modImage(70, 120);
     }
     if (health <= 0){
