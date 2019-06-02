@@ -26,10 +26,10 @@ abstract class LivingThing implements Displayable, Collideable{
     if (localSprites.size() > 0) image = localSprites.get(0);
     else image = loadImage(picture);
     
-    x = backyard[r][c].getX() - (image.width)/2;
+    x = backyard[r][c].getX() - (image.width)/2 + 80;
     textSize(100);
     //text(image.width + "", 500, 500);
-    y = backyard[r][c].getY() - image.height/2;
+    y = backyard[r][c].getY() - image.height/2 + 60;
 
   }
   
@@ -38,8 +38,8 @@ abstract class LivingThing implements Displayable, Collideable{
     if (frameCount + 1 == sprites.size()) frameCount = 0;
     else frameCount++;
     image = sprites.get(frameCount);
-    image(image, x, y);
     modImage(75, 75);
+    image(image, x, y);
   }
   
   void modImage(int w, int h){
