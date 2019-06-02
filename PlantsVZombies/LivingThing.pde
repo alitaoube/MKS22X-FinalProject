@@ -23,6 +23,7 @@ abstract class LivingThing implements Displayable, Collideable{
       System.out.println(type);
       if (spriteNames[x].contains(type))
       {localSprites.add(sprites.get(x));
+       if (type == "peashooter") localSprites.get(x).resize(75, 75);
       }
       if (localSprites.size() > 0){
        image = localSprites.get(0);
@@ -31,10 +32,10 @@ abstract class LivingThing implements Displayable, Collideable{
         image = loadImage(picture);
       }
     }    
-    x = backyard[r][c].getX() - (image.width)/2;
+    x = backyard[r][c].getX();
     textSize(100);
     //text(image.width + "", 500, 500);
-    y = backyard[r][c].getY() - image.height/2;
+    y = backyard[r][c].getY();
 
   }
   
@@ -47,7 +48,7 @@ abstract class LivingThing implements Displayable, Collideable{
       delay(15);
 
     }
-    if (type == "peashooter") modImage(75, 75);
+    imageMode(CENTER);
     image(image, x, y);
   }
   
