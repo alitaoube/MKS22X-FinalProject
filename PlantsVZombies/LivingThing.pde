@@ -35,7 +35,12 @@ abstract class LivingThing implements Displayable, Collideable{
     return name;
   }
   
+  boolean inFront(LivingThing other){
+    System.out.println(other.x > this.x);
+   return (other.x > this.x);
+  }  
+  
   boolean isTouching(LivingThing other) {
-    return Math.abs(this.x - other.x) <= 60;
+    return inFront(other) && Math.abs(this.x - other.x) <= 60;
   }
 }

@@ -21,7 +21,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
     else {
       boolean hasAttacked = false;
       boolean isTouching = false;
-      for (int idx = backyard.plantLanes.get(this.row).size() - 1; idx >= 0; idx --){
+      for (int idx = backyard.plantLanes.get(this.row).size() - 1 - this.row; idx >= 0; idx --){
         Plant maybeAttack = backyard.plantLanes.get(this.row).get(idx);
         isTouching = maybeAttack.isTouching(this);
         if (isTouching) {
