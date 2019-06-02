@@ -126,8 +126,9 @@ void placePlant(){
 
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);
-  PImage Sun = loadImage("images/sun.jpg");    
-  image(Sun, 150, 7);
+  PImage Sun = loadImage("images/sun.jpg");  
+  imageMode(CENTER);
+  image(Sun, Sun.width /2 + 138 + 11, Sun.height / 2 + 7);
   fill(252, 237, 178);
   rect(210, 11, 130, 50);
   //textFont(font);
