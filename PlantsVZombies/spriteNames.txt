@@ -33,8 +33,3 @@ garden19
 garden20
 garden21
 garden22
-garden23
-garden24
-garden25
-garden26
-garden27

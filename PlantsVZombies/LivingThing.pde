@@ -11,7 +11,7 @@ abstract class LivingThing implements Displayable, Collideable{
   //abstract void attack();
   //abstract void changeDisplay();
   
-  void   die(){
+  void die(){
     alive = false;
   }
   
@@ -44,10 +44,10 @@ abstract class LivingThing implements Displayable, Collideable{
     else frameCount++;
     if (localSprites.size() > 0){
       image = localSprites.get(frameCount);
-      modImage(75, 75);
       delay(15);
 
     }
+    if (type == "peashooter") modImage(75, 75);
     image(image, x, y);
   }
   
