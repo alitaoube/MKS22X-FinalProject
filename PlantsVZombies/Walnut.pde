@@ -3,8 +3,6 @@ class Walnut extends Plant implements Updateable{
    super(r, c, "images/walnut.png", type, price);
    health = 1000;
    modImage(200, 150);
-   x-=50;
-   y-=32;
  }
  
  void update(){
