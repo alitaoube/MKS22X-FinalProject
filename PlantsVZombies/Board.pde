@@ -67,7 +67,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
 }
   
   Peashooter makePea(int r, int c){
-    Peashooter p = new Peashooter(r, c, "normal", 100);
+    Peashooter p = new Peashooter(r, c, "peashooter", 100);
     peashooters.add(p);
     thingsToDisplay.add(p);
     ListOfPlant.add(p);
