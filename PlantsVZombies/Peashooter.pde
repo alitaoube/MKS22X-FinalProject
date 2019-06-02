@@ -2,7 +2,7 @@ class Peashooter extends Plant implements Updateable{
 int peaFrame;
 
   Peashooter(int r, int c, String type, int price){
-    super(r, c, "images/Peashooter.png", type, price);
+    super(r, c, "images/Peashooter1.png", type, price);
     peaFrame = 0;
     health = 100;
   }

@@ -21,8 +21,8 @@ boolean selected;
 String selectedPlant;
 boolean gameOver;
 Board backyard;
-String[] spriteNames = loadStrings("spriteNames.txt");
-ArrayList<PImage> sprites = new ArrayList<PImage>();
+String[] spriteNames;
+ArrayList<PImage> sprites;
 
 void setup(){
   frameRate(60);
@@ -39,9 +39,13 @@ void setup(){
   peashooters = new ArrayList<Peashooter>();
   peas = new ArrayList<Pea>();
   sunflowers = new ArrayList<Sunflower>();
+  spriteNames = loadStrings("spriteNames.txt");
+  sprites = new ArrayList<PImage>();
+  
   
   for (int x = 0; x < spriteNames.length; x++){
-    sprites.add(loadImage(spriteNames[x]));
+    sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
+    
   }
   
   r = new Random();
