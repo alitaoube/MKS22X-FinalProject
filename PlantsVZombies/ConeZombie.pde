@@ -1,7 +1,7 @@
 class ConeZombie extends Zombies{
   ArrayList<PImage> sprites;
    ConeZombie(int r, int c){
-   super(r, c, "images/cone.png", "cone", 300, 50);
+   super(r, c, "images/cone.png", "cone", 200, 50);
    modImage(70, 120);
    y -= 20;
    sprites = new ArrayList<PImage>();
