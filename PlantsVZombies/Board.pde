@@ -4,13 +4,28 @@ Coordinate[][] board;
 boolean[][] occupied;
 ArrayList<ArrayList<Zombies>> zombieLanes;
 ArrayList<ArrayList<Plant>> plantLanes;
+int[][] allZombies;
 
   
   Board(){
+    initializeZombies();
     initializeBoard();
     occupied = new boolean[5][9];
   }
   
+  void initializeZombies(){
+    allZombies = new int[25][3];
+    Random r = new Random();
+    for (int idx = 0; idx < allZombies.length; idx ++){
+      int entryTime = r.nextInt(195) + 15;
+      int type;
+      if (entryTime <= 60) type = 0;
+      else type = r.nextInt(3);
+      int col = r.nextInt(5);
+      allZombies[idx] = new int[] {entryTime, type, col};
+    }
+  }
+      
   void initializeBoard(){
     board = new Coordinate[5][9];
     zombieLanes = new ArrayList<ArrayList<Zombies>>();
@@ -34,6 +49,16 @@ ArrayList<ArrayList<Plant>> plantLanes;
     }
   }
   
+  void enterZombies(){
+    for (int idx = 0; idx < allZombies.length; idx ++){
+      if (allZombies[idx][0]*60 == frameCount){
+        if (allZombies[idx][1] == 0) makeGardenZombie(allZombies[idx][2], 8);
+        if (allZombies[idx][1] == 1) makeConeZombie(allZombies[idx][2], 8);
+        if (allZombies[idx][1] == 2) makeBucketZombie(allZombies[idx][2], 8);
+      }
+    }
+  }
+  
  void makeSunSunflower(int r, int c){
     Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55);
     thingsToDisplay.add(s);
@@ -43,7 +68,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
  }
  
  void makeSunSky(){
-  if (sunFrame > 60 && suns.size() < 10){
+  if (sunFrame > 500 && suns.size() < 10){
     Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
