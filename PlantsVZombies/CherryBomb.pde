@@ -7,7 +7,7 @@ class CherryBomb extends Plant implements Updateable{
   int explosionFrame;
   
   CherryBomb(int r, int c){
-    super(r, c, "images/cherrybomb.jpg", "CherryBomb", 150);
+    super(r, c, "images/cherrybomb.png", "CherryBomb", 150);
     explode = false;
     hasExploded = false;
     explosionFrame = frameCount;
