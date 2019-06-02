@@ -17,6 +17,7 @@ int sun, sunRate;
 int sunFrame;
 Random r;
 PImage board;
+PImage end;
 boolean selected;
 String selectedPlant;
 boolean gameOver;
@@ -25,7 +26,7 @@ Board backyard;
 void setup(){
   frameRate(60);
   sunFrame = 0;
-  sun = 100;
+  sun = 50;
   sunRate = 1;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -37,16 +38,17 @@ void setup(){
   peashooters = new ArrayList<Peashooter>();
   peas = new ArrayList<Pea>();
   sunflowers = new ArrayList<Sunflower>();
-  
+  gameOver = false;
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
+  end = loadImage("images/gameover.jpg");
   backyard = new Board();
   
-  backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
-  backyard.makeGardenZombie(0, 8);
-  backyard.makeConeZombie(0, 8);
-  backyard.makeBucketZombie(0, 7);
+  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
+  //backyard.makeGardenZombie(0, 8);
+  //backyard.makeConeZombie(0, 8);
+  //backyard.makeBucketZombie(0, 7);
 
   }
 
@@ -59,15 +61,17 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
-  gameOver();
+  backyard.enterZombies();
   for (Displayable thing: thingsToDisplay) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
    thingsToUpdate.get(x).update(); 
   }
-  for (int x = 0; x < peas.size(); x++){
-   peas.get(x).update(); 
-  }
-  board();
+  //for (int x = 0; x < peas.size(); x++){
+  // peas.get(x).update(); 
+  //}
+  gameOver();
+  //board();
+  System.out.println(ListOfPlant.size());
 }
 
 void selectPlant(){
@@ -75,7 +79,7 @@ void selectPlant(){
     selected = true;
     if (mouseY > 610 && mouseY < 680) {selectedPlant = "flytrap"; return;}
     if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
-    if (mouseY > 410 && mouseY < 480) {selectedPlant = "cherry"; return;}
+    if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
     if (mouseY > 310 && mouseY < 380) {selectedPlant = "walnut"; return;}
     if (mouseY > 210 && mouseY < 280) {selectedPlant = "snowpea"; return;}
     if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
@@ -119,6 +123,7 @@ void displaySun(){
   rect(210, 11, 130, 50);
   //textFont(font);
   fill(0, 0, 0);
+  textSize(40);
   text(sun + "", 240, 48);
 }
 
@@ -157,7 +162,7 @@ void collectSun(){
 
 void gameOver(){
  if (gameOver == true){
-  PImage end = loadImage("images/gameover.jpg");
+  //PImage end = loadImage("images/gameover.jpg");
   end.resize(1334, 750);
   thingsToUpdate.clear();
   thingsToDisplay.clear();

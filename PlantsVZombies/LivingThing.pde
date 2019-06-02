@@ -14,13 +14,11 @@ abstract class LivingThing implements Displayable, Collideable{
   }
   
   LivingThing(int r, int c, String picture, String Type){
-    Coordinate[][] backyard = board();
+    //Coordinate[][] backyard = board();
     row = r; col = c; image = loadImage(picture); alive = true; type = Type; 
     modImage(75, 75);
-    x = backyard[r][c].getX() - (image.width)/2;
-    textSize(100);
-    //text(image.width + "", 500, 500);
-    y = backyard[r][c].getY() - image.height/2;
+    x = backyard.board[r][c].getX() - (image.width)/2;
+    y = backyard.board[r][c].getY() - image.height/2;
   }
   
   void display(){
