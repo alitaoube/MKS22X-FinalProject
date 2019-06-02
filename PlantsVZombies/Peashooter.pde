@@ -3,7 +3,7 @@ int peaFrame;
   Peashooter(int r, int c, String type, int price){
     super(r, c, "images/Peashooter.png", type, price);
     peaFrame = 0;
-    health = 100;
+    health = 480;
     //modImage(75, 75);
   }
 
