@@ -20,25 +20,34 @@ abstract class LivingThing implements Displayable, Collideable{
     row = r; col = c; alive = true; type = Type; 
     
     for (int x = 0; x < spriteNames.length; x++){
-      System.out.println("images/" + spriteNames[x] + ".png");
-     if (spriteNames[x].contains(type)) localSprites.add(sprites.get(x));
-    }
-    if (localSprites.size() > 0) image = localSprites.get(0);
-    else image = loadImage(picture);
-    
-    x = backyard[r][c].getX() - (image.width)/2 + 80;
+      System.out.println(type);
+      if (spriteNames[x].contains(type))
+      {localSprites.add(sprites.get(x));
+      }
+      if (localSprites.size() > 0){
+       image = localSprites.get(0);
+      }
+      else{
+        image = loadImage(picture);
+      }
+    }    
+    x = backyard[r][c].getX() - (image.width)/2;
     textSize(100);
     //text(image.width + "", 500, 500);
-    y = backyard[r][c].getY() - image.height/2 + 60;
+    y = backyard[r][c].getY() - image.height/2;
 
   }
   
   void display(){
     //image
-    if (frameCount + 1 == sprites.size()) frameCount = 0;
+    if (frameCount + 1 == localSprites.size()) frameCount = 0;
     else frameCount++;
-    image = sprites.get(frameCount);
-    modImage(75, 75);
+    if (localSprites.size() > 0){
+      image = localSprites.get(frameCount);
+      modImage(75, 75);
+      delay(15);
+
+    }
     image(image, x, y);
   }
   
