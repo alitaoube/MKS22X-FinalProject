@@ -14,13 +14,14 @@ class Sunflower extends Plant implements Updateable{
   }
   
   void update(){
-    display();
+    //display();
     if (makeSun()) backyard.makeSunSunflower(row, col);
     if (health <= 0){
       backyard.occupied[this.row][this.col] = false;
       ListOfPlant.remove(this);
       thingsToDisplay.remove(this);
       sunflowers.remove(this);
+      thingsToUpdate.remove(this);
       backyard.plantLanes.get(this.row).remove(this);
     }
   }

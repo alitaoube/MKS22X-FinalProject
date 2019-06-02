@@ -1,46 +1,59 @@
 abstract class Zombies extends LivingThing implements Moveable, Collideable, Updateable{
   int health;
   int speed;
+  int cherryFrame;
+  boolean cherried;
 
   Zombies(int r, int c, String picture, String type, int hp, int spd){
     super(r,  c, picture, type);
     health = hp;
     speed = spd;
+    cherryFrame = frameCount;
+    cherried = false;
   }
   
   void attack(Plant plant){
    plant.health -= 5; 
   }
   
-  void update() {
+void update(){
+  if (cherried){
     dead();
-    
-    if (x <= 370) gameOver = true;
-    
-    if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
-    else {
-      boolean hasAttacked = false;
-      boolean isTouching = false;
-      for (int idx = backyard.plantLanes.get(this.row).size() - 1 - this.row; idx >= 0; idx --){
-        Plant maybeAttack = backyard.plantLanes.get(this.row).get(idx);
-        isTouching = maybeAttack.isTouching(this);
-        if (isTouching) {
-          this.attack(maybeAttack);
-          hasAttacked = true;
-        }
-      }
-      if (!hasAttacked) this.move();
+    if (cherryFrame + 90 > frameCount){
+      tint(0); 
+      display(); 
+      noTint(); 
     }
+    else thingsToUpdate.remove(this);
+    return;
   }
-  
-  void dead(){
-    if (health <= 0){
-       ListOfZombies.remove(this);
-       thingsToDisplay.remove(this);
-       thingsToMove.remove(this);
-       backyard.zombieLanes.get(this.row).remove(this);
+  dead();
+  cherryFrame ++; 
+  if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
+  else {
+    boolean hasAttacked = false;
+    boolean isTouching = false;
+    for (int idx = backyard.plantLanes.get(this.row).size() - 1; idx >= 0; idx --){
+      Plant maybeAttack = backyard.plantLanes.get(this.row).get(idx);
+      isTouching = this.isTouching(maybeAttack);
+      if (isTouching) {
+        this.attack(maybeAttack);
+        hasAttacked = true;
+      }
     }
- }
+    if (!hasAttacked) this.move();
+  }
+}
+  
+void dead(){
+  if (health <= 0){
+     ListOfZombies.remove(this);
+     thingsToDisplay.remove(this);
+     thingsToMove.remove(this);
+     backyard.zombieLanes.get(this.row).remove(this);
+     if (!cherried) thingsToUpdate.remove(this);
+  }
+}
  
  void move(){
   x-=1; 

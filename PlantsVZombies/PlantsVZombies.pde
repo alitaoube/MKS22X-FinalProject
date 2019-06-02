@@ -107,6 +107,9 @@ void placePlant(){
   }
   else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
     backyard.makeWalnut(r, c);
+  }
+  else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
+    backyard.makeCherryBomb(r, c);
     selected = false;
   }
 }
