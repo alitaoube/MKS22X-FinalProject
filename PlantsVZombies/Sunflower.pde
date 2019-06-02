@@ -9,7 +9,7 @@ class Sunflower extends Plant implements Updateable{
   }
   
   boolean makeSun(){
-    if (genSun < 120) {genSun ++; return false;}
+    if (genSun < 300) {genSun ++; return false;}
     else {genSun = 0; return true;}
   }
   
