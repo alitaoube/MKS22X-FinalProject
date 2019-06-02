@@ -3,7 +3,9 @@ class Sunflower extends Plant implements Updateable{
   int genSun;
   
   Sunflower(int r, int c){
-    super(r, c, "images/sunflower.jpg", "sunflower", 50);
+    super(r, c, "images/sunflower.png", "sunflower", 50);
+    modImage(135, 80);
+    x-=30;
     genSun = 0;
     health = 100;
   }
@@ -23,5 +25,9 @@ class Sunflower extends Plant implements Updateable{
       thingsToUpdate.remove(this);
       backyard.plantLanes.get(this.row).remove(this);
     }
+  }
+  
+  boolean isTouching(LivingThing other) {
+   return Math.abs(this.x - other.x) <= 80;
   }
 }
