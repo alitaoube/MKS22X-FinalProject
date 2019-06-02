@@ -69,7 +69,7 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
-  gameOver();
+  //gameOver();
   for (Displayable thing: thingsToDisplay) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
    thingsToUpdate.get(x).update(); 
@@ -138,7 +138,7 @@ void displaySun(){
 void displayPlantsBar(){
   PImage Plants = loadImage("images/plants.jpg");
   Plants.resize(138, 676);
-  image(Plants, 3, 7);
+  image(Plants, Plants.width / 2, Plants.height / 2);
 }
   
 void displayMouse(){
