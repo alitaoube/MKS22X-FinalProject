@@ -8,7 +8,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
     super(r,  c, picture, type);
     
     for (int x = 0; x < spriteNames.length; x++){
-     System.out.println(type);
+     //System.out.println(type);
      if (spriteNames[x].contains("zombie")) localSprites.add(sprites.get(x));
     }
     
@@ -19,7 +19,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
   }
   
   void attack(Plant plant){
-   plant.health -= 0; 
+   plant.health -= 1; 
   }
   
 void update(){

@@ -43,7 +43,7 @@ abstract class LivingThing implements Displayable, Collideable{
   }
   
   boolean inFront(LivingThing other){
-    System.out.println(other.x > this.x);
+    //System.out.println(other.x > this.x);
    return (other.x > this.x);
   }  
   
