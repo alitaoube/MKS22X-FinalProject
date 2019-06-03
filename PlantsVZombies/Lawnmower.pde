@@ -20,7 +20,7 @@ class Lawnmower implements Updateable, Displayable{
     x = backyard[r][c].getX() - image.width + 20;
     textSize(100);
     //text(image.width + "", 500, 500);
-    y = backyard[r][c].getY();
+    y = backyard[r][c].getY() - 10;
     
     thingsToUpdate.add(this);
     thingsToDisplay.add(this);
@@ -31,7 +31,7 @@ class Lawnmower implements Updateable, Displayable{
   }
   
   void move(){
-    x+=1;
+    x+=5;
   }
   
   boolean touchingZombie(){
