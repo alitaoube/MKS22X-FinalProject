@@ -4,6 +4,7 @@ class BucketZombie extends Zombies{
   BucketZombie(int r, int c){
     super(r, c, "images/bucket.png", "cone", 300, 50);
     image = loadImage("images/bucket.png");
+    image.resize(80, 120);
   }
   
   void dead(){

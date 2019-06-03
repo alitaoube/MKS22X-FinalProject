@@ -3,6 +3,11 @@ int peaFrame;
 
   Peashooter(int r, int c, String type, int price){
     super(r, c, "images/Peashooter1.png", type, price);
+    for (int x = 0; x < spriteNames.length; x++){
+     System.out.println(type);
+     if (spriteNames[x].contains("peashooter")) localSprites.add(sprites.get(x));
+    }
+    
     peaFrame = 0;
     health = 100;
     for (int x = 0; x < localSprites.size(); x++){

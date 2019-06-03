@@ -6,6 +6,12 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
 
   Zombies(int r, int c, String picture, String type, int hp, int spd){
     super(r,  c, picture, type);
+    
+    for (int x = 0; x < spriteNames.length; x++){
+     System.out.println(type);
+     if (spriteNames[x].contains("zombie")) localSprites.add(sprites.get(x));
+    }
+    
     health = hp;
     speed = spd;
     cherryFrame = frameCount;
