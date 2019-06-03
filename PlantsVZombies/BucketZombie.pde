@@ -3,7 +3,6 @@ class BucketZombie extends Zombies{
 
   BucketZombie(int r, int c){
     super(r, c, "images/bucket.png", "cone", 300, 50);
-    modImage(70, 120);
     y -= 20;
     sprites = new ArrayList<PImage>();
     sprites.add(loadImage("images/bucket.png"));
@@ -12,7 +11,7 @@ class BucketZombie extends Zombies{
   
   void dead(){
     if (health <= 100 && health > 0){
-      modImage(70, 120);
+      image.resize(70, 120);
     }
     if (health <= 0){
      ListOfZombies.remove(this);

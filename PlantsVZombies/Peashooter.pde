@@ -5,6 +5,9 @@ int peaFrame;
     super(r, c, "images/Peashooter1.png", type, price);
     peaFrame = 0;
     health = 100;
+    for (int x = 0; x < localSprites.size(); x++){
+     localSprites.get(x).resize(75, 75); 
+    }
   }
 
   void makePea(){

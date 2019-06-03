@@ -38,7 +38,7 @@ class CherryBomb extends Plant implements Updateable{
   }  
 
   void getBig(){
-    modImage(1 + image.width, 1 + image.height);
+    image.resize(1 + image.width, 1 + image.height);
     x -= .5;
     y-= .5;
   }

@@ -4,9 +4,11 @@ class Sunflower extends Plant implements Updateable{
   
   Sunflower(int r, int c){
     super(r, c, "images/sunflower.png", "sunflower", 50);
-    modImage(135, 80);
     genSun = 0;
     health = 100;
+    for (int x = 0; x < localSprites.size(); x++){
+     localSprites.get(x).resize(80, 80); 
+    }
   }
   
   boolean makeSun(){
