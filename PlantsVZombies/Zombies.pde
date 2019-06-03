@@ -31,11 +31,6 @@ void update(){
     tint(0); 
     display(); 
     noTint(); 
-    
-    x=300;
-    while (x > 0){
-     x--;
-    }
     thingsToUpdate.remove(this);
     return;
   }
