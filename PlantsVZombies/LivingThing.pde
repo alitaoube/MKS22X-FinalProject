@@ -42,7 +42,7 @@ abstract class LivingThing implements Displayable, Collideable{
     else frameCount++;
     if (localSprites.size() > 0){
       image = localSprites.get(frameCount);
-      delay(15);
+      //delay(15);
 
     }
     else{
