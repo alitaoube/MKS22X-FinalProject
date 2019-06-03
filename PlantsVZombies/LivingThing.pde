@@ -19,8 +19,6 @@ abstract class LivingThing implements Displayable, Collideable{
     Coordinate[][] backyard = board();
     row = r; col = c; alive = true; type = Type; 
     
-    
-    
     x = backyard[r][c].getX();
     textSize(100);
     //text(image.width + "", 500, 500);
