@@ -30,12 +30,16 @@ class Lawnmower implements Updateable, Displayable{
    image(image, x, y);
   }
   
+  void move(){
+    x+=1;
+  }
+  
   void update(){
    for (int i = 0; i < backyard.zombieLanes.get(this.row).size() - 1; i++){
      if (backyard.zombieLanes.get(this.row).get(i).x - this.x <= 40) {
        triggered = true;
    }
-   if (triggered == true) x+=1;
+   if (triggered == true) move();
   }
 }
 }
