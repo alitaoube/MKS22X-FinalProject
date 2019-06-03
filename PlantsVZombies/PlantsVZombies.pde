@@ -58,7 +58,6 @@ void setup(){
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
 
-  Lawnmower l = new Lawnmower(0, 0);
   }
 
 void draw(){
