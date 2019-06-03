@@ -34,12 +34,22 @@ class Lawnmower implements Updateable, Displayable{
     x+=1;
   }
   
+  boolean touchingZombie(){
+    for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
+      Zombies z = backyard.zombieLanes.get(this.row).get(idx);
+      if (z.x - this.x < 10) return true;
+    }
+    return false;
+  }
+  
   void update(){
    for (int i = 0; i < backyard.zombieLanes.get(this.row).size() - 1; i++){
-     if (backyard.zombieLanes.get(this.row).get(i).x - this.x <= 40) {
+     Zombies z = backyard.zombieLanes.get(this.row).get(i);
+     if (z.x - this.x <= 40) {
+       z.kill();
        triggered = true;
    }
-   if (triggered == true) move();
   }
+   if (triggered == true) move();
 }
 }
