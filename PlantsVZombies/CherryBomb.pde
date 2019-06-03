@@ -5,19 +5,27 @@ class CherryBomb extends Plant implements Updateable{
   boolean explode;
   boolean hasExploded;
   int explosionFrame;
+  PImage image;
   
   CherryBomb(int r, int c){
     super(r, c, "images/cherrybomb.png", "CherryBomb", 150);
     explode = false;
     hasExploded = false;
     explosionFrame = frameCount;
+    image = loadImage("images/cherrybomb.png");
+    image.resize(100, 100);
   }
   
   void display(){
-    if (!explode) super.display();
+    if (!explode){
+      imageMode(CENTER);
+      image(image, x, y);
+    }
     else{
       tint(0);
- super.display(); noTint();
+      imageMode(CENTER);
+      image(image, x, y);
+      noTint();
     }
   }
     
