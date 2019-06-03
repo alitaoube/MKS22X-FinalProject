@@ -12,14 +12,7 @@ class BucketZombie extends Zombies{
       kill();
     }
    }
-   
-   void kill(){
-     ListOfZombies.remove(this);
-     thingsToDisplay.remove(this);
-     thingsToMove.remove(this);
-     backyard.zombieLanes.get(this.row).remove(this);
-   }
-   
+      
   void display(){    
    if (frameCount + 1 == localSprites.size()) frameCount = 0;
    else frameCount++;

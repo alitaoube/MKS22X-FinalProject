@@ -15,11 +15,7 @@ class ConeZombie extends Zombies{
       image.resize(70, 120);
     }
     if (health <= 0){
-     ListOfZombies.remove(this);
-     thingsToDisplay.remove(this);
-     thingsToMove.remove(this);
-     backyard.zombieLanes.get(this.row).remove(this);
-
+      kill();
     }
    }
    
@@ -28,7 +24,8 @@ class ConeZombie extends Zombies{
      else frameCount++;
      
      image(localSprites.get(frameCount), x, y);
-     
-     image(hat, x, y - hat.height);
+     if (health >= 100){
+       image(hat, x, y - hat.height);
+     }
    }
 }

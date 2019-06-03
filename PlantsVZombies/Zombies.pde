@@ -53,6 +53,14 @@ void update(){
     if (!hasAttacked) this.move();
   }
 }
+
+   void kill(){
+     ListOfZombies.remove(this);
+     thingsToDisplay.remove(this);
+     thingsToMove.remove(this);
+     backyard.zombieLanes.get(this.row).remove(this);
+   }
+
   
 void dead(){
   if (health <= 0){
