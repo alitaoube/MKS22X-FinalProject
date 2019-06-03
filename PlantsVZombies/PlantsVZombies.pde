@@ -56,7 +56,7 @@ void setup(){
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
-  //backyard.makeBucketZombie(0, 7);
+  backyard.makeBucketZombie(0, 7);
 
   }
 

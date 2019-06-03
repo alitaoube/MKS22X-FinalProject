@@ -1,10 +1,10 @@
 class BucketZombie extends Zombies{
-  
+  PImage hat;
   
   BucketZombie(int r, int c){
     super(r, c, "images/bucket.png", "cone", 300, 50);
-    image = loadImage("images/bucket.png");
-    image.resize(80, 120);
+    hat = loadImage("images/bucket.png");
+    hat.resize(60, 60);
   }
   
   void dead(){
@@ -20,6 +20,11 @@ class BucketZombie extends Zombies{
    }
    
   void display(){
-   image(image, x, y);
+   if (frameCount + 1 == localSprites.size()) frameCount = 0;
+   else frameCount++;
+     
+   image(localSprites.get(frameCount), x, y);
+   
+   image(hat, x, y - hat.height + 20);
   }
 }
