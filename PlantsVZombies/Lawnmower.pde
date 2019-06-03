@@ -43,8 +43,9 @@ class Lawnmower implements Updateable, Displayable{
   }
   
   void update(){
-   for (int i = 0; i < backyard.zombieLanes.get(this.row).size() - 1; i++){
+   for (int i = 0; i < backyard.zombieLanes.get(this.row).size(); i++){
      Zombies z = backyard.zombieLanes.get(this.row).get(i);
+     System.out.println(z.type);
      if (z.x - this.x <= 40) {
        z.kill();
        triggered = true;
