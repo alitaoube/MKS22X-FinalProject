@@ -41,7 +41,7 @@ void setup(){
   sunflowers = new ArrayList<Sunflower>();
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
-  
+  new Lawnmower();
   
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));

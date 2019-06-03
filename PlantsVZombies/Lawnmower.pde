@@ -4,11 +4,11 @@ class Lawnmower implements Updateable, Displayable{
   int row, col;
   boolean triggered;
   
-  //Lawnmower(){
-  //  for (int x = 0; x < 9; x++){
-  //   Lawnmower(x, 0);
-  //  }
-  //}
+  Lawnmower(){
+    for (int x = 0; x < 5; x++){
+     new Lawnmower(x, 0);
+    }
+  }
   
   Lawnmower(int r, int c){
     Coordinate[][] backyard = board();
