@@ -21,10 +21,11 @@ class ConeZombie extends Zombies{
    }
    
    void display(){
-     System.out.println(localSprites.size());
-     for (int i = 0; i < localSprites.size(); i++){
-       image(localSprites.get(i), x, y);
-     }
+     if (frameCount + 1 == localSprites.size()) frameCount = 0;
+     else frameCount++;
+
+     image(localSprites.get(frameCount), x, y);
+     
      image(hat, x, y - hat.height);
    }
 }
