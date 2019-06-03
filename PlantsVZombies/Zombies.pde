@@ -65,6 +65,6 @@ void dead(){
 }
  
  void move(){
-  x-=3; 
+  x-=1; 
  }
 }
