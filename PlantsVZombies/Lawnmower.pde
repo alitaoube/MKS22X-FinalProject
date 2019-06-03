@@ -31,10 +31,11 @@ class Lawnmower implements Updateable, Displayable{
   }
   
   void update(){
-    
-   if (Math.abs(backyard.zombieLanes.get(this.row).get(0).x - this.x) <= 40){
-     triggered = true;
+   for (int i = 0; i < backyard.zombieLanes.get(this.row).size() - 1; i++){
+     if (backyard.zombieLanes.get(this.row).get(i).x - this.x <= 40) {
+       triggered = true;
    }
    if (triggered == true) x+=1;
   }
+}
 }
