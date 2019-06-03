@@ -28,12 +28,15 @@ void update(){
   
   if (cherried){
     dead();
-    if (cherryFrame + 90 > frameCount){
-      tint(0); 
-      display(); 
-      noTint(); 
+    tint(0); 
+    display(); 
+    noTint(); 
+    
+    x=300;
+    while (x > 0){
+     x--;
     }
-    else thingsToUpdate.remove(this);
+    thingsToUpdate.remove(this);
     return;
   }
   dead();

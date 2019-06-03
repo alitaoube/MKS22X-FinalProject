@@ -26,6 +26,7 @@ class CherryBomb extends Plant implements Updateable{
       imageMode(CENTER);
       image(image, x, y);
       noTint();
+      hasExploded = true;
     }
   }
     
@@ -36,9 +37,11 @@ class CherryBomb extends Plant implements Updateable{
       getBig();
       explosionFrame ++;
     }
-    if (image.width > 150 && image.height > 150) explode = true;
+    if (image.width > 150 && image.height > 150){
+     explode = true; 
+    }
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
-    if (hasExploded && explode && ((explosionFrame + 90) < frameCount)){
+    if (hasExploded && explode){
       thingsToUpdate.remove(this);
       ListOfPlant.remove(this);
       backyard.occupied[row][col] = false;
