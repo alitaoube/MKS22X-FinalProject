@@ -1,12 +1,9 @@
 class BucketZombie extends Zombies{
-  ArrayList<PImage> sprites;
-
+  
+  
   BucketZombie(int r, int c){
     super(r, c, "images/bucket.png", "cone", 300, 50);
-    y -= 20;
-    sprites = new ArrayList<PImage>();
-    sprites.add(loadImage("images/bucket.png"));
-    sprites.add(loadImage("images/zombie.png"));
+    image = loadImage("images/bucket.png");
   }
   
   void dead(){
@@ -20,4 +17,8 @@ class BucketZombie extends Zombies{
      backyard.zombieLanes.get(this.row).remove(this);
     }
    }
+   
+  void display(){
+   image(image, x, y);
+  }
 }

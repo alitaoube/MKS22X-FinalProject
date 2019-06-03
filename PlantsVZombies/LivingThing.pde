@@ -45,15 +45,8 @@ abstract class LivingThing implements Displayable, Collideable{
       //delay(15);
 
     }
-    else{
-     image = loadImage("images/suns.jpg"); 
-    }
     imageMode(CENTER);
     image(image, x, y);
-  }
-  
-  void modImage(int w, int h){
-    image.resize(w, h);
   }
   
   String toString(){

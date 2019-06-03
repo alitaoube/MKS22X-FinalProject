@@ -13,4 +13,8 @@ class Walnut extends Plant implements Updateable{
     backyard.plantLanes.get(this.row).remove(this);
   }
  }
+ 
+ //void display(){
+ // if (health  
+ //}
 }

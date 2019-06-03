@@ -1,11 +1,7 @@
 class ConeZombie extends Zombies{
-  ArrayList<PImage> sprites;
    ConeZombie(int r, int c){
    super(r, c, "images/cone.png", "cone", 300, 50);
-   y -= 20;
-   sprites = new ArrayList<PImage>();
-   sprites.add(loadImage("images/cone.png"));
-   sprites.add(loadImage("images/zombie.png"));
+   image = loadImage("images/cone.png");
    }
    
    void dead(){
@@ -20,5 +16,9 @@ class ConeZombie extends Zombies{
      backyard.zombieLanes.get(this.row).remove(this);
 
     }
-   }   
+   }
+   
+   void display(){
+     image(image, x, y);
+   }
 }
