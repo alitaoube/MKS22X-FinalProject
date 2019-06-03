@@ -18,7 +18,9 @@ abstract class LivingThing implements Displayable, Collideable{
   LivingThing(int r, int c, String picture, String Type){
     Coordinate[][] backyard = board();
     row = r; col = c; alive = true; type = Type; 
-        
+    
+    
+    
     x = backyard[r][c].getX();
     textSize(100);
     //text(image.width + "", 500, 500);
@@ -30,8 +32,10 @@ abstract class LivingThing implements Displayable, Collideable{
     //image
     if (frameCount + 1 == localSprites.size()) frameCount = 0;
     else frameCount++;
-    image = localSprites.get(frameCount);
+    if (localSprites.size() > 0){
+      image = localSprites.get(frameCount);
       //delay(15);
+    }
     imageMode(CENTER);
     image(image, x, y);
   }

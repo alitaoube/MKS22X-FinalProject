@@ -1,9 +1,12 @@
 class ConeZombie extends Zombies{
-   PImage hat = loadImage("images/cone.png");
+   PImage hat;
+   
    ConeZombie(int r, int c){
    super(r, c, "images/cone.png", "cone", 300, 50);
    image = loadImage("images/cone.png");
    image.resize(80, 120);
+   hat = loadImage("images/cone.png");
+   hat.resize(50, 50);
    }
    
    void dead(){
@@ -23,7 +26,7 @@ class ConeZombie extends Zombies{
    void display(){
      if (frameCount + 1 == localSprites.size()) frameCount = 0;
      else frameCount++;
-
+     
      image(localSprites.get(frameCount), x, y);
      
      image(hat, x, y - hat.height);

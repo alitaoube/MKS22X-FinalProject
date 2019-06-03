@@ -6,6 +6,14 @@ class Sunflower extends Plant implements Updateable{
     super(r, c, "images/sunflower.png", "sunflower", 50);
     genSun = 0;
     health = 100;
+    
+    for (int x = 0; x < spriteNames.length; x++){
+     System.out.println(type);
+     if (spriteNames[x].contains("sunflower")){
+       localSprites.add(sprites.get(x));
+     }
+    }
+    
     for (int x = 0; x < localSprites.size(); x++){
      localSprites.get(x).resize(80, 80); 
     }
