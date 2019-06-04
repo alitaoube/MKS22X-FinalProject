@@ -58,6 +58,7 @@ void setup(){
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
+  backyard.makeChomper(0, 0);
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   }
 
@@ -148,6 +149,10 @@ void placePlant(){
   }
   else if (selectedPlant.equals("potato") && !backyard.occupied(r, c)){
     backyard.makePotato(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("chomper") && !backyard.occupied(r, c)){
+    backyard.makeChomper(r, c);
     selected = false;
   }
 }

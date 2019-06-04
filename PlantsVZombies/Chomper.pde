@@ -1,4 +1,4 @@
-class Chomper extends Plant{
+class Chomper extends Plant implements Updateable{
  ArrayList<PImage> eatingSprites = new ArrayList<PImage>();
  ArrayList<PImage> save = new ArrayList<PImage>();
  PImage ate;
@@ -11,9 +11,15 @@ class Chomper extends Plant{
    if (spriteNames[x].contains("chomperEat")){
     eatingSprites.add(loadImage("images/" + spriteNames[x] + ".png")); 
    }
+   if (spriteNames[x].contains("chomper")){
+    localSprites.add(loadImage("images/" + spriteNames[x] + ".png"));
+   }
    save = localSprites;
-   ate = loadImage("images/cEat14");
+   ate = loadImage("images/cEat14.png");
   }
+  image = localSprites.get(0);
+  System.out.println(localSprites.size());
+  System.out.println(eatingSprites.size());
  }
  
  void update(){
