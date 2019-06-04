@@ -61,7 +61,7 @@ void setup(){
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
-  backyard.makeChomper(0, 0);
+  //backyard.makeChomper(0, 0);
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   }
 
@@ -121,6 +121,7 @@ void selectPlant(){
   }
   if (mousePressed && mouseY > 0 && mouseY < shovel.height && mouseX < 350 + shovel.width){
    selectedPlant = "shovel"; 
+   return;
   }
 }
 
@@ -164,7 +165,7 @@ void placePlant(){
     backyard.makeChomper(r, c);
     selected = false;
   }
-  else if (selectedPlant.equals("shovel")){
+  else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
    backyard.plantLanes.get(r).get(c).kill();
    selected = false;
   }

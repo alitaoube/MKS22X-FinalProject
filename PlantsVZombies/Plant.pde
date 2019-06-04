@@ -11,7 +11,7 @@ abstract class Plant extends LivingThing{
     ListOfPlant.remove(this);
     backyard.plantLanes.get(row).remove(this);
     thingsToUpdate.remove(this);
-    backyard.occupied[row][col] = true;
+    backyard.occupied[row][col] = false;
   }
   
  abstract void update();

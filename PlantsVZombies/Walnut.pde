@@ -20,10 +20,7 @@ class Walnut extends Plant implements Updateable{
  
  void update(){   
   if (health <= 0){
-    backyard.occupied[this.row][this.col] = false;      
-    ListOfPlant.remove(this);
-    thingsToDisplay.remove(this);
-    backyard.plantLanes.get(this.row).remove(this);
+    kill();
   }
  }
  
