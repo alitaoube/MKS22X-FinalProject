@@ -5,9 +5,9 @@ abstract class LivingThing implements Displayable, Collideable{
   boolean alive;
   String name = "jeffrey";
   ArrayList<PImage> localSprites = new ArrayList<PImage>();
-  int frameCount = 0;
+  //int frameCount = 0;
   PImage image;
-  
+  int spriteFrame;
   //abstract void attack();
   //abstract void changeDisplay();
   
@@ -18,7 +18,7 @@ abstract class LivingThing implements Displayable, Collideable{
   LivingThing(int r, int c, String picture, String Type){
     Coordinate[][] backyard = board();
     row = r; col = c; alive = true; type = Type; 
-    
+    spriteFrame = 0;
     x = backyard[r][c].getX();
     textSize(100);
     //text(image.width + "", 500, 500);
@@ -28,10 +28,10 @@ abstract class LivingThing implements Displayable, Collideable{
   
   void display(){
     //image
-    if (frameCount + 1 == localSprites.size()) frameCount = 0;
-    else frameCount++;
+    if (spriteFrame + 1 == localSprites.size()) spriteFrame = 0;
+    else spriteFrame ++;
     if (localSprites.size() > 0){
-      image = localSprites.get(frameCount);
+      image = localSprites.get(spriteFrame);
       //delay(15);
     }
     imageMode(CENTER);

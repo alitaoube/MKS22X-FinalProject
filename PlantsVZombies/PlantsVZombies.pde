@@ -54,9 +54,9 @@ void setup(){
   backyard = new Board();
   
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
-  backyard.makeGardenZombie(0, 8);
-  backyard.makeConeZombie(0, 6);
-  backyard.makeBucketZombie(0, 7);
+  //backyard.makeGardenZombie(0, 8);
+  //backyard.makeConeZombie(0, 6);
+  //backyard.makeBucketZombie(0, 7);
 
   }
 
@@ -69,6 +69,7 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
+  backyard.enterZombies();
   //gameOver();
   for (Displayable thing: thingsToDisplay) if (!(thing instanceof CherryBomb)) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
