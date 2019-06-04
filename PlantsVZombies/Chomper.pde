@@ -1,7 +1,6 @@
 class Chomper extends Plant implements Updateable{
  ArrayList<PImage> eatingSprites = new ArrayList<PImage>();
  ArrayList<PImage> save = new ArrayList<PImage>();
- //ArrayList<PImage> buffer = new ArrayList<PImage>();
  PImage ate;
  boolean eaten;
  int timer;
@@ -19,8 +18,6 @@ class Chomper extends Plant implements Updateable{
   }
   ate = loadImage("images/cEat14.png");
   image = localSprites.get(0);
-  System.out.println(localSprites.size());
-  System.out.println(eatingSprites.size());
  }
  
  void update(){

@@ -104,7 +104,7 @@ void draw(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
-    if (mouseY > 610 && mouseY < 680) {selectedPlant = "flytrap"; return;}
+    if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
     if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
     if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
     if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
