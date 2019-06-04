@@ -7,10 +7,12 @@ class Potato extends Plant implements Updateable{
     image = image1;
     image2 = loadImage("images/mine2.png");
     spudow = loadImage("images/spudow.png");
-    spudow.resize(350, 250);
+    spudow.resize(350, 250);  
+    health = 25;
   }
   
   void update(){
+    if (health <= 0) this.kill();
     if (timer >= 90) image = image2;
     else timer++;
     
