@@ -8,7 +8,7 @@ class Chomper extends Plant implements Updateable{
  Chomper(int r, int c){
   super(r, c, "chomper.png", "chomper", 175);
   for (int x = 0; x < spriteNames.length; x++){
-   if (spriteNames[x].contains("chomperEat")){
+   if (spriteNames[x].contains("cEat")){
     eatingSprites.add(loadImage("images/" + spriteNames[x] + ".png")); 
    }
    if (spriteNames[x].contains("chomper")){
@@ -23,22 +23,24 @@ class Chomper extends Plant implements Updateable{
  }
  
  void update(){
-   Zombies z = backyard.zombieLanes.get(this.row).get(0);
-   
-   if (eaten == false && z.isTouching(this)){
-     z.kill();
-     localSprites = eatingSprites;
+   for (int idx = 0; idx < ListOfZombies.size(); idx ++){
+    Zombies z = ListOfZombies.get(idx);    
+      if (eaten == false && this.isTouching(z)){
+         eaten = true;
+         localSprites = eatingSprites;
+         z.kill();
+       }
+     }
+   if (eaten == true && timer > 5 && timer < 90){
+    image = ate;
    }
-   if (eaten == false){
-     super.display();
+   else if (eaten == true && timer > 90){
+     eaten = false;
+     timer = 0;
+     localSprites = save;
    }
-   else{
-     if (timer > 15) image = ate;
-     else timer++;
-   }
-   if (timer > 90){
-    timer = 0;
-    localSprites = save;
+   else if (eaten == true && timer < 90){
+    timer++; 
    }
  }
 }
