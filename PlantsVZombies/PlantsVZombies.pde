@@ -90,6 +90,7 @@ void draw(){
   for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
     ListOfZombies.get(x).update();
     ListOfZombies.get(x).display();
+    ListOfZombies.get(x).dead();
   }
   for (int x = 0; x < peas.size(); x++){
    peas.get(x).display();

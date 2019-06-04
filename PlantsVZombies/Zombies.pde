@@ -42,14 +42,12 @@ void update(){
   if (x <= 370) gameOver = true;
   
   if (cherried){
-    dead();
+    this.health = 0;
     tint(0); 
     display(); 
     noTint(); 
-    this.kill();
     return;
   }
-  dead();
   cherryFrame ++; 
   if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
   else {
