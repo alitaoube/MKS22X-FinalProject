@@ -58,6 +58,7 @@ void update(){
      thingsToUpdate.remove(this);
      thingsToMove.remove(this);
      backyard.zombieLanes.get(this.row).remove(this);
+     removedFromList = true;
    }
 
   
