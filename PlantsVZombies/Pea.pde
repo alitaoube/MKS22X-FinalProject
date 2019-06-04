@@ -3,7 +3,9 @@ class Pea implements Displayable, Moveable, Updateable{
   float x, y;
   int row;
   
-  Pea(float xcor, float ycor, int r) {x = xcor; y = ycor; row = r;}
+  Pea(float xcor, float ycor, int r) {
+    x = xcor; y = ycor; row = r;
+  }
   
   void display(){
     fill(0, 255, 0);
