@@ -24,15 +24,19 @@ class Shovel extends LivingThing implements Updateable, Displayable{
  }
  
  void update(){
+   if (!selected) return;
+   boolean removed = false;
    for (int i = 0; i < backyard.plantLanes.size(); i++){
     for (int z = 0; z < backyard.plantLanes.get(i).size(); z++){
      Plant p = backyard.plantLanes.get(i).get(z);
-     if (this.selected == true && (abs(dist(mouseX, mouseY, p.x, p.y)) < 60)){
-      p.kill();
-      this.selected = false;
+     if (this.selected && (abs(dist(mouseX, mouseY, p.x, p.y)) < 60) && mousePressed){
+       p.kill();
+       this.selected = false;
+       removed = true;
      }
     }
    }
+   if (backyard.mouseOn() && mousePressed) selected = false;
  }
 }
 
