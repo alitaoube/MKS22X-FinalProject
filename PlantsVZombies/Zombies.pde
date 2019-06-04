@@ -25,6 +25,7 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
   }
   
 void update(){
+//<<<<<<< HEAD
   
   if (this.timer > 0) this.timer--;
   
@@ -37,6 +38,9 @@ void update(){
    this.speed = .5;
   }
   
+//=======
+ // display();
+//>>>>>>> genZombies
   if (x <= 370) gameOver = true;
   
   if (cherried){
@@ -66,8 +70,10 @@ void update(){
    void kill(){
      ListOfZombies.remove(this);
      thingsToDisplay.remove(this);
+     thingsToUpdate.remove(this);
      thingsToMove.remove(this);
      backyard.zombieLanes.get(this.row).remove(this);
+     removedFromList = true;
    }
 
   
@@ -78,6 +84,7 @@ void dead(){
      thingsToMove.remove(this);
      backyard.zombieLanes.get(this.row).remove(this);
      if (!cherried) thingsToUpdate.remove(this);
+     removedFromList = true;
   }
 }
  

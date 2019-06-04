@@ -41,8 +41,9 @@ class CherryBomb extends Plant implements Updateable{
      explode = true; 
     }
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
+//<<<<<<< HEAD
     if (hasExploded && explode){
-      if (timer < 15){
+      if (timer < 30){
         image = powie;
         timer++;
       }
@@ -51,8 +52,15 @@ class CherryBomb extends Plant implements Updateable{
         ListOfPlant.remove(this);
         backyard.occupied[row][col] = false;
       }
+//=======
+//    if (hasExploded && explode && ((explosionFrame + 90) < frameCount)){
+//      thingsToUpdate.remove(this);
+//      ListOfPlant.remove(this);
+//      backyard.occupied[row][col] = false;
+//      removedFromList = true;
+//>>>>>>> genZombies
     }
-  }  
+}  
 
   void getBig(){
     image.resize(1 + image.width, 1 + image.height);

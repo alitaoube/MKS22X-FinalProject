@@ -24,6 +24,7 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
+boolean removedFromList;
 
 void setup(){
   frameRate(60);
@@ -44,7 +45,7 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
-  
+  removedFromList = false;
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
     
@@ -54,12 +55,21 @@ void setup(){
   size(1334, 750);
   board = loadImage("images/board.jpg");
   backyard = new Board();
-  
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
+}
+//<<<<<<< HEAD
+
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
-  }
+//=======
+  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
+  //backyard.makeGardenZombie(0, 8);
+  //backyard.makeConeZombie(0, 6);
+  //backyard.makeBucketZombie(0, 7);
+
+//>>>>>>> genZombies
+  
 
 void draw(){
   noTint();
@@ -71,7 +81,9 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
+  backyard.enterZombies();
   //gameOver();
+//<<<<<<< HEAD
   
   //for (Displayable thing: thingsToDisplay) thing.display();  
   
@@ -96,7 +108,17 @@ void draw(){
    peas.get(x).display();
    peas.get(x).update(); 
   }
-  board();
+//=======
+  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
+  //for (int x = 0; x < thingsToUpdate.size(); x++){
+  // thingsToUpdate.get(x).update(); 
+  // if (removedFromList) x --;
+  // removedFromList = false;
+  //}
+  //for (int x = 0; x < peas.size(); x++){
+  // peas.get(x).display(); 
+//>>>>>>> genZombies
+//  board();
 }
 
 
@@ -137,6 +159,7 @@ void placePlant(){
   }
   else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
     backyard.makeWalnut(r, c);
+    selected = false;
   }
   else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
     backyard.makeCherryBomb(r, c);
@@ -188,10 +211,11 @@ void displayMouse(){
 }
 
 void collectSun(){
-  for (int idx = 0; idx < suns.size(); idx ++){
-    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15){
-      thingsToDisplay.remove(suns.get(idx));
-      suns.remove(idx);
+  for (int idx = 0; idx < ListOfSun.size(); idx ++){
+    if (dist(mouseX, mouseY, ListOfSun.get(idx).x, ListOfSun.get(idx).y) < 15){
+      thingsToDisplay.remove(ListOfSun.get(idx));
+      thingsToUpdate.remove(ListOfSun.get(idx));
+      //suns.remove(idx);
       sun += 25;
       ListOfSun.remove(idx);
     }

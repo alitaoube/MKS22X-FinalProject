@@ -4,11 +4,26 @@ Coordinate[][] board;
 boolean[][] occupied;
 ArrayList<ArrayList<Zombies>> zombieLanes;
 ArrayList<ArrayList<Plant>> plantLanes;
+int[][] allZombies;
 
   
   Board(){
     initializeBoard();
+    initializeZombies();
     occupied = new boolean[5][9];
+  }
+ 
+  void initializeZombies(){
+    allZombies = new int[25][3];
+    Random r = new Random();
+    for (int idx = 0; idx < allZombies.length; idx ++){
+      int entryTime = r.nextInt(120);
+      int type;
+      if (entryTime <= 30) type = 0;
+      else type = r.nextInt(3);
+      int col = r.nextInt(5);
+      allZombies[idx] = new int[] {entryTime, type, col};
+    }
   }
   
   void initializeBoard(){
@@ -34,6 +49,19 @@ ArrayList<ArrayList<Plant>> plantLanes;
     }
   }
   
+  void enterZombies(){
+    Random r = new Random();
+    if (frameCount % 180 == 0) System.out.println(frameCount);
+    if (frameCount % 180 == 0) makeGardenZombie(r.nextInt(5), 8);
+    //for (int idx = 0; idx < allZombies.length; idx ++){
+    //  if (allZombies[idx][0]*60 == frameCount){
+    //    if (allZombies[idx][1] == 0) makeGardenZombie(allZombies[idx][2], 8);
+    //    if (allZombies[idx][1] == 1) makeConeZombie(allZombies[idx][2], 8);
+    //    if (allZombies[idx][1] == 2) makeBucketZombie(allZombies[idx][2], 8);
+    //  }
+    //}
+  }
+  
   Walnut makeWalnut(int r, int c){
     Walnut w = new Walnut(r, c, "walnut", 50);
     ListOfPlant.add(w);
@@ -47,16 +75,17 @@ ArrayList<ArrayList<Plant>> plantLanes;
   }
   
  void makeSunSunflower(int r, int c){
-    Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55);
+    Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55, false);
     thingsToDisplay.add(s);
-    //thingsToUpdate.add(s);
+    thingsToUpdate.add(s);
+    ListOfSun.add(s);
     suns.add(s);
     //print("made");
  }
  
  void makeSunSky(){
   if (sunFrame > 60 && suns.size() < 10){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0, true);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
     thingsToMove.add(s);
