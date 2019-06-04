@@ -75,6 +75,7 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
+  updateShovel();
   //gameOver();
   imageMode(CENTER);
   image(shovel, 350 + shovel.width / 2, shovel.height / 2);
@@ -109,21 +110,23 @@ void draw(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
+    System.out.println("HERE3");
     if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
-    if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
-    if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
-    if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
-    if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
-    if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
-    if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
+    else if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
+    else if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
+    else if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
+    else if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
+    else if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
+    else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
     
     else selected = false;
   }
-  if (mousePressed && mouseY > 0 && mouseY < shovel.height && mouseX < 350 + shovel.width){
-   selectedPlant = "shovel"; 
-   return;
+  else if (mousePressed && mouseY > 0 && mouseY < shovel.height && mouseX < 350 + shovel.width){
+    System.out.println("HEREEE");
+     selectedPlant = "shovel"; 
+     return;
+    }
   }
-}
 
 void placePlant(){
   if (!(selected && mousePressed && backyard.mouseOn())) return;
@@ -166,7 +169,7 @@ void placePlant(){
     selected = false;
   }
   else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
-   backyard.plantLanes.get(r).get(c).kill();
+   System.out.println(backyard.plantLanes.get(r).get(c));
    selected = false;
   }
 }
@@ -204,6 +207,12 @@ void displayMouse(){
   else {
     text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 30);
   }
+}
+
+void updateShovel(){
+ if (selectedPlant == "shovel"){
+  image(shovel, mouseX, mouseY); 
+ }
 }
 
 void collectSun(){

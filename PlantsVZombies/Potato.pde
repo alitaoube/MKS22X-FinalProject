@@ -34,15 +34,6 @@ class Potato extends Plant implements Updateable{
     }
   }
   
-  void kill(){
-    backyard.plantLanes.get(row).remove(this);
-    thingsToDisplay.remove(this);
-    ListOfZombies.remove(this);
-    thingsToMove.remove(this);
-    thingsToUpdate.remove(this);
-    ListOfPlant.remove(this);
-  }
-  
   void display(){
    image(image, x, y);
   }
