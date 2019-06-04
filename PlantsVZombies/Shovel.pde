@@ -15,10 +15,12 @@ class Shovel extends LivingThing implements Updateable, Displayable{
  
  void display(){
   if (this.selected){
+   noTint();
    image(image, x, y);
    image(image, mouseX, mouseY);  
   }
   else{
+   noTint();
    image(image, x, y);
   }
  }
