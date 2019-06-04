@@ -23,11 +23,7 @@ class Chomper extends Plant implements Updateable{
  
  void update(){
    if (health <= 0){
-    thingsToDisplay.remove(this);
-    ListOfPlant.remove(this);
-    backyard.plantLanes.get(row).remove(this);
-    thingsToUpdate.remove(this);
-    backyard.occupied[row][col] = true;
+    this.kill();
    }
    for (int idx = 0; idx < ListOfZombies.size(); idx ++){
     Zombies z = ListOfZombies.get(idx);    

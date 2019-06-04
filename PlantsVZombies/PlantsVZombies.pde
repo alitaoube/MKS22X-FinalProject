@@ -24,6 +24,7 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
+PImage shovel;
 
 void setup(){
   frameRate(60);
@@ -44,6 +45,8 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
+  shovel = loadImage("images/shovel.png");
+  shovel.resize(65, 65);
   
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
@@ -73,6 +76,8 @@ void draw(){
   selectPlant();
   placePlant();
   //gameOver();
+  imageMode(CENTER);
+  image(shovel, 350 + shovel.width / 2, shovel.height / 2);
   
   //for (Displayable thing: thingsToDisplay) thing.display();  
   
@@ -111,7 +116,11 @@ void selectPlant(){
     if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
     if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
     if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
+    
     else selected = false;
+  }
+  if (mousePressed && mouseY > 0 && mouseY < shovel.height && mouseX < 350 + shovel.width){
+   selectedPlant = "shovel"; 
   }
 }
 
@@ -154,6 +163,10 @@ void placePlant(){
   else if (selectedPlant.equals("chomper") && !backyard.occupied(r, c)){
     backyard.makeChomper(r, c);
     selected = false;
+  }
+  else if (selectedPlant.equals("shovel")){
+   backyard.plantLanes.get(r).get(c).kill();
+   selected = false;
   }
 }
 
