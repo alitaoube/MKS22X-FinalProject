@@ -26,7 +26,7 @@ class CherryBomb extends Plant implements Updateable{
       imageMode(CENTER);
       image(image, x, y);
       noTint();
-      hasExploded = true;
+      //hasExploded = true;
     }
   }
     
@@ -50,8 +50,8 @@ class CherryBomb extends Plant implements Updateable{
 
   void getBig(){
     image.resize(1 + image.width, 1 + image.height);
-    x -= .5;
-    y-= .5;
+    //x -= .5;
+    //y-= .5;
   }
   
   void exploding(){
