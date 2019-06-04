@@ -4,7 +4,7 @@ class Pea implements Displayable, Moveable, Updateable{
   int row;
   PImage image;
   
-  Pea(float xcor, float ycor, int r, String type) {
+  Pea(float xcor, float ycor, int r) {
     x = xcor; y = ycor; row = r;
     
     //if (type == "peashooter"){
