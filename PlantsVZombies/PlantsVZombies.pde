@@ -29,6 +29,8 @@ boolean removedFromList;
 //=======
 Shovel s;
 PImage tint;
+PImage currentImage;
+PImage homescreen;
 //>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 void setup(){
@@ -53,6 +55,7 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
+  currentImage = homescreen;
 //<<<<<<< HEAD
   removedFromList = false;
 //=======
@@ -69,29 +72,16 @@ void setup(){
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
-//<<<<<<< HEAD
   backyard.makeChomper(0, 0);
-//<<<<<<< HEAD
 }
-//<<<<<<< HEAD
-
-//=======
-  
-//>>>>>>> a32bfb656f221ba2e3a5e576f9d0db8c3329d035
-//=======
-  //backyard.makeChomper(0, 0);
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
-//=======
-  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
-  //backyard.makeGardenZombie(0, 8);
-  //backyard.makeConeZombie(0, 6);
-  //backyard.makeBucketZombie(0, 7);
-
-//>>>>>>> genZombies
-  
 
 void draw(){
+  if (currentImage == homescreen){
+    background(homescreen)
+    startGame();
+    return;
+  }
+  if currentImage = board){
   noTint();
   background(board);
   displaySun();
@@ -103,14 +93,7 @@ void draw(){
   placePlant();
   backyard.enterZombies();
   //gameOver();
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
   imageMode(CENTER);
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-  
-  //for (Displayable thing: thingsToDisplay) thing.display();  
-  
   for (int x = 0; x < ListOfLawnmowers.size(); x++){
     ListOfLawnmowers.get(x).display();
     ListOfLawnmowers.get(x).update();
@@ -135,6 +118,8 @@ void draw(){
   backyard.setPlantableValues();
   s.update();
   s.display();
+  return;
+  }
 }
 //<<<<<<< HEAD
 //=======
