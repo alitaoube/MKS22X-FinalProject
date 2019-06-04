@@ -5,11 +5,14 @@ boolean[][] occupied;
 ArrayList<ArrayList<Zombies>> zombieLanes;
 ArrayList<ArrayList<Plant>> plantLanes;
 int[][] allZombies;
+int[] plantable;
 
   
   Board(){
     initializeBoard();
     initializeZombies();
+    plantable = new int[7];
+    for (int idx = 0; idx < plantable.length; idx ++) plantable[idx] = 0;
     occupied = new boolean[5][9];
   }
  
@@ -60,6 +63,21 @@ int[][] allZombies;
     //    if (allZombies[idx][1] == 2) makeBucketZombie(allZombies[idx][2], 8);
     //  }
     //}
+  }
+  
+  void setPlantableValues(){
+    for (int idx = 0; idx < plantable.length; idx ++){
+      if (plantable[idx] != 0){
+        if (idx < 3){
+          if (plantable[idx] < 300) plantable[idx] ++;
+          else plantable[idx] = 0;
+        }
+        else{
+          if (plantable[idx] < 900) plantable[idx] ++;
+          else plantable[idx] = 0;
+        }
+      }
+    }
   }
   
   Walnut makeWalnut(int r, int c){

@@ -82,6 +82,7 @@ void draw(){
   selectPlant();
   placePlant();
   backyard.enterZombies();
+  backyard.setPlantableValues();
   //gameOver();
 //<<<<<<< HEAD
   
@@ -125,13 +126,13 @@ void draw(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
-    if (mouseY > 610 && mouseY < 680) {selectedPlant = "flytrap"; return;}
-    if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
-    if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
-    if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
-    if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
-    if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
-    if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
+    if (mouseY > 610 && mouseY < 680 && sun >= 150 && backyard.plantable[3] == 0) {selectedPlant = "flytrap"; return;}
+    if (mouseY > 510 && mouseY < 580 && sun >= 25 && backyard.plantable[4] == 0) {selectedPlant = "potato"; return;}
+    if (mouseY > 410 && mouseY < 480 && sun >= 150 && backyard.plantable[5] == 0) {selectedPlant = "cherry"; return;}
+    if (mouseY > 310 && mouseY < 380 && sun >= 50 && backyard.plantable[6] == 0) {selectedPlant = "walnut"; return;}
+    if (mouseY > 210 && mouseY < 280 && sun >= 175 && backyard.plantable[0] == 0) {selectedPlant = "snowpea"; return;}
+    if (mouseY > 110 && mouseY < 180 && sun >= 100 && backyard.plantable[1] == 0) {selectedPlant = "peashooter"; return;}
+    if (mouseY > 10 && mouseY < 80 && sun >= 50  && backyard.plantable[2] == 0) {selectedPlant = "sunflower"; return;}
     else selected = false;
   }
 }
@@ -151,26 +152,32 @@ void placePlant(){
   }
   if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
     backyard.makePea(r, c);
+    backyard.plantable[1] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("sunflower") && !backyard.occupied(r, c)){
     backyard.makeSunflower(r, c);
+    backyard.plantable[2] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
     backyard.makeWalnut(r, c);
+    backyard.plantable[6] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
     backyard.makeCherryBomb(r, c);
+    backyard.plantable[5] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("snowpea") && !backyard.occupied(r, c)){
     backyard.makeSnowpea(r, c);
+    backyard.plantable[0] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("potato") && !backyard.occupied(r, c)){
     backyard.makePotato(r, c);
+    backyard.plantable[4] = 1;
     selected = false;
   }
 }
