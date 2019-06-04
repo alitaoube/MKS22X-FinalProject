@@ -18,9 +18,24 @@ class Potato extends Plant implements Updateable{
   void exploding(){
     for (int idx = 0; idx < ListOfZombies.size(); idx ++){
       Zombies z = ListOfZombies.get(idx);
-      if (timer >= 90 && abs(dist(this.x, this.y, z.x, z.y)) < 60) {this.health = 0; z.health = 0; z.cherried = true;}
+      System.out.println(timer >= 90);
+      System.out.println("BREAK");
+      System.out.println(abs(dist(this.x, this.y, z.x, z.y)) < 60);
+      
+      if (timer >= 90 && this.isTouching(z)) {
+      this.kill(); z.kill(); z.cherried = true;
+    }
     }
   }
+  
+  void kill(){
+    backyard.plantLanes.get(row).remove(this);
+    thingsToDisplay.remove(this);
+    ListOfZombies.remove(this);
+    thingsToMove.remove(this);
+    thingsToUpdate.remove(this);
+  }
+  
   void display(){
    image(image, x, y);
   }
