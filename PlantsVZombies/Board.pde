@@ -201,6 +201,17 @@ int[] plantable;
     return s;
   }
   
+  Chomper makeChomper(int r, int c){
+    Chomper s = new Chomper(r, c);
+    thingsToDisplay.add(s);
+    ListOfPlant.add(s);
+    plantLanes.get(r).add(s);
+    thingsToUpdate.add(s);
+    occupied[r][c] = true;
+    sun -= 150;
+    return s;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }

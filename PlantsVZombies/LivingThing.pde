@@ -28,10 +28,10 @@ abstract class LivingThing implements Displayable, Collideable{
   
   void display(){
     //image
-    if (spriteFrame/2 + 1 == localSprites.size()) spriteFrame = 0;
+    if (spriteFrame + 1 == localSprites.size()) spriteFrame = 0;
     else spriteFrame ++;
     if (localSprites.size() > 0){
-      image = localSprites.get(spriteFrame/2);
+      image = localSprites.get(spriteFrame);
       //delay(15);
     }
     imageMode(CENTER);
