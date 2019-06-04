@@ -41,7 +41,7 @@ class CherryBomb extends Plant implements Updateable{
      explode = true; 
     }
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
-    if (hasExploded && explode){
+    if (hasExploded && explode && ((explosionFrame + 90) < frameCount)){
       thingsToUpdate.remove(this);
       ListOfPlant.remove(this);
       backyard.occupied[row][col] = false;

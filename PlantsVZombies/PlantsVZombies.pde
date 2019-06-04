@@ -70,7 +70,7 @@ void draw(){
   selectPlant();
   placePlant();
   //gameOver();
-  for (Displayable thing: thingsToDisplay) thing.display();   
+  for (Displayable thing: thingsToDisplay) if (!(thing instanceof CherryBomb)) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
    thingsToUpdate.get(x).update(); 
   }
@@ -117,6 +117,7 @@ void placePlant(){
   }
   else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
     backyard.makeWalnut(r, c);
+    selected = false;
   }
   else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
     backyard.makeCherryBomb(r, c);
