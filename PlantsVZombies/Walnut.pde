@@ -18,7 +18,7 @@ class Walnut extends Plant implements Updateable{
     cracked2.resize(80, 80);
  }
  
- void update(){
+ void update(){   
   if (health <= 0){
     backyard.occupied[this.row][this.col] = false;      
     ListOfPlant.remove(this);

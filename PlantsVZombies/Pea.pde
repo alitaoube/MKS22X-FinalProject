@@ -2,14 +2,21 @@ class Pea implements Displayable, Moveable, Updateable{
  //testing branch 
   float x, y;
   int row;
+  PImage image;
   
-  Pea(float xcor, float ycor, int r) {
+  Pea(float xcor, float ycor, int r, String type) {
     x = xcor; y = ycor; row = r;
+    
+    //if (type == "peashooter"){
+      //image = loadImage("gpea");
+    //}
+    //else{
+      image = loadImage("gpea");
+    //}
   }
   
   void display(){
-    fill(0, 255, 0);
-    ellipse(x, y, 22, 22);
+    image(image, x, y);
   }
   
   void move(){x += 15;}

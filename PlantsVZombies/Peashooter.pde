@@ -7,7 +7,6 @@ int peaFrame;
      System.out.println(type);
      if (spriteNames[x].contains(type)) localSprites.add(sprites.get(x));
     }
-    
     peaFrame = 0;
     health = 100;
     for (int x = 0; x < localSprites.size(); x++){
@@ -17,7 +16,7 @@ int peaFrame;
 
   void makePea(){
     if (peaFrame >= 30 && !backyard.zombieLanes.get(this.row).isEmpty()){
-      Pea p = new Pea(this.x, this.y, this.row);
+      Pea p = new Pea(this.x, this.y, this.row, type);
       peas.add(p);
       thingsToDisplay.add(p);
       peaFrame = 0;
