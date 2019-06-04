@@ -53,14 +53,14 @@ void setup(){
   board = loadImage("images/board.jpg");
   backyard = new Board();
   
-  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
-
+  //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
   }
 
 void draw(){
+  //noTint();
   background(board);
   displaySun();
   displayPlantsBar();
@@ -70,15 +70,29 @@ void draw(){
   selectPlant();
   placePlant();
   //gameOver();
-  for (Displayable thing: thingsToDisplay) thing.display();   
-  for (int x = 0; x < thingsToUpdate.size(); x++){
-   thingsToUpdate.get(x).update(); 
+  
+  //for (Displayable thing: thingsToDisplay) thing.display();  
+  
+  for (int x = 0; x < ListOfPlant.size(); x++){
+    ListOfPlant.get(x).display(); 
+    ListOfPlant.get(x).update();
   }
+  for (int x = 0; x < ListOfZombies.size(); x++){
+    ListOfZombies.get(x).display();
+    ListOfZombies.get(x).update();
+  }
+  for (Sun s: ListOfSun) s.display();
+  
+  //for (int x = 0; x < thingsToUpdate.size(); x++){
+  // thingsToUpdate.get(x).update(); 
+  //}
   for (int x = 0; x < peas.size(); x++){
+   peas.get(x).display();
    peas.get(x).update(); 
   }
   board();
 }
+
 
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){

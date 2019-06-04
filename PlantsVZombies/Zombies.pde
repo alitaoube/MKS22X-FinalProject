@@ -30,10 +30,12 @@ void update(){
   
   if (timer == 0){
    noTint();
+   image = image;
    this.speed = 1;
   }
   else{
    tint(0, 153, 204);
+   image = image;
    this.speed = .5;
   }
   
