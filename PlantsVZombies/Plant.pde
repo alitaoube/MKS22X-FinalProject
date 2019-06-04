@@ -1,8 +1,8 @@
 abstract class Plant extends LivingThing{
   int cost;
   
-  Plant(int r, int c, String picture, String type, int price){
-    super(r, c, picture, type);
+  Plant(int r, int c, String type, int price){
+    super(r, c, type);
     cost = price;
   }
   

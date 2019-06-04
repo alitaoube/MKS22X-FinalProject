@@ -28,6 +28,7 @@ ArrayList<PImage> sprites;
 boolean removedFromList;
 //=======
 Shovel s;
+PImage tint;
 //>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 void setup(){
@@ -36,6 +37,8 @@ void setup(){
   sun = 10000;
   sunRate = 1;
   backyard = new Board();
+  tint = loadImage("images/tintsquare.png");
+  tint.resize(130,  75);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -80,6 +83,10 @@ void draw(){
   placePlant();
   backyard.enterZombies();
   backyard.setPlantableValues();
+  //gameOver();
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//=======
   imageMode(CENTER);
   
   for (int x = 0; x < ListOfLawnmowers.size(); x++){
@@ -105,8 +112,26 @@ void draw(){
   }  
   s.update();
   s.display();
-}
+  backyard.setPlantableValues();
+  s.update();
+  s.display();
+} 
+//=======
+  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
+  //for (int x = 0; x < thingsToUpdate.size(); x++){
+  // thingsToUpdate.get(x).update(); 
+  // if (removedFromList) x --;
+  // removedFromList = false;
+  //}
+  //for (int x = 0; x < peas.size(); x++){
+  // peas.get(x).display(); 
+//>>>>>>> genZombies
+//  board();
+//=======
+  
 
+ // board();
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 void selectPlant(){
   // if the mouse is pressed and is in the appropriate position, it selects the applicable plant (or shovel)

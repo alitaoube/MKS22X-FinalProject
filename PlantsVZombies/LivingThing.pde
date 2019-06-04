@@ -15,7 +15,7 @@ abstract class LivingThing implements Displayable, Collideable{
     alive = false;
   }
   
-  LivingThing(int r, int c, String picture, String Type){
+  LivingThing(int r, int c, String Type){
     //Coordinate[][] backyard = board();
     row = r; col = c; alive = true; type = Type; 
     spriteFrame = 0;

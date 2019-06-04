@@ -2,7 +2,7 @@ class Potato extends Plant implements Updateable{
   PImage image1, image2, spudow;
   int timer, timer2;
   Potato(int r, int c){
-    super(r, c, "potato.png", "potato", 25);
+    super(r, c, "potato", 25);
     image1 = loadImage("images/mine1.png");
     image = image1;
     image2 = loadImage("images/mine2.png");

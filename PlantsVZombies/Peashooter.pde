@@ -2,7 +2,7 @@ class Peashooter extends Plant implements Updateable{
 int peaFrame;
 
   Peashooter(int r, int c, String type, int price){
-    super(r, c, "images/Peashooter1.png", type, price);
+    super(r, c, type, price);
     for (int x = 0; x < spriteNames.length; x++){
      System.out.println(type);
      if (spriteNames[x].contains(type)) localSprites.add(sprites.get(x));

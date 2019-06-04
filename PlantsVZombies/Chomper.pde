@@ -6,7 +6,7 @@ class Chomper extends Plant implements Updateable{
  int timer;
  
  Chomper(int r, int c){
-  super(r, c, "chomper.png", "chomper", 175);
+  super(r, c, "chomper", 175);
   for (int x = 0; x < spriteNames.length; x++){
    if (spriteNames[x].contains("cEat")){
     eatingSprites.add(loadImage("images/" + spriteNames[x] + ".png")); 

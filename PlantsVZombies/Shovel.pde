@@ -4,7 +4,7 @@ class Shovel extends LivingThing implements Updateable, Displayable{
  int x, y;
 
  Shovel(){
-   super(0, 0, "shovel", "shovel");
+   super(0, 0, "shovel");
    thingsToDisplay.add(this);
    thingsToUpdate.add(this);
    image = loadImage("images/shovel.png");

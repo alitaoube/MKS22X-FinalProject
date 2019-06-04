@@ -3,7 +3,7 @@ class Sunflower extends Plant implements Updateable{
   int genSun;
   
   Sunflower(int r, int c){
-    super(r, c, "images/sunflower.png", "sunflower", 50);
+    super(r, c, "sunflower", 50);
     genSun = 0;
     health = 100;
     
