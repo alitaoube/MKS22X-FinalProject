@@ -4,11 +4,26 @@ Coordinate[][] board;
 boolean[][] occupied;
 ArrayList<ArrayList<Zombies>> zombieLanes;
 ArrayList<ArrayList<Plant>> plantLanes;
+int[][] allZombies;
 
   
   Board(){
     initializeBoard();
+    initializeZombies();
     occupied = new boolean[5][9];
+  }
+ 
+  void initializeZombies(){
+    allZombies = new int[25][3];
+    Random r = new Random();
+    for (int idx = 0; idx < allZombies.length; idx ++){
+      int entryTime = r.nextInt(195) + 15;
+      int type;
+      if (entryTime <= 60) type = 0;
+      else type = r.nextInt(3);
+      int col = r.nextInt(5);
+      allZombies[idx] = new int[] {entryTime, type, col};
+    }
   }
   
   void initializeBoard(){
@@ -31,6 +46,16 @@ ArrayList<ArrayList<Plant>> plantLanes;
       }
       y += 130;
       x = 420;
+    }
+  }
+  
+  void enterZombies(){
+    for (int idx = 0; idx < allZombies.length; idx ++){
+      if (allZombies[idx][0]*60 == frameCount){
+        if (allZombies[idx][1] == 0) makeGardenZombie(allZombies[idx][2], 8);
+        if (allZombies[idx][1] == 1) makeConeZombie(allZombies[idx][2], 8);
+        if (allZombies[idx][1] == 2) makeBucketZombie(allZombies[idx][2], 8);
+      }
     }
   }
   
