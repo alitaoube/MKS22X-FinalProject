@@ -28,6 +28,7 @@ ArrayList<PImage> sprites;
 boolean removedFromList;
 //=======
 Shovel s;
+PImage tint;
 //>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 void setup(){
@@ -36,6 +37,8 @@ void setup(){
   sun = 10000;
   sunRate = 1;
   backyard = new Board();
+  tint = loadImage("images/tintsquare.png");
+  tint.resize(130,  70);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -91,6 +94,8 @@ void setup(){
 void draw(){
   noTint();
   background(board);
+  //image(tint, 20, 300);
+  noTint();
   displaySun();
   displayPlantsBar();
   displayMouse();
@@ -130,6 +135,11 @@ void draw(){
    peas.get(x).display();
    peas.get(x).update(); 
   }
+  tint(255,  200);
+  image(tint, 20, 300);
+  s.update();
+  s.display();
+}
 //<<<<<<< HEAD
 //=======
   //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
@@ -144,11 +154,10 @@ void draw(){
 //  board();
 //=======
   
-  s.update();
-  s.display();
+
  // board();
 //>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-}
+
 
 
 void selectPlant(){
