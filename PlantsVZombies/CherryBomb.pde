@@ -4,8 +4,8 @@ class CherryBomb extends Plant implements Updateable{
   //float yImgSize;
   boolean explode;
   boolean hasExploded;
-  int explosionFrame;
-  PImage image;
+  int explosionFrame, timer;
+  PImage image, powie;
   
   CherryBomb(int r, int c){
     super(r, c, "images/cherrybomb.png", "CherryBomb", 150);
@@ -14,6 +14,7 @@ class CherryBomb extends Plant implements Updateable{
     explosionFrame = frameCount;
     image = loadImage("images/cherrybomb.png");
     image.resize(100, 100);
+    powie = loadImage("images/powie.png");
   }
   
   void display(){
@@ -22,7 +23,6 @@ class CherryBomb extends Plant implements Updateable{
       image(image, x, y);
     }
     else{
-      tint(0);
       imageMode(CENTER);
       image(image, x, y);
       noTint();
@@ -42,9 +42,15 @@ class CherryBomb extends Plant implements Updateable{
     }
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
     if (hasExploded && explode){
-      thingsToUpdate.remove(this);
-      ListOfPlant.remove(this);
-      backyard.occupied[row][col] = false;
+      if (timer < 15){
+        image = powie;
+        timer++;
+      }
+      else{
+        thingsToUpdate.remove(this);
+        ListOfPlant.remove(this);
+        backyard.occupied[row][col] = false;
+      }
     }
   }  
 
@@ -59,7 +65,14 @@ class CherryBomb extends Plant implements Updateable{
       Zombies z = ListOfZombies.get(idx);
       float myX = backyard.board[this.row][this.col].getX();
       float myY = backyard.board[this.row][this.col].getY();
-      if (abs(dist(this.x, this.y, z.x, z.y)) < 200) {z.health = 0; z.cherried = true;}
+      if (abs(dist(this.x, this.y, z.x, z.y)) < 200) {
+        //if (timer > 30){
+          z.health = 0; z.cherried = true;
+        //}
+        //else{
+          //timer++;
+        //}
+      }
     }
   }
   
