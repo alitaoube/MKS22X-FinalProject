@@ -28,7 +28,10 @@ void update(){
   
   if (this.timer > 0) this.timer--;
   
-  if (timer == 0) noTint();
+  if (timer == 0){
+   noTint();
+   this.speed = 1;
+  }
   else{
    tint(0, 153, 204);
    this.speed = .5;

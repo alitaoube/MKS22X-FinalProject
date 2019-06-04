@@ -27,7 +27,7 @@ ArrayList<PImage> sprites;
 void setup(){
   frameRate(60);
   sunFrame = 0;
-  sun = 100;
+  sun = 10000;
   sunRate = 1;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();

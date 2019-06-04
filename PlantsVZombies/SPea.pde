@@ -1,8 +1,9 @@
 class SPea extends Pea{
   int peaFrame;
 
-  SPea(float xcor, float ycor, int r, String type){
-    super(xcor, ycor, r, type);
+  SPea(float xcor, float ycor, int r){
+    super(xcor, ycor, r);
+    image = loadImage("images/spea.png");
   }
   
   void hitZombie(){
@@ -12,7 +13,7 @@ class SPea extends Pea{
       thingsToDisplay.remove(this);
       peas.remove(this);
       z.blue = true;
-      z.timer = 0;
+      z.timer = 180;
      }
   }
    

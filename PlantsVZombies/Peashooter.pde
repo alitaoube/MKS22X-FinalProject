@@ -16,7 +16,7 @@ int peaFrame;
 
   void makePea(){
     if (peaFrame >= 30 && !backyard.zombieLanes.get(this.row).isEmpty()){
-      Pea p = new Pea(this.x, this.y, this.row, type);
+      Pea p = new Pea(this.x, this.y, this.row);
       peas.add(p);
       thingsToDisplay.add(p);
       peaFrame = 0;

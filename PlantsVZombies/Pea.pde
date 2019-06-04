@@ -11,7 +11,7 @@ class Pea implements Displayable, Moveable, Updateable{
       //image = loadImage("gpea");
     //}
     //else{
-      image = loadImage("gpea");
+      image = loadImage("images/pea.png");
     //}
   }
   
