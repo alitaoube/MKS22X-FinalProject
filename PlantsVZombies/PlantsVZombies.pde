@@ -87,9 +87,10 @@ void draw(){
     ListOfZombies.get(x).update();
     ListOfZombies.get(x).display();
   }
-  for (int x = 0; x < ListOfSun.size(); x++){
-   ListOfSun.get(x).display(); 
-   ListOfSun.get(x).update(); 
+  
+  for (int x = ListOfSun.size() - 1; x >= 0; x--){
+    ListOfSun.get(x).update(); 
+    ListOfSun.get(x).display(); 
   }
   
   //for (int x = 0; x < thingsToUpdate.size(); x++){
@@ -153,6 +154,7 @@ void placePlant(){
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);
   PImage Sun = loadImage("images/sun.jpg");  
+  noTint();
   imageMode(CENTER);
   image(Sun, Sun.width /2 + 138 + 11, Sun.height / 2 + 7);
   fill(252, 237, 178);
@@ -190,7 +192,7 @@ void collectSun(){
       thingsToDisplay.remove(suns.get(idx));
       suns.remove(idx);
       sun += 25;
-      //ListOfSun.remove(idx);
+      ListOfSun.remove(idx);
     }
   }
 }
