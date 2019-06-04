@@ -16,11 +16,19 @@ class Chomper extends Plant implements Updateable{
    }
    save = localSprites;
   }
+  health = 100;
   ate = loadImage("images/cEat14.png");
   image = localSprites.get(0);
  }
  
  void update(){
+   if (health <= 0){
+    thingsToDisplay.remove(this);
+    ListOfPlant.remove(this);
+    backyard.plantLanes.get(row).remove(this);
+    thingsToUpdate.remove(this);
+    backyard.occupied[row][col] = true;
+   }
    for (int idx = 0; idx < ListOfZombies.size(); idx ++){
     Zombies z = ListOfZombies.get(idx);    
       if (eaten == false && this.isTouching(z)){
