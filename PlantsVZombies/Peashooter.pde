@@ -26,6 +26,8 @@ int peaFrame;
   
   void update(){
     makePea();
+    if (type == "peashooter") image.resize(80, 80);
+    
     if (health <= 0){
       backyard.occupied[this.row][this.col] = false;
       ListOfPlant.remove(this);
