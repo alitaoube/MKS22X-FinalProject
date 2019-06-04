@@ -55,6 +55,7 @@ void update(){
    void kill(){
      ListOfZombies.remove(this);
      thingsToDisplay.remove(this);
+     thingsToUpdate.remove(this);
      thingsToMove.remove(this);
      backyard.zombieLanes.get(this.row).remove(this);
    }
