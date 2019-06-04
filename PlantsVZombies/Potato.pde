@@ -34,6 +34,7 @@ class Potato extends Plant implements Updateable{
     ListOfZombies.remove(this);
     thingsToMove.remove(this);
     thingsToUpdate.remove(this);
+    ListOfPlant.remove(this);
   }
   
   void display(){
