@@ -24,7 +24,6 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
-PImage shovel;
 
 void setup(){
   frameRate(60);
@@ -45,8 +44,6 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
-  shovel = loadImage("images/shovel.png");
-  shovel.resize(65, 65);
   
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
@@ -75,10 +72,8 @@ void draw(){
   backyard.makeSunSky();
   selectPlant();
   placePlant();
-  updateShovel();
   //gameOver();
   imageMode(CENTER);
-  image(shovel, 350 + shovel.width / 2, shovel.height / 2);
   
   //for (Displayable thing: thingsToDisplay) thing.display();  
   
@@ -118,14 +113,10 @@ void selectPlant(){
     else if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
     else if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
     else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
+    else if (mouseY > 0 && mouseY < 80 && mouseX < 430){selectedPlant = "shovel"; return;}
     
     else selected = false;
   }
-  else if (mousePressed && mouseY > 0 && mouseY < shovel.height && mouseX < 350 + shovel.width){
-    System.out.println("HEREEE");
-     selectedPlant = "shovel"; 
-     return;
-    }
   }
 
 void placePlant(){
@@ -207,12 +198,6 @@ void displayMouse(){
   else {
     text("X: " + mouseX + "  Y: " + mouseY, mouseX - 100, mouseY - 30);
   }
-}
-
-void updateShovel(){
- if (selectedPlant == "shovel"){
-  image(shovel, mouseX, mouseY); 
- }
 }
 
 void collectSun(){
