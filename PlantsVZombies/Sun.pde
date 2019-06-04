@@ -13,9 +13,12 @@ class Sun implements Displayable, Moveable, Updateable{
   }
   
   void display(){
+    noTint();
     image(image, x, y);
   }
-  void update(){if (y < finalY) move();}
+  void update(){
+    if (y < finalY) move();
+  }
   void move(){
     y += 2;
   }

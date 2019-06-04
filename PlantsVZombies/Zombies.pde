@@ -46,7 +46,7 @@ void update(){
     tint(0); 
     display(); 
     noTint(); 
-    thingsToUpdate.remove(this);
+    this.kill();
     return;
   }
   dead();
