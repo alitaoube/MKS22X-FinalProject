@@ -1,8 +1,10 @@
-class Shovel implements Updateable, Displayable{
+class Shovel extends LivingThing implements Updateable, Displayable{
  PImage image;
  boolean selected;
  int x, y;
+
  Shovel(){
+   super(0, 0, "shovel", "shovel");
    thingsToDisplay.add(this);
    thingsToUpdate.add(this);
    image = loadImage("images/shovel.png");
@@ -12,7 +14,7 @@ class Shovel implements Updateable, Displayable{
  }
  
  void display(){
-  if (selected){
+  if (this.selected){
    image(image, x, y);
    image(image, mouseX, mouseY);  
   }
@@ -22,7 +24,12 @@ class Shovel implements Updateable, Displayable{
  }
  
  void update(){
-   
+   for (int i = 0; i < backyard.plantLanes.size(); i++){
+    for (int z = 0; z < backyard.plantLanes.get(i).size(); z++){
+     Plant p = backyard.plantLanes.get(i).get(z);
+     if (this.isTouching(p)) p.kill();
+    }
+   }
  }
 }
 

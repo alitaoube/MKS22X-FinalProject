@@ -110,6 +110,7 @@ void draw(){
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
+    s.selected = false;
     System.out.println("HERE3");
     if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
     else if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
@@ -117,11 +118,10 @@ void selectPlant(){
     else if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
     else if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
     else if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
-    else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
-    else if (mouseY > 0 && mouseY < 80 && mouseX < 430){selectedPlant = "shovel"; return;}
-    
+    else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}    
     else selected = false;
   }
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){System.out.println("HEEREREE");selectedPlant = "shovel"; s.selected = true; return;}
   }
 
 void placePlant(){
@@ -165,8 +165,8 @@ void placePlant(){
     selected = false;
   }
   else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
-   System.out.println(backyard.plantLanes.get(r).get(c));
-   selected = false;
+    s.selected = true;
+    selected = false;
   }
 }
 
