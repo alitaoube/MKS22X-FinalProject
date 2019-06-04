@@ -1,15 +1,16 @@
-class Potato extends LivingThing{
+class Potato extends Plant implements Updateable{
   PImage image1, image2;
   int timer;
   Potato(int r, int c){
-    super(r, c, "potato.png", "potato");
+    super(r, c, "potato.png", "potato", 25);
     image1 = loadImage("images/mine1.png");
-    image2 = loadImage("images/potato2.png");
+    image = image1;
+    image2 = loadImage("images/mine2.png");
   }
   
   void update(){
     if (timer >= 90) image = image2;
-    else image = image1;
+    else timer++;
     
     exploding();
   }
@@ -17,7 +18,10 @@ class Potato extends LivingThing{
   void exploding(){
     for (int idx = 0; idx < ListOfZombies.size(); idx ++){
       Zombies z = ListOfZombies.get(idx);
-      if (abs(dist(this.x, this.y, z.x, z.y)) < 200) {z.health = 0; z.cherried = true;}
+      if (timer >= 90 && abs(dist(this.x, this.y, z.x, z.y)) < 60) {this.health = 0; z.health = 0; z.cherried = true;}
     }
+  }
+  void display(){
+   image(image, x, y);
   }
 }

@@ -143,6 +143,17 @@ ArrayList<ArrayList<Plant>> plantLanes;
     return s;
   }
   
+  Potato makePotato(int r, int c){
+    Potato s = new Potato(r, c);
+    thingsToDisplay.add(s);
+    ListOfPlant.add(s);
+    plantLanes.get(r).add(s);
+    thingsToUpdate.add(s);
+    occupied[r][c] = true;
+    sun -= 25;
+    return s;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }

@@ -145,7 +145,12 @@ void placePlant(){
   else if (selectedPlant.equals("snowpea") && !backyard.occupied(r, c)){
     backyard.makeSnowpea(r, c);
     selected = false;
-  }}
+  }
+  else if (selectedPlant.equals("potato") && !backyard.occupied(r, c)){
+    backyard.makePotato(r, c);
+    selected = false;
+  }
+}
 
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);
