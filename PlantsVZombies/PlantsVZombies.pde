@@ -62,7 +62,7 @@ void setup(){
   }
 
 void draw(){
-  //noTint();
+  noTint();
   background(board);
   displaySun();
   displayPlantsBar();
@@ -87,7 +87,10 @@ void draw(){
     ListOfZombies.get(x).display();
     ListOfZombies.get(x).update();
   }
-  for (Sun s: ListOfSun) s.display();
+  for (int x = 0; x < ListOfSun; x++){
+   ListOfSun.get(x).display(); 
+   ListOfSun.get(x).update(); 
+  }
   
   //for (int x = 0; x < thingsToUpdate.size(); x++){
   // thingsToUpdate.get(x).update(); 
