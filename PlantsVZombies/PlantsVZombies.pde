@@ -83,11 +83,11 @@ void draw(){
     ListOfPlant.get(x).display(); 
     ListOfPlant.get(x).update();
   }
-  for (int x = 0; x < ListOfZombies.size(); x++){
-    ListOfZombies.get(x).display();
+  for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
     ListOfZombies.get(x).update();
+    ListOfZombies.get(x).display();
   }
-  for (int x = 0; x < ListOfSun; x++){
+  for (int x = 0; x < ListOfSun.size(); x++){
    ListOfSun.get(x).display(); 
    ListOfSun.get(x).update(); 
   }
