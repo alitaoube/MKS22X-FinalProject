@@ -38,7 +38,7 @@ void setup(){
   sunRate = 1;
   backyard = new Board();
   tint = loadImage("images/tintsquare.png");
-  tint.resize(130,  70);
+  tint.resize(130,  75);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -94,8 +94,6 @@ void setup(){
 void draw(){
   noTint();
   background(board);
-  //image(tint, 20, 300);
-  noTint();
   displaySun();
   displayPlantsBar();
   displayMouse();
@@ -104,7 +102,6 @@ void draw(){
   selectPlant();
   placePlant();
   backyard.enterZombies();
-  backyard.setPlantableValues();
   //gameOver();
 //<<<<<<< HEAD
 //<<<<<<< HEAD
@@ -135,8 +132,7 @@ void draw(){
    peas.get(x).display();
    peas.get(x).update(); 
   }
-  tint(255,  200);
-  image(tint, 20, 300);
+  backyard.setPlantableValues();
   s.update();
   s.display();
 }

@@ -76,6 +76,15 @@ int[] plantable;
           if (plantable[idx] < 900) plantable[idx] ++;
           else plantable[idx] = 0;
         }
+        tint(255, 200);
+        if (idx == 0) image(tint, 69, 237);
+        if (idx == 1) image(tint, 69, 137);
+        if (idx == 2) image(tint, 69, 40);
+        if (idx == 3) image(tint, 69, 632);
+        if (idx == 4) image(tint, 69, 535);
+        if (idx == 5) image(tint, 69, 435);
+        if (idx == 6) image(tint, 69, 335);
+        noTint();
       }
     }
   }
