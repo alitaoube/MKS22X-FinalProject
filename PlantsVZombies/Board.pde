@@ -62,6 +62,7 @@ ArrayList<ArrayList<Plant>> plantLanes;
     thingsToMove.add(s);
     sunFrame = 0;
     thingsToUpdate.add(s);
+    ListOfSun.add(s);
   }
   sunFrame++;
 }
