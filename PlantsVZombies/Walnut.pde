@@ -25,12 +25,16 @@ class Walnut extends Plant implements Updateable{
  // display();
  //>>>>>>> genZombies
   if (health <= 0){
+//<<<<<<< HEAD
     backyard.occupied[this.row][this.col] = false;      
     ListOfPlant.remove(this);
     thingsToDisplay.remove(this);
     backyard.plantLanes.get(this.row).remove(this);
     thingsToUpdate.remove(this);
     removedFromList = true;
+//=======
+    kill();
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
   }
  }
  

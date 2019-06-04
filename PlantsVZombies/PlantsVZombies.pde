@@ -24,13 +24,18 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
+//<<<<<<< HEAD
 boolean removedFromList;
+//=======
+Shovel s;
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 void setup(){
   frameRate(60);
   sunFrame = 0;
   sun = 10000;
   sunRate = 1;
+  backyard = new Board();
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -45,19 +50,23 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
+//<<<<<<< HEAD
   removedFromList = false;
+//=======
+  s = new Shovel();
+  
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
-    
   }
   
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
-  backyard = new Board();
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
+//<<<<<<< HEAD
   backyard.makeChomper(0, 0);
 //<<<<<<< HEAD
 }
@@ -66,6 +75,9 @@ void setup(){
 //=======
   
 //>>>>>>> a32bfb656f221ba2e3a5e576f9d0db8c3329d035
+//=======
+  //backyard.makeChomper(0, 0);
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
 //=======
   //backyard.makePea(0, 0);//new Peashooter(0, 1, "images/Peashooter.png", "normal", 100); 
@@ -90,6 +102,10 @@ void draw(){
   backyard.setPlantableValues();
   //gameOver();
 //<<<<<<< HEAD
+//<<<<<<< HEAD
+//=======
+  imageMode(CENTER);
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
   
   //for (Displayable thing: thingsToDisplay) thing.display();  
   
@@ -114,6 +130,7 @@ void draw(){
    peas.get(x).display();
    peas.get(x).update(); 
   }
+//<<<<<<< HEAD
 //=======
   //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
   //for (int x = 0; x < thingsToUpdate.size(); x++){
@@ -125,12 +142,19 @@ void draw(){
   // peas.get(x).display(); 
 //>>>>>>> genZombies
 //  board();
+//=======
+  
+  s.update();
+  s.display();
+ // board();
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 }
 
 
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
+//<<<<<<< HEAD
 //<<<<<<< HEAD
     if (mouseY > 610 && mouseY < 680 && sun >= 150 && backyard.plantable[3] == 0) {selectedPlant = "chomper"; return;}
     if (mouseY > 510 && mouseY < 580 && sun >= 25 && backyard.plantable[4] == 0) {selectedPlant = "potato"; return;}
@@ -139,6 +163,10 @@ void selectPlant(){
     if (mouseY > 210 && mouseY < 280 && sun >= 175 && backyard.plantable[0] == 0) {selectedPlant = "snowpea"; return;}
     if (mouseY > 110 && mouseY < 180 && sun >= 100 && backyard.plantable[1] == 0) {selectedPlant = "peashooter"; return;}
     if (mouseY > 10 && mouseY < 80 && sun >= 50  && backyard.plantable[2] == 0) {selectedPlant = "sunflower"; return;}
+    selected = false;
+  }
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){System.out.println("HEEREREE");selectedPlant = "shovel"; s.selected = true; return;}
+}
 //=======
 //    if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
 //    if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
@@ -148,9 +176,18 @@ void selectPlant(){
 //    if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
 //    if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
 //>>>>>>> a32bfb656f221ba2e3a5e576f9d0db8c3329d035
-    else selected = false;
-  }
-}
+//=======
+    //s.selected = false;
+    //System.out.println("HERE3");
+//    if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
+//    else if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
+//    else if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
+//    else if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
+//    else if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
+//    else if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
+//    else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}    
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
+//    else selected = false;
 
 void placePlant(){
   if (!(selected && mousePressed && backyard.mouseOn())) return;
@@ -198,6 +235,10 @@ void placePlant(){
   else if (selectedPlant.equals("chomper") && !backyard.occupied(r, c)){
     backyard.makeChomper(r, c);
     backyard.plantable[3] = 1;
+    selected = false;
+  }
+  else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
+    s.selected = true;
     selected = false;
   }
 }

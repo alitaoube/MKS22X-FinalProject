@@ -88,7 +88,6 @@ int[] plantable;
     thingsToDisplay.add(w);
     occupied[r][c] = true;
     sun -= 50;
-    
     return w;
   }
   
