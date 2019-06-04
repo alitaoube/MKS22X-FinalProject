@@ -19,11 +19,14 @@ class Walnut extends Plant implements Updateable{
  }
  
  void update(){
+  display();
   if (health <= 0){
     backyard.occupied[this.row][this.col] = false;      
     ListOfPlant.remove(this);
     thingsToDisplay.remove(this);
     backyard.plantLanes.get(this.row).remove(this);
+    thingsToUpdate.remove(this);
+    removedFromList = true;
   }
  }
  
@@ -37,10 +40,10 @@ class Walnut extends Plant implements Updateable{
       image(cracked1, x, y); 
     }
     else{
-      if (frameCount + 1 == localSprites.size()) frameCount = 0;
-      else frameCount++;
+      if (spriteFrame + 1 == localSprites.size()) spriteFrame = 0;
+      else spriteFrame++;
       if (localSprites.size() > 0){
-        image = localSprites.get(frameCount);
+        image = localSprites.get(spriteFrame);
         //delay(15);
       }
       imageMode(CENTER);

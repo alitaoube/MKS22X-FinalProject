@@ -17,9 +17,9 @@ int[][] allZombies;
     allZombies = new int[25][3];
     Random r = new Random();
     for (int idx = 0; idx < allZombies.length; idx ++){
-      int entryTime = r.nextInt(195) + 15;
+      int entryTime = r.nextInt(120);
       int type;
-      if (entryTime <= 60) type = 0;
+      if (entryTime <= 30) type = 0;
       else type = r.nextInt(3);
       int col = r.nextInt(5);
       allZombies[idx] = new int[] {entryTime, type, col};
@@ -72,16 +72,16 @@ int[][] allZombies;
   }
   
  void makeSunSunflower(int r, int c){
-    Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55);
+    Sun s = new Sun(board[r][c].x + 55, board[r][c].y - 55, false);
     thingsToDisplay.add(s);
-    //thingsToUpdate.add(s);
+    thingsToUpdate.add(s);
     suns.add(s);
     //print("made");
  }
  
  void makeSunSky(){
   if (sunFrame > 60 && suns.size() < 10){
-    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0);//r.nextInt(720-130) + 130);
+    Sun s = new Sun(r.nextInt(1300-380-30) + 410, 0, true);//r.nextInt(720-130) + 130);
     thingsToDisplay.add(s);
     suns.add(s);
     thingsToMove.add(s);

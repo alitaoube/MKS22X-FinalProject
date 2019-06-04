@@ -23,6 +23,7 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
+boolean removedFromList;
 
 void setup(){
   frameRate(60);
@@ -42,7 +43,7 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
-  
+  removedFromList = false;
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
     
@@ -71,12 +72,14 @@ void draw(){
   placePlant();
   backyard.enterZombies();
   //gameOver();
-  for (Displayable thing: thingsToDisplay) if (!(thing instanceof CherryBomb)) thing.display();   
+  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
   for (int x = 0; x < thingsToUpdate.size(); x++){
    thingsToUpdate.get(x).update(); 
+   if (removedFromList) x --;
+   removedFromList = false;
   }
   for (int x = 0; x < peas.size(); x++){
-   peas.get(x).update(); 
+   peas.get(x).display(); 
   }
   board();
 }
@@ -164,6 +167,7 @@ void collectSun(){
   for (int idx = 0; idx < suns.size(); idx ++){
     if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15){
       thingsToDisplay.remove(suns.get(idx));
+      thingsToUpdate.remove(suns.get(idx));
       suns.remove(idx);
       sun += 25;
       //ListOfSun.remove(idx);

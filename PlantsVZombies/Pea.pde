@@ -40,11 +40,14 @@ class Pea implements Displayable, Moveable, Updateable{
       Zombies z = this.findZombie();
       z.health -= 20;
       thingsToDisplay.remove(this);
+      thingsToUpdate.remove(this);
       peas.remove(this);
+      removedFromList = true;
      }
    }
 
   void update(){
+    //display();
     this.hitZombie();
     this.move();
   }

@@ -20,19 +20,23 @@ int peaFrame;
       Pea p = new Pea(this.x, this.y, this.row);
       peas.add(p);
       thingsToDisplay.add(p);
+      thingsToUpdate.add(p);
       peaFrame = 0;
     }
     peaFrame++;
   }
   
   void update(){
+    display();
     makePea();
     if (health <= 0){
       backyard.occupied[this.row][this.col] = false;
       ListOfPlant.remove(this);
       thingsToDisplay.remove(this);
+      thingsToUpdate.remove(this);
       peashooters.remove(this);
       backyard.plantLanes.get(this.row).remove(this);
+      removedFromList = true;
     }
   }
   

@@ -45,6 +45,7 @@ class CherryBomb extends Plant implements Updateable{
       thingsToUpdate.remove(this);
       ListOfPlant.remove(this);
       backyard.occupied[row][col] = false;
+      removedFromList = true;
     }
   }  
 
