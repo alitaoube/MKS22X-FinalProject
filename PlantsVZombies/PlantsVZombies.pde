@@ -24,6 +24,7 @@ boolean gameOver;
 Board backyard;
 String[] spriteNames;
 ArrayList<PImage> sprites;
+Shovel s;
 
 void setup(){
   frameRate(60);
@@ -44,6 +45,7 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
+  s = new Shovel();
   
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
@@ -98,6 +100,9 @@ void draw(){
    peas.get(x).display();
    peas.get(x).update(); 
   }
+  
+  s.update();
+  s.display();
   board();
 }
 

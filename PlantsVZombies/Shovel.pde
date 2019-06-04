@@ -1,11 +1,14 @@
-class Shovel implements Updateable{
+class Shovel implements Updateable, Displayable{
  PImage image;
  boolean selected;
  int x, y;
  Shovel(){
-   x = 350 + shovel.width / 2;
-   y = shovel.height / 2;
+   thingsToDisplay.add(this);
+   thingsToUpdate.add(this);
    image = loadImage("images/shovel.png");
+   image.resize(60, 60);
+   x = 350 + image.width / 2;
+   y = image.height / 2;
  }
  
  void display(){
@@ -16,6 +19,10 @@ class Shovel implements Updateable{
   else{
    image(image, x, y);
   }
+ }
+ 
+ void update(){
+   
  }
 }
 
