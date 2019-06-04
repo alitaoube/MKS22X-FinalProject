@@ -87,7 +87,7 @@ void selectPlant(){
     if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
     if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
     if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
-    if (mouseY > 210 && mouseY < 280) {selectedPlant = "snowpea"; return;}
+    if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
     if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
     if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
     else selected = false;
@@ -122,7 +122,10 @@ void placePlant(){
     backyard.makeCherryBomb(r, c);
     selected = false;
   }
-}
+  else if (selectedPlant.equals("snowpea") && !backyard.occupied(r, c)){
+    backyard.makeSnowpea(r, c);
+    selected = false;
+  }}
 
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);

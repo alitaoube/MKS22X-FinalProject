@@ -1,12 +1,12 @@
 abstract class Zombies extends LivingThing implements Moveable, Collideable, Updateable{
   int health;
-  int speed;
+  float speed;
   int cherryFrame;
   boolean cherried;
   boolean blue;
   int timer;
 
-  Zombies(int r, int c, String picture, String type, int hp, int spd){
+  Zombies(int r, int c, String picture, String type, int hp, float spd){
     super(r,  c, picture, type);
     
     for (int x = 0; x < spriteNames.length; x++){
@@ -25,6 +25,14 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
   }
   
 void update(){
+  
+  if (this.timer > 0) this.timer--;
+  
+  if (timer == 0) noTint();
+  else{
+   tint(0, 153, 204);
+   this.speed = .5;
+  }
   
   if (x <= 370) gameOver = true;
   
@@ -73,6 +81,6 @@ void dead(){
 }
  
  void move(){
-  x-=1; 
+  x-=1 * speed; 
  }
 }

@@ -131,6 +131,17 @@ ArrayList<ArrayList<Plant>> plantLanes;
     return z;
   }
   
+  Snowpea makeSnowpea(int r, int c){
+    Snowpea s = new Snowpea(r, c);
+    thingsToDisplay.add(s);
+    ListOfPlant.add(s);
+    plantLanes.get(r).add(s);
+    thingsToUpdate.add(s);
+    occupied[r][c] = true;
+    sun -= 175;
+    return s;
+  }
+  
   boolean occupied(int r, int c){
     return occupied[r][c];
   }
