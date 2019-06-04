@@ -13,6 +13,7 @@ ArrayList<Sun> ListOfSun;
 ArrayList<Pea> peas;
 ArrayList<Sunflower> sunflowers;
 ArrayList<Updateable> thingsToUpdate;
+ArrayList<Lawnmower> ListOfLawnmowers;
 int sun, sunRate;
 int sunFrame;
 Random r;
@@ -35,6 +36,7 @@ void setup(){
   ListOfZombies = new ArrayList<Zombies>();
   ListOfPlant = new ArrayList<Plant>();
   ListOfSun = new ArrayList<Sun>();
+  ListOfLawnmowers = new ArrayList<Lawnmower>();
   suns = new ArrayList<Sun>();
   peashooters = new ArrayList<Peashooter>();
   peas = new ArrayList<Pea>();
@@ -73,6 +75,10 @@ void draw(){
   
   //for (Displayable thing: thingsToDisplay) thing.display();  
   
+  for (int x = 0; x < ListOfLawnmowers.size(); x++){
+    ListOfLawnmowers.get(x).display();
+    ListOfLawnmowers.get(x).update();
+  }
   for (int x = 0; x < ListOfPlant.size(); x++){
     ListOfPlant.get(x).display(); 
     ListOfPlant.get(x).update();

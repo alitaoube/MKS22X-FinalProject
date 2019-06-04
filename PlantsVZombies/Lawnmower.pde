@@ -24,6 +24,7 @@ class Lawnmower implements Updateable, Displayable{
     
     thingsToUpdate.add(this);
     thingsToDisplay.add(this);
+    ListOfLawnmowers.add(this);
   }
   
   void display(){
