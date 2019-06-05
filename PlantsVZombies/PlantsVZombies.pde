@@ -142,38 +142,21 @@ void draw(){
   }
 //<<<<<<< HEAD
   if (mode.equals("demo")){
-    //codey stuff"
+    sun = 10000;
+    startGame();
+    background(board);
+    imageMode(CORNER);
+    image(menu, width - 119, 0);
+    displaySun();
+    displayPlantsBar();
+    displayMouse();
+    collectSun();
+    backyard.makeSunSky();
+    selectPlant();
+    placePlant();
+
   }
 }
-
-
-//  noTint();
-//  background(board);
-//  displaySun();
-//  displayPlantsBar();
-//  displayMouse();
-//  collectSun();
-//  backyard.makeSunSky();
-//  selectPlant();
-//  placePlant();
-//  backyard.enterZombies();
-//  backyard.setPlantableValues();
-//  //gameOver();
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-////=======
-//  imageMode(CENTER);
-  
-//  for (int x = 0; x < ListOfLawnmowers.size(); x++){
-//    ListOfLawnmowers.get(x).display();
-//    ListOfLawnmowers.get(x).update();
-//  }
-//  for (int x = 0; x < ListOfPlant.size(); x++){
-//    ListOfPlant.get(x).display(); 
-//    ListOfPlant.get(x).update();
-//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
-//  }
-
 
 void startGame(){
   if (mode.equals("home"))
@@ -216,22 +199,6 @@ void clearLists(){
   s.update();
   s.display();
 }
-//=======
-  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
-  //for (int x = 0; x < thingsToUpdate.size(); x++){
-  // thingsToUpdate.get(x).update(); 
-  // if (removedFromList) x --;
-  // removedFromList = false;
-  //}
-  //for (int x = 0; x < peas.size(); x++){
-  // peas.get(x).display(); 
-//>>>>>>> genZombies
-//  board();
-//=======
-  
-
- // board();
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
 
 //>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
 void selectPlant(){
