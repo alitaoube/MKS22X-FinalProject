@@ -6,7 +6,7 @@ Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essen
 
 ### Featuring
 
-*A diverse array of characters* - We have implemented SEVEN - that's right *SEVEN* types of plants. These range from the basic sunflower and peashooter to the much more complex and nuanced Chomper Plant, which gobbles up one approaching zombie and then enters a cooldown, and the Snowpea, which, upon hitting any zombies, slows them down for a period of time and tints them blue. We have also implemented three types of zombies - your garden variety zombie, and the cone and bucket zombies , which have slightly more health until they drop their respective hats!
+*A diverse array of characters* - We have implemented SEVEN - that's right - *SEVEN* types of plants. These range from the basic sunflower and peashooter to the much more complex and nuanced Chomper Plant, which gobbles up one approaching zombie and then enters a cooldown, and the Snowpea, which, upon hitting any zombies, slows them down for a period of time and tints them blue. We have also implemented three types of zombies - your garden variety zombie, and the cone and bucket zombies , which have slightly more health until they drop their respective hats!
 
 *The Tracking System* - To keep track of everything on the screen, we used two arraylists and one array. One arraylist was used to keep track of the plants, the other to keep track of the zombies, and the array to check if each position on the board is occupied. This allowed us to have each plant check if its specfic row was occupied, instead of the whole list of zombies.
 
