@@ -330,6 +330,7 @@ void displaySun(){
   //textFont(font);
   fill(0, 0, 0);
   // cover the rectangle with the amount of sun you have
+  textSize(30);
   text(sun + "", 240, 48);
 }
 
