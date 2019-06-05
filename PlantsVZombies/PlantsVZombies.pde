@@ -250,7 +250,10 @@ void selectPlant(){
     if (mouseY > 10 && mouseY < 80 && sun >= 50  && backyard.plantable[2] == 0) {selectedPlant = "sunflower"; return;}
     selected = false;
   }
-  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){System.out.println("HEEREREE");selectedPlant = "shovel"; s.selected = true; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){selectedPlant = "shovel"; s.selected = true; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 450 && mouseX < 520){selected = true; selectedPlant = "garden"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 550 && mouseX < 620){selected = true; selectedPlant = "cone"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 650 && mouseX < 730){selected = true; selectedPlant = "bucket"; return;}
 }
 
 void placePlant(){
@@ -306,6 +309,18 @@ void placePlant(){
   }
   else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
     s.selected = true;
+    selected = false;
+  }
+  else if (selectedPlant.equals("garden") && backyard.occupied(r, c)){
+    backyard.makeGardenZombie(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("cone")){
+    backyard.makeConeZombie(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("bucket")){
+    backyard.makeConeZombie(r, c);
     selected = false;
   }
 }
