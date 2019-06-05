@@ -29,6 +29,7 @@ class Lawnmower implements Updateable, Displayable{
   }
   
   void display(){
+   noTint();
    image(image, x, y);
   }
   
@@ -47,6 +48,7 @@ class Lawnmower implements Updateable, Displayable{
 
    }
    
+   // loops through all zombies in that specific row
    for (int i = 0; i < backyard.zombieLanes.get(this.row).size(); i++){
      Zombies z = backyard.zombieLanes.get(this.row).get(i);
      if (Math.abs(z.x - this.x) <= 40) {
@@ -54,6 +56,7 @@ class Lawnmower implements Updateable, Displayable{
        triggered = true;
    }
   }
+  // if it has been triggered it travels across the row
    if (triggered == true) move();
 }
 }

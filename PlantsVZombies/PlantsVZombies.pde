@@ -63,10 +63,7 @@ void setup(){
   gardenZomb = loadImage("images/zombie1.png");
   coneZomb = loadImage("images/coneZomb.png");
   bucketZomb = loadImage("images/bucketZomb.png");
-  
   new Lawnmower(); // There isn't a need to store the lawnmowers because the constructor just makes all 5 lawnmowers and places them, and adds them to update list
-//<<<<<<< HEAD
-//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
   removedFromList = false;
   s = new Shovel();
   for (int x = 0; x < spriteNames.length; x++){
@@ -79,7 +76,6 @@ void setup(){
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
-//<<<<<<< HEAD
 } 
 
 void draw(){
@@ -305,7 +301,7 @@ void placePlant(){
     s.selected = true;
     selected = false;
   }
-  else if (selectedPlant.equals("garden") && backyard.occupied(r, c)){
+  else if (selectedPlant.equals("garden")){
     backyard.makeGardenZombie(r, c);
     selected = false;
   }

@@ -6,13 +6,7 @@ class Pea implements Displayable, Moveable, Updateable{
   
   Pea(float xcor, float ycor, int r) {
     x = xcor; y = ycor; row = r;
-    
-    //if (type == "peashooter"){
-      //image = loadImage("gpea");
-    //}
-    //else{
-      image = loadImage("images/pea.png");
-    //}
+    image = loadImage("images/pea.png");
   }
   
   void display(){
