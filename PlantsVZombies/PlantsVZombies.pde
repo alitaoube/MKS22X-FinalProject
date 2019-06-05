@@ -100,7 +100,7 @@ void draw(){
     background(board);
     displaySun();
     displayPlantsBar();
-    displayMouse();
+    //displayMouse();
     collectSun();
     backyard.makeSunSky();
     selectPlant();
@@ -146,7 +146,7 @@ void draw(){
     background(board);
     displaySun();
     displayPlantsBar();
-    displayMouse();
+    //displayMouse();
     collectSun();
     //backyard.makeSunSky();
     selectPlant();
