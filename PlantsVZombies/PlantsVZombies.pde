@@ -183,10 +183,8 @@ void draw(){
     }
 
     return;
-
   }
 }
-
 void startGame(){
   if (mode.equals("home"))
     if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) mode = "menu";
@@ -345,6 +343,7 @@ void collectSun(){
   for (int idx = 0; idx < ListOfSun.size(); idx ++){
     // if the distance is low enough, you can grab the sun. this means you can hover over and collect it.
     if (dist(mouseX, mouseY, ListOfSun.get(idx).x, ListOfSun.get(idx).y) < 15){
+      sun+=25;
       thingsToDisplay.remove(ListOfSun.get(idx));
       thingsToUpdate.remove(ListOfSun.get(idx));
       ListOfSun.remove(idx);
