@@ -20,9 +20,9 @@ Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essen
 
 #### 2019/5/18
   *Ali*
-    - Created LivingThing class
-    - Created the zombie class, which was then made into an abstract class to allow for easier implementation of cone and bucket zombies. The zombies were then made moveable and displayable
-    - The Collideable interface was also created to allow for collisions between zombies and plants, and the LivingThing class implemented it.
+   - Created LivingThing class
+   - Created the zombie class, which was then made into an abstract class to allow for easier implementation of cone and bucket zombies. The zombies were then made moveable and displayable
+   - The Collideable interface was also created to allow for collisions between zombies and plants, and the LivingThing class implemented it.
 
 #### 2019/5/19
 
