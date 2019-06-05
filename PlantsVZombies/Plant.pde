@@ -1,3 +1,4 @@
+//abstract class for plants
 abstract class Plant extends LivingThing{
   int cost;
   
@@ -6,6 +7,7 @@ abstract class Plant extends LivingThing{
     cost = price;
   }
   
+  //method useful for when you are using the shovel to remove a plant
   void kill(){
     thingsToDisplay.remove(this);
     ListOfPlant.remove(this);
@@ -14,5 +16,6 @@ abstract class Plant extends LivingThing{
     backyard.occupied[row][col] = false;
   }
   
+ //necessary because all plants need to update their status. 
  abstract void update();
 }

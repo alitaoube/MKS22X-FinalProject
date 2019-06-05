@@ -1,3 +1,4 @@
+//abstract class for the zombies
 abstract class Zombies extends LivingThing implements Moveable, Collideable, Updateable{
   int health;
   float speed;
@@ -15,17 +16,19 @@ abstract class Zombies extends LivingThing implements Moveable, Collideable, Upd
     
     health = hp;
     speed = spd;
+    //tracks whether or not the zombie is killed by a cherry
     cherryFrame = frameCount;
     cherried = false;
   }
   
+  //method to lower the plants health.
   void attack(Plant plant){
    plant.health -= 1; 
   }
-  
+
+//update method for zombies
 void update(){
-//<<<<<<< HEAD
-  
+  //timer is used to track how long the zombie is going to be slow for if it is hit by the snow pea.
   if (this.timer > 0) this.timer--;
   
   if (timer == 0){
@@ -33,15 +36,14 @@ void update(){
    this.speed = 1;
   }
   else{
+   //makes the zombie blue and slow if hit by a snow pea.
    tint(0, 153, 204);
    this.speed = .5;
   }
   
-//=======
- // display();
-//>>>>>>> genZombies
   if (x <= 350) gameOver = true;
-  
+  //attempted animation for when the zombie gets hit with a cherry bomb.
+  //not functional because it was replaced with the spudow picture.
   if (cherried){
     this.health = 0;
     tint(0); 
@@ -51,6 +53,7 @@ void update(){
   }
   cherryFrame ++; 
   if (backyard.plantLanes.get(this.row).isEmpty()) this.move();
+  //finds out if it's touching a plant and attacks it if it is.
   else {
     boolean hasAttacked = false;
     boolean isTouching = false;
@@ -65,7 +68,7 @@ void update(){
     if (!hasAttacked) this.move();
   }
 }
-
+   //method to kill zombies
    void kill(){
      ListOfZombies.remove(this);
      thingsToDisplay.remove(this);
@@ -75,7 +78,7 @@ void update(){
      removedFromList = true;
    }
 
-  
+//method to have zombies die if their health is 0;
 void dead(){
   if (health <= 0){
      ListOfZombies.remove(this);
@@ -86,7 +89,7 @@ void dead(){
      removedFromList = true;
   }
 }
- 
+ //has zomnbies move closer to the plants
  void move(){
   x-=1 * speed; 
  }

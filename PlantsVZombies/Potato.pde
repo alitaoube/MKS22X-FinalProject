@@ -1,3 +1,4 @@
+//potato mine. This plant explodes when a zombie walks on it.
 class Potato extends Plant implements Updateable{
   PImage image1, image2, spudow;
   int timer, timer2;
@@ -12,13 +13,13 @@ class Potato extends Plant implements Updateable{
   }
   
   void update(){
-    if (health <= 0) this.kill();
+    if (health <= 0) this.kill(); //if its eaten before it explodes
     if (timer >= 90) image = image2;
     else timer++;
     
     exploding();
   }
-  
+  //when the zombie walks on it it explodes and changes its image to the post explosion spudow image.
   void exploding(){
    for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
     Zombies z = backyard.zombieLanes.get(this.row).get(idx);    

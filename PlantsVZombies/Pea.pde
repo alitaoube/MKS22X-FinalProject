@@ -1,5 +1,5 @@
+//this class represents the pea that the normal peashooter shoots.
 class Pea implements Displayable, Moveable, Updateable{
- //testing branch 
   float x, y;
   int row;
   PImage image;
@@ -9,12 +9,15 @@ class Pea implements Displayable, Moveable, Updateable{
     image = loadImage("images/pea.png");
   }
   
+  //displays the image of the pea
   void display(){
     image(image, x, y);
   }
   
+  //moves pea towards zombies.
   void move(){x += 15;}
   
+  //loops through list of zombies and if pea is close enough it returns true
   boolean touchingZombie(){
     for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
       Zombies z = backyard.zombieLanes.get(this.row).get(idx);
@@ -23,6 +26,7 @@ class Pea implements Displayable, Moveable, Updateable{
     return false;
   }
   
+  //finds the closest zombie and returns it
   Zombies findZombie(){
     Zombies z = backyard.zombieLanes.get(this.row).get(0);
     float minDistance = dist(this.x, this.y, backyard.zombieLanes.get(this.row).get(0).x, backyard.zombieLanes.get(this.row).get(0).y);
@@ -37,7 +41,7 @@ class Pea implements Displayable, Moveable, Updateable{
     return z;
   }
   
-//<<<<<<< HEAD
+  //if its touching a zombie it subtracts 10 from its health and then essentially leaves the gameplay
   void hitZombie(){
     if (this.touchingZombie()){
       Zombies z = this.findZombie();
@@ -48,7 +52,7 @@ class Pea implements Displayable, Moveable, Updateable{
       removedFromList = true;
      }
    }
-
+  //update method to change move and kill zombies
   void update(){
     //display();
     this.hitZombie();

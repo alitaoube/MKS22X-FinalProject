@@ -1,3 +1,4 @@
+//class that stores the sun object
 class Sun implements Displayable, Moveable, Updateable{
   PImage image;
   float x, y;
@@ -9,25 +10,24 @@ class Sun implements Displayable, Moveable, Updateable{
     y = ycor;
     move = shouldMove;
     Random r = new Random();
+    //finalY exists so that it can float down from the sky and stop somwehere on the backyard.
     finalY = r.nextInt(720-130) + 130;
     image = loadImage("images/sun.png");
     image.resize(70, 70);
   }
   
+  //displays the sun image
   void display(){
     noTint();
     image(image, x, y);
   }
-  //void update(){
-   // if (y < finalY) move();
-  //}
+  
+  //slowly has the sun move down the screen to simulate falling from the sky.
   void move(){
     y += 2;
   }
-//<<<<<<< HEAD
-//=======
+
+  //displays the sun and then has it fall only if it hasn't reached its final destination right away.
   void update(){display(); if (y < finalY && move) move();}
-//  void move(){y += 2;}
-//>>>>>>> genZombies
   
 }

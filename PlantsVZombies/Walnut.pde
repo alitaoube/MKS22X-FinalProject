@@ -1,3 +1,5 @@
+//walnuts are plants that you can use as barriers if there are too many zombies to fight at once. 
+//They have very high health so they take a long time to kill.
 class Walnut extends Plant implements Updateable{
  PImage cracked1;
  PImage cracked2;
@@ -12,32 +14,31 @@ class Walnut extends Plant implements Updateable{
     for (int x = 0; x < localSprites.size(); x++){
      localSprites.get(x).resize(80, 80); 
     }
+    //loads the images to display when the walnut is cracked from being eaten by zombies.
     cracked1 = loadImage("images/cracked1.png");
     cracked1.resize(80, 80);
     cracked2 = loadImage("images/cracked2.png");
     cracked2.resize(80, 80);
  }
  
-//<<<<<<< HEAD
+ //simnilar to other plant update methods. 
+ //since walnuts don't attack all it does is kill the walnut if the health is too low.
  void update(){   
-//=======
- //void update(){
- // display();
- //>>>>>>> genZombies
+
   if (health <= 0){
-//<<<<<<< HEAD
+
     backyard.occupied[this.row][this.col] = false;      
     ListOfPlant.remove(this);
     thingsToDisplay.remove(this);
     backyard.plantLanes.get(this.row).remove(this);
     thingsToUpdate.remove(this);
     removedFromList = true;
-//=======
+
     kill();
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
+
   }
  }
- 
+  //displays different images based on how cracked the walnut is
   void display(){
     if (health <= 334){
       imageMode(CENTER);

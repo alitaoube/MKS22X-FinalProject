@@ -1,3 +1,4 @@
+//shovel class that is used to remove plants.
 class Shovel extends LivingThing implements Updateable, Displayable{
  PImage image;
  boolean selected;
@@ -13,6 +14,7 @@ class Shovel extends LivingThing implements Updateable, Displayable{
    y = image.height / 2;
  }
  
+ //displays the shovel at the top and if it is selected also along the mouse x and y coordinates.
  void display(){
   if (this.selected){
    noTint();
@@ -25,6 +27,7 @@ class Shovel extends LivingThing implements Updateable, Displayable{
   }
  }
  
+ //updates the shovel to kill a plant if you click on it
  void update(){
    if (!selected) return;
    boolean removed = false;
@@ -38,6 +41,7 @@ class Shovel extends LivingThing implements Updateable, Displayable{
      }
     }
    }
+   //deselects the shovel if you click somewhere where there isn't a plant.
    if (backyard.mouseOn() && mousePressed) selected = false;
  }
 }

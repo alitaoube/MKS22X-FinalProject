@@ -1,7 +1,9 @@
+//sunflowers are the plants that generate sun so you don't have to only rely on the sun that falls from the sky
 class Sunflower extends Plant implements Updateable{
   
   int genSun;
   
+  //initializes the various images for the sunflower
   Sunflower(int r, int c){
     super(r, c, "sunflower", 50);
     genSun = 0;
@@ -19,11 +21,14 @@ class Sunflower extends Plant implements Updateable{
     }
   }
   
+  //has the sunflower make a sun roughly every four seconds or so
   boolean makeSun(){
     if (genSun < 250) {genSun ++; return false;}
     else {genSun = 0; return true;}
   }
   
+  //similar to update methods of other plants. 
+  //displays it then makes a sun if needed and then dies if needed.
   void update(){
     display();
     if (makeSun()) backyard.makeSunSunflower(row, col);

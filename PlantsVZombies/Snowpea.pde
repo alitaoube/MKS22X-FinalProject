@@ -1,3 +1,4 @@
+//snow peashooter that shoots peas that numb zombies and make them slower and appear blue
 class Snowpea extends Peashooter{
   int timer;
   Snowpea(int r, int c){
@@ -7,6 +8,7 @@ class Snowpea extends Peashooter{
     }
   }
   
+  //similar to make pea in superclass but makes a snowpea
   void makePea(){
     if (peaFrame >= 30 && !backyard.zombieLanes.get(this.row).isEmpty()){
       SPea p = new SPea(this.x, this.y, this.row);
