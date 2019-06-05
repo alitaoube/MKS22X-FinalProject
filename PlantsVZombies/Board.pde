@@ -12,7 +12,6 @@ int[] plantable;
     initializeBoard();
     initializeZombies();
     plantable = new int[7];
-    for (int idx = 0; idx < plantable.length; idx ++) plantable[idx] = 0;
     occupied = new boolean[5][9];
   }
  

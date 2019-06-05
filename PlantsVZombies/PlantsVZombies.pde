@@ -145,9 +145,30 @@ void startGame(){
     else if (mouseX < 920 && mouseX > 400 && mouseY < 290 && mouseY > 170 && mousePressed) mode = "adventure";
   }
   if (mode.equals("adventure") || mode.equals("demo")){
-    if (mouseX > 1220 && mouseY < 35 && mousePressed) mode = "menu";
+    if (mouseX > 1220 && mouseY < 35 && mousePressed)  {mode = "menu"; clearLists();}
   }
 }
+
+void clearLists(){
+  thingsToDisplay.clear();
+  thingsToMove.clear();
+  suns.clear();
+  peashooters.clear();
+  ListOfPlant.clear();
+  ListOfZombies.clear();
+  ListOfSun.clear();
+  peas.clear();
+  sunflowers.clear();
+  thingsToUpdate.clear();
+  ListOfLawnmowers.clear();
+  backyard.occupied = new boolean[5][9];
+  for (int idx = 0; idx < backyard.plantLanes.size(); idx ++){
+    backyard.plantLanes.get(idx).clear();
+    backyard.plantLanes.get(idx).clear();
+  }
+  backyard.plantable = new int[7];
+}
+  
 
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
