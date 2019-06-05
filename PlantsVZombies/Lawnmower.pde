@@ -29,6 +29,7 @@ class Lawnmower implements Updateable, Displayable{
   }
   
   void display(){
+   noTint();
    image(image, x, y);
   }
   
