@@ -8,9 +8,11 @@ Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essen
 
 *A diverse array of characters* - We have implemented SEVEN - that's right - *SEVEN* types of plants. These range from the basic sunflower and peashooter to the much more complex and nuanced Chomper Plant, which gobbles up one approaching zombie and then enters a cooldown, and the Snowpea, which, upon hitting any zombies, slows them down for a period of time and tints them blue. We have also implemented three types of zombies - your garden variety zombie, and the cone and bucket zombies , which have slightly more health until they drop their respective hats!
 
-*The Tracking System* - To keep track of everything on the screen, we used two arraylists and one array. One arraylist was used to keep track of the plants, the other to keep track of the zombies, and the array to check if each position on the board is occupied. This allowed us to have each plant check if its specfic row was occupied, instead of the whole list of zombies.
+*The Tracking System* - To keep track of everything on the screen, we used two 2d arraylists and one array. One arraylist was used to keep track of the plants, the other to keep track of the zombies. These arraylists are significant because they contain the plants and zombies in each row, which makes it easier for plants and zombies to decide when to attack. It also allows us to avoid looping through an arraylist of all of the zombies, which saves us time. The array was a 2d boolean array to check if each position on the board is occupied, which allowed us to determine whether or not you can place a plant there.
 
-*Multiple game modes* - There exist two gamemodes - adventure, and demo. Adventure is essentially one PvZ level, and features pre-spawned zombies coming right at you. The demo mode always you to relax, as you have 10000 sun, more than enough to plant anything you want. It also features three images at the top - one for each type of zombie. To create a zombie, all you have to do is drag and drop it onto the screen.
+*The Coordinate System* - One of the more significant developments in our project is one that is not noticeable when playing the game. This is the coordinate system. One of the challenges when placing the plants was having them show up exactly in the center of the square. We couldn't simply place them at the x and y coordinates of the mouse because the user isn't always going to click the exact center of the square. This is why we created the coordinate object to store a coordinate pair, and an 2d array of coordinates. We were able to initialize this array with a for loop and thereby generate the x and y coordinates for every square in the backyard without having to do it manually. This array allowed us to find the center of the closest square to where the user clicked, and place the plant there, all without having to find the x and y coordinates manually.
+
+*Multiple game modes* - There exist two gamemodes - adventure, and demo. Adventure is essentially one endless PvZ level, and features randomly generated zombies coming right at you. The demo mode allows you to relax, as you have 10000 sun, more than enough to plant anything you want. It also features three images at the top - one for each type of zombie. To create a zombie, all you have to do is drag and drop it onto the screen.
 
 ##### And last, but *certainly* not least
 
@@ -44,7 +46,7 @@ Also modified constructors in some classes like GardenZombie so that they only t
 #### 2019/5/22
 *Ali*
   - Worked on the collision of plants and zombies. Was not totally successfuly, as zombies sometimes glitched through the plant.
-  
+
 Sam - Added the ability to place a peashooter on the board. Also created the board class so the board will be able to add all the plants and zombi to the game. This standardizes the way plants and zombies will become part of the game so we don't actually make mistakes when adding them in in all the methods we will be doing that in.
 
 #### 2019/5/23  
@@ -70,12 +72,13 @@ Sam - Coded the peas to stop and disappear once they hit the zombie. This involv
   - The plant was then given the ability to kill the zombie, which would then properly remove the zombie from the appropriate lists.
   - The sun was capped at 10
   - An update method was implemented to allow for more simplicity, as you wouldn't have to loop through move, display, collide, etc.
-  
+
 Added the feature of being able to put a sunflower on the board as well as a peashooter. This entailed reformatting the method that selected the plant to be added as well as the method that actually added the plant. These methods were reformatted in such a way that adding in other plants will be as simple as generating a constructor for that plant and importing an image.
 
 #### 2019/5/27
 
-Sam - merged some of the newly created plant behavior with the zombie behavior.
+*Sam*
+- merged some of the newly created plant behavior with the zombie behavior.
 
 #### 2019/5/28
 
@@ -84,18 +87,34 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
 #### 2019/5/29
 
 *Ali*
-  - Implemented cone Zombie class, as well as a makeConeZombie method in the Board class. 
+  - Implemented cone Zombie class, as well as a makeConeZombie method in the Board class.
   - Fixed an error that forced zombies to stop when an adjacent zombie was planted.
   - Moved the hitZombie method to the peas class, instead of the peashooter class.
   - Added an update method to the Peas class to detect when to update.
 
+*Sam*
+  - Was unable to work due to my math final the next day.
+
+#### 2019/5/30
+
+*Sam*
+  - Was able to merge code that me and Ali wrote.
+  - Added an update method to the sunflower clsss
+  - Reformatted the main PlantsVZombies file to make it easier to understand.
+  - Reformatted draw method in main file to make it easier to understand.
+  - Fixed bug in makeSunflower method.
+
 #### 2019/5/31
 
 *Ali*
-  - Added a bucketHead class, as well as the createBucketHead method in the Board class. 
+  - Added a bucketHead class, as well as the createBucketHead method in the Board class.
   - Worked on allowing zombies to continue moving after they kill the plant.
   - Worked on the gameOver function. This clears the entire board after zombies make it past the last line of plants, and displays the gameOver image.
-  
+
+*Sam*
+  - Fixed bug that caused sunflowers to continue to display after they died.
+  - Worked on the method that has the sunflowers make a sun so that it works as desired. It now generates a sun that stays close to the sunflower and doesn't fall down the screen like the suns falling from the sky.
+
  *Pair programming - updated the zombie update method so that it no longer takes in a plant parameter, and instead loops through the plantLanes. Also implemented a makeSunflower method, as well as an update method to the sunflower class so that it can be eaten by zombies. Also worked on fixing redundancies with the isTouching method.*
 
 #### 2019/6/01
@@ -103,8 +122,12 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
 *Ali*
   - Implemented the walnut class, properly resized image, and fixed the collision value.
   - Reworked collisions entirely, so that zombies check if *they* are touching the plant, instead of the other way around.
-  
-  
+
+*Sam*
+  - Created the CherryBomb class.
+  - Developed the CherryBomb behavior (kills all zombies close to it)
+  - Created an animation for both the Cherry bomb and the zombie to stay blackened after the cherry bomb exploded (this animation is no longer present because the rudimentary animations were replaced with the sprites, but I spent a significant amount of time working on this, and some code I wrote during this time was reformatted to work with the newer animations).
+
 #### 2019/6/02
 
 *Ali*
@@ -114,13 +137,17 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
   - Fixed an error that allowed cherry bombs to be planted regardless of sun amount.
   - Added all images for peashooter to be implemented using the *Sprite System* (to be highlighted below
   - Successfully cycled through all images for the peashooter using the sprite system.
-  - Began reworking the centering of the images. Instead of using imageMode(CORNER), which placed the corner at the given x y values, used imageMode(CENTER). Did this for zombie, peashooter, sun, and walnut. 
+  - Began reworking the centering of the images. Instead of using imageMode(CORNER), which placed the corner at the given x y values, used imageMode(CENTER). Did this for zombie, peashooter, sun, and walnut.
   - Fixed the mismatched hitting of the zombies by the pea.
-  
+
+*Sam*
+ - Was unable to work due to drafting final project.
+
 #### 2019/6/03
 
 *Ali*
-  - Completely removed the obselete modImage and replaced it with resize.
+  - Completely removed the obso
+  lete modImage and replaced it with resize.
   - Added all sunflower images for the sprite system.
   - Fixed major lag caused by a hidden delay, that quickly racked up into a noticeable delay.
   - Override the display method for zombies.
@@ -138,7 +165,11 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
   - Added a snowpea class, as well as an Spea class, the former extended the green peashooter and the later extended the Pea class. They differed based on the image used. Also, the snowpea has to make the zombies turn blue, as well as decrease their speed temporarily, which was achieved with a timer.
   - Removed the type from the snowpea.
 
-#### 2019/06/04
+*Sam*
+ - Cherry bomb animation got overwritten so I tried to fix it but this was unsuccessful.
+ - Attempted to implement a random generation of zombies spaced out over the course of a couple minutes but had problems with the plants disappearing.
+
+#### 2019/06/04-05
 
  *Ali*
    - Successfully changed the values of the zombies when they were hit by peas.
@@ -156,5 +187,18 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
    - Fixed error that led the game to end if the zombies hit the lawnmowers, and didn't properly clear everything.
    - Added two images - one for the main menu, and another that was custom edited to allow you to choose a gamemode and also has our names on it. Very nice looking.
    - Added the demo mode. This is essentially for testing out all features. It starts you off with 10000 sun, so you can plant whatever your heart desires. It also has three zombies at the top - garden, cone, and bucket - so that you can place whichever you please to see the interactions with the plant.
-   
-   
+
+  *Sam*
+   - instituted a variable that went back in the for loop for thingsToUpdate if something was removed so it wasn't skipped over. This didn't end up being necessary in the end.
+   - Added cooldown times for all of the plants so that you can't continuously keep buying the same one.
+   - Added an animation for cooldown which darkens the plant that you aren't able to buy to make it clear to the user that he cant buy it.
+   - Modified the shovel so you are able to click away form it.
+   - Created the ability to shift between different screens to make the user interface nicer.
+   - reformatted the draw method to do different things depending on which mode you are in (i.e. are you on the homescreen or the main menu screen or in demo mode etc...).
+   - added a method to clear all the lists when the user goes back to the main menu so that plants and zombies won't continue to exist after the user exits.
+   - adjusted values such as zombie health and sun production rates.
+   - fixed bugs such as one that made the text on the screen large for a split second after placing a plant or a zombie.
+   - reformatted the enter zombies method in the board class to make it easier for the user in adventure mode.
+   - got rid of cooldown in demo mode.
+   - final bug fixes and making the interface more graphically appealing.
+   - commented code.
