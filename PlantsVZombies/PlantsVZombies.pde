@@ -148,7 +148,7 @@ void draw(){
     displayPlantsBar();
     displayMouse();
     collectSun();
-    backyard.makeSunSky();
+    //backyard.makeSunSky();
     selectPlant();
     placePlant();
     imageMode(CORNER);
@@ -208,6 +208,7 @@ void startGame(){
 }
 
 void clearLists(){
+  gameOver = false;
   thingsToDisplay.clear();
   thingsToMove.clear();
   suns.clear();
@@ -219,6 +220,7 @@ void clearLists(){
   sunflowers.clear();
   thingsToUpdate.clear();
   ListOfLawnmowers.clear();
+  new Lawnmower();
   backyard.occupied = new boolean[5][9];
   for (int idx = 0; idx < backyard.plantLanes.size(); idx ++){
     backyard.plantLanes.get(idx).clear();
