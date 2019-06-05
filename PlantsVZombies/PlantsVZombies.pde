@@ -73,9 +73,9 @@ void setup(){
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
-  backyard.makeGardenZombie(0, 8);
-  backyard.makeConeZombie(0, 6);
-  backyard.makeBucketZombie(0, 7);
+  //backyard.makeGardenZombie(0, 8);
+  //backyard.makeConeZombie(0, 6);
+  //backyard.makeBucketZombie(0, 7);
 } 
 
 void draw(){
@@ -264,37 +264,37 @@ void placePlant(){
   // create a plant (or shovel) based on what was selected in selectPlant
   if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
     backyard.makePea(r, c);
-    backyard.plantable[1] = 1;
+    if (!mode.equals("demo")) backyard.plantable[1] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("sunflower") && !backyard.occupied(r, c)){
     backyard.makeSunflower(r, c);
-    backyard.plantable[2] = 1;
+    if (!mode.equals("demo")) backyard.plantable[2] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("walnut") && !backyard.occupied(r, c)){
     backyard.makeWalnut(r, c);
-    backyard.plantable[6] = 1;
+    if (!mode.equals("demo")) backyard.plantable[6] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("cherry") && !backyard.occupied(r, c)){
     backyard.makeCherryBomb(r, c);
-    backyard.plantable[5] = 1;
+    if (!mode.equals("demo")) backyard.plantable[5] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("snowpea") && !backyard.occupied(r, c)){
     backyard.makeSnowpea(r, c);
-    backyard.plantable[0] = 1;
+    if (!mode.equals("demo")) backyard.plantable[0] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("potato") && !backyard.occupied(r, c)){
     backyard.makePotato(r, c);
-    backyard.plantable[4] = 1;
+    if (!mode.equals("demo")) backyard.plantable[4] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("chomper") && !backyard.occupied(r, c)){
     backyard.makeChomper(r, c);
-    backyard.plantable[3] = 1;
+    if (!mode.equals("demo")) backyard.plantable[3] = 1;
     selected = false;
   }
   else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
