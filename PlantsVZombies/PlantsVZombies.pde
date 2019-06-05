@@ -144,9 +144,8 @@ void draw(){
   if (mode.equals("demo")){
     sun = 10000;
     startGame();
+    noTint();
     background(board);
-    imageMode(CORNER);
-    image(menu, width - 119, 0);
     displaySun();
     displayPlantsBar();
     displayMouse();
@@ -154,6 +153,36 @@ void draw(){
     backyard.makeSunSky();
     selectPlant();
     placePlant();
+    imageMode(CORNER);
+    image(menu, width - 119, 0);
+    imageMode(CENTER);
+    for (int x = 0; x < ListOfPlant.size(); x++){
+      ListOfPlant.get(x).display(); 
+      ListOfPlant.get(x).update();
+    }
+    for (int x = ListOfSun.size() - 1; x >= 0; x--){
+      ListOfSun.get(x).update(); 
+      ListOfSun.get(x).display(); 
+    }
+    for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
+      ListOfZombies.get(x).update();
+      ListOfZombies.get(x).display();
+      ListOfZombies.get(x).dead();
+    }
+    for (int x = 0; x < peas.size(); x++){
+      peas.get(x).display();
+      peas.get(x).update(); 
+    }
+    if (!gameOver){
+      for (int x = 0; x < ListOfLawnmowers.size(); x++){
+        ListOfLawnmowers.get(x).display();
+        ListOfLawnmowers.get(x).update();
+      }
+      s.update();
+      s.display();
+    }
+
+    return;
 
   }
 }
