@@ -130,7 +130,7 @@ void draw(){
       peas.get(x).display();
       peas.get(x).update(); 
     }
-    backyard.setPlantableValues();
+    if (!gameOver) backyard.setPlantableValues();
     if (!gameOver){
       for (int x = 0; x < ListOfLawnmowers.size(); x++){
         ListOfLawnmowers.get(x).display();
@@ -380,7 +380,6 @@ void collectSun(){
   for (int idx = 0; idx < ListOfSun.size(); idx ++){
     // if the distance is low enough, you can grab the sun. this means you can hover over and collect it.
     if (dist(mouseX, mouseY, ListOfSun.get(idx).x, ListOfSun.get(idx).y) < 15){
-      sun+=25;
       thingsToDisplay.remove(ListOfSun.get(idx));
       thingsToUpdate.remove(ListOfSun.get(idx));
       ListOfSun.remove(idx);
