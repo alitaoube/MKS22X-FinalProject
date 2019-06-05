@@ -13,16 +13,16 @@ class BucketZombie extends Zombies{
     }
    }
       
-  //void display(){    
-  // if (frameCount + 1 == localSprites.size()) frameCount = 0;
-  // else frameCount++;
-     
-  // image(localSprites.get(frameCount), x, y);
+  void display(){    
+   if (spriteFrame + 1 == localSprites.size()) spriteFrame = 0;
+   else spriteFrame++;
+  
+   image(localSprites.get(spriteFrame), x, y);
    
-  // if (health >= 100){
-  //  image(hat, x, y - hat.height + 20);
-  // }
-   
+   if (health >= 100){
+    image(hat, x, y - hat.height + 20);
+   }
+  }   
 
   //}
 }
