@@ -25,8 +25,8 @@ class Chomper extends Plant implements Updateable{
    if (health <= 0){
     this.kill();
    }
-   for (int idx = 0; idx < ListOfZombies.size(); idx ++){
-    Zombies z = ListOfZombies.get(idx);    
+   for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
+    Zombies z = backyard.zombieLanes.get(this.row).get(idx);    
       if (eaten == false && this.isTouching(z)){
          eaten = true;
          localSprites = eatingSprites;
