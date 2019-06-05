@@ -1,7 +1,5 @@
 class CherryBomb extends Plant implements Updateable{
   
-  //float xImgSize;
-  //float yImgSize;
   boolean explode;
   boolean hasExploded;
   int explosionFrame, timer;
@@ -41,7 +39,6 @@ class CherryBomb extends Plant implements Updateable{
      explode = true; 
     }
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
-//<<<<<<< HEAD
     if (hasExploded && explode){
       if (timer < 30){
         image = powie;
@@ -52,13 +49,6 @@ class CherryBomb extends Plant implements Updateable{
         ListOfPlant.remove(this);
         backyard.occupied[row][col] = false;
       }
-//=======
-//    if (hasExploded && explode && ((explosionFrame + 90) < frameCount)){
-//      thingsToUpdate.remove(this);
-//      ListOfPlant.remove(this);
-//      backyard.occupied[row][col] = false;
-//      removedFromList = true;
-//>>>>>>> genZombies
     }
 }  
 
@@ -72,12 +62,7 @@ class CherryBomb extends Plant implements Updateable{
     for (int idx = 0; idx < ListOfZombies.size(); idx ++){
       Zombies z = ListOfZombies.get(idx);
       if (abs(dist(this.x, this.y, z.x, z.y)) < 200) {
-        //if (timer > 30){
           z.health = 0; z.cherried = true;
-        //}
-        //else{
-          //timer++;
-        //}
       }
     }
   }

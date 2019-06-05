@@ -64,13 +64,6 @@ int sunFrame;
       if (type == 1) makeConeZombie(r.nextInt(5), 8);
       if (type == 2) makeBucketZombie(r.nextInt(5), 8);
     }
-    //for (int idx = 0; idx < allZombies.length; idx ++){
-    //  if (allZombies[idx][0]*60 == frameCount){
-    //    if (allZombies[idx][1] == 0) makeGardenZombie(allZombies[idx][2], 8);
-    //    if (allZombies[idx][1] == 1) makeConeZombie(allZombies[idx][2], 8);
-    //    if (allZombies[idx][1] == 2) makeBucketZombie(allZombies[idx][2], 8);
-    //  }
-    //}
   }
   
   void setPlantableValues(){

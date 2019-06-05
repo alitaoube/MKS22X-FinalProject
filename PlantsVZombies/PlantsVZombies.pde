@@ -16,7 +16,7 @@ ArrayList<Updateable> thingsToUpdate;
 ArrayList<Lawnmower> ListOfLawnmowers;
 int sun, sunRate;
 Random r;
-PImage board;
+PImage board, gardenZomb, coneZomb, bucketZomb;
 boolean selected;
 String selectedPlant;
 boolean gameOver;
@@ -60,9 +60,10 @@ void setup(){
   sunflowers = new ArrayList<Sunflower>();
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
-//<<<<<<< HEAD
-//  new Lawnmower();
-//=======
+  gardenZomb = loadImage("images/zombie1.png");
+  coneZomb = loadImage("images/coneZomb.png");
+  bucketZomb = loadImage("images/bucketZomb.png");
+  
   new Lawnmower(); // There isn't a need to store the lawnmowers because the constructor just makes all 5 lawnmowers and places them, and adds them to update list
 //<<<<<<< HEAD
 //>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
@@ -158,6 +159,14 @@ void draw(){
     imageMode(CORNER);
     image(menu, width - 119, 0);
     imageMode(CENTER);
+    gardenZomb.resize(100, 100);
+    coneZomb.resize(100, 100);
+    bucketZomb.resize(100, 100);
+    
+    image(gardenZomb, 500, 40);
+    image(coneZomb, 600, 40);
+    image(bucketZomb, 700, 40);
+
     for (int x = 0; x < ListOfPlant.size(); x++){
       ListOfPlant.get(x).display(); 
       ListOfPlant.get(x).update();
@@ -222,49 +231,7 @@ void clearLists(){
   }
   backyard.plantable = new int[7];
 }
-//<<<<<<< HEAD
 
-//=======
-//  for (int x = 0; x < peas.size(); x++){
-//   peas.get(x).display();
-//   peas.get(x).update(); 
-//  }  
-//  s.update();
-//  s.display();
-//  backyard.setPlantableValues();
-//  s.update();
-//  s.display();
-//} 
-//=======
-  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
-  //for (int x = 0; x < thingsToUpdate.size(); x++){
-  // thingsToUpdate.get(x).update(); 
-  // if (removedFromList) x --;
-  // removedFromList = false;
-  //}
-  //for (int x = 0; x < peas.size(); x++){
-  // peas.get(x).display(); 
-//>>>>>>> genZombies
-//  board();
-//=======
-  
-
- // board();
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-//=======
-//  for (int x = 0; x < peas.size(); x++){
-//   peas.get(x).display();
-//   peas.get(x).update(); 
-//  }  
-//  s.update();
-//  s.display();
-//  backyard.setPlantableValues();
-//  s.update();
-//  s.display();
-//}
-//>>>>>>> 9a9b9ff160f3cebe5a75000e8493e40cd28bf302
-
-//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
 void selectPlant(){
   // if the mouse is pressed and is in the appropriate position, it selects the applicable plant (or shovel)
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
@@ -278,7 +245,10 @@ void selectPlant(){
     if (mouseY > 10 && mouseY < 80 && sun >= 50  && backyard.plantable[2] == 0) {selectedPlant = "sunflower"; return;}
     selected = false;
   }
-  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){System.out.println("HEEREREE");selectedPlant = "shovel"; s.selected = true; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){selectedPlant = "shovel"; s.selected = true; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 450 && mouseX < 520){selected = true; selectedPlant = "garden"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 550 && mouseX < 620){selected = true; selectedPlant = "cone"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 650 && mouseX < 730){selected = true; selectedPlant = "bucket"; return;}
 }
 
 void placePlant(){
@@ -334,6 +304,18 @@ void placePlant(){
   }
   else if (selectedPlant.equals("shovel") && backyard.occupied(r, c)){
     s.selected = true;
+    selected = false;
+  }
+  else if (selectedPlant.equals("garden") && backyard.occupied(r, c)){
+    backyard.makeGardenZombie(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("cone")){
+    backyard.makeConeZombie(r, c);
+    selected = false;
+  }
+  else if (selectedPlant.equals("bucket")){
+    backyard.makeConeZombie(r, c);
     selected = false;
   }
 }
@@ -395,6 +377,7 @@ void gameOver(){
   end.resize(1334, 750);
   ListOfZombies.clear();
   ListOfPlant.clear();
+  ListOfSun.clear();
   
   thingsToUpdate.clear();
   thingsToDisplay.clear();
