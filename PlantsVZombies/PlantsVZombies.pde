@@ -31,6 +31,7 @@ Shovel s;
 PImage tint;
 String mode;
 PImage home;
+PImage mainmenu;
 PImage menu;
 
 void setup(){
@@ -42,8 +43,9 @@ void setup(){
   tint = loadImage("images/tintsquare.png");
   tint.resize(130,  75);
   home = loadImage("images/homescreen.JPG");
-  menu = loadImage("images/mainmenu.JPG");
+  mainmenu = loadImage("images/mainmenu.JPG");
   mode = "home";
+  menu = loadImage("images/menu.jpg");
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -83,12 +85,13 @@ void draw(){
   if (mode.equals("menu")){
     background(237, 236, 225);
     imageMode(CENTER);
-    image(menu, width/2, height/2);
+    image(mainmenu, width/2, height/2);
     displayMouse();
     startGame();
     return;
   }
   if (mode.equals("adventure")){
+    startGame();
     noTint();
     background(board);
     displaySun();
@@ -99,6 +102,8 @@ void draw(){
     selectPlant();
     placePlant();
     backyard.enterZombies();
+    imageMode(CORNER);
+    image(menu, width - 119, 0);
     //gameOver();
     imageMode(CENTER);
     for (int x = 0; x < ListOfLawnmowers.size(); x++){
@@ -138,6 +143,9 @@ void startGame(){
   if (mode.equals("menu")){
     if (mouseX < 900 && mouseX > 400 && mouseY < 460 && mouseY > 330 && mousePressed) mode = "demo";
     else if (mouseX < 920 && mouseX > 400 && mouseY < 290 && mouseY > 170 && mousePressed) mode = "adventure";
+  }
+  if (mode.equals("adventure") || mode.equals("demo")){
+    if (mouseX > 1220 && mouseY < 35 && mousePressed) mode = "menu";
   }
 }
 
