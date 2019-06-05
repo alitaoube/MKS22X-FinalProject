@@ -179,11 +179,11 @@ void draw(){
       peas.get(x).display();
       peas.get(x).update(); 
     }
-    if (!gameOver){
+    //if (!gameOver){
       for (int x = 0; x < ListOfLawnmowers.size(); x++){
         ListOfLawnmowers.get(x).display();
         ListOfLawnmowers.get(x).update();
-      }
+      //}
       s.update();
       s.display();
     }
