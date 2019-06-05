@@ -20,8 +20,8 @@ class Potato extends Plant implements Updateable{
   }
   
   void exploding(){
-    for (int idx = 0; idx < ListOfZombies.size(); idx ++){
-      Zombies z = ListOfZombies.get(idx);    
+   for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
+    Zombies z = backyard.zombieLanes.get(this.row).get(idx);    
       if (timer >= 90 && this.isTouching(z)) {
         if (timer2 < 15){
           image = spudow;
