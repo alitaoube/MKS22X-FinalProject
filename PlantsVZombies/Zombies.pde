@@ -40,7 +40,7 @@ void update(){
 //=======
  // display();
 //>>>>>>> genZombies
-  if (x <= 370) gameOver = true;
+  if (x <= 350) gameOver = true;
   
   if (cherried){
     this.health = 0;

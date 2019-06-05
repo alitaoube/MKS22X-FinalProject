@@ -37,7 +37,7 @@ PImage menu;
 void setup(){
   frameRate(60);
   sunFrame = 0;
-  sun = 10000;
+  sun = 50;
   sunRate = 1;
   backyard = new Board();
   tint = loadImage("images/tintsquare.png");
@@ -78,17 +78,7 @@ void setup(){
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
 //<<<<<<< HEAD
-  backyard.makeChomper(0, 0);
-}
-
-//void draw(){
-//  if (mode.equals("home")){
-//    background(home);
-//    displayMouse();
-//    startGame();
-//    return;
-//=======
-//}  
+} 
 
 void draw(){
   if (mode.equals("home")){
@@ -119,12 +109,8 @@ void draw(){
     backyard.enterZombies();
     imageMode(CORNER);
     image(menu, width - 119, 0);
-    //gameOver();
+    gameOver();
     imageMode(CENTER);
-    for (int x = 0; x < ListOfLawnmowers.size(); x++){
-      ListOfLawnmowers.get(x).display();
-      ListOfLawnmowers.get(x).update();
-    }
     for (int x = 0; x < ListOfPlant.size(); x++){
       ListOfPlant.get(x).display(); 
       ListOfPlant.get(x).update();
@@ -143,8 +129,15 @@ void draw(){
       peas.get(x).update(); 
     }
     backyard.setPlantableValues();
-    s.update();
-    s.display();
+    if (!gameOver){
+      for (int x = 0; x < ListOfLawnmowers.size(); x++){
+        ListOfLawnmowers.get(x).display();
+        ListOfLawnmowers.get(x).update();
+      }
+      s.update();
+      s.display();
+    }
+
     return;
   }
 //<<<<<<< HEAD
@@ -212,10 +205,7 @@ void clearLists(){
     backyard.plantLanes.get(idx).clear();
   }
   backyard.plantable = new int[7];
-}
   
-
-//=======
   for (int x = 0; x < peas.size(); x++){
    peas.get(x).display();
    peas.get(x).update(); 
@@ -225,7 +215,7 @@ void clearLists(){
   backyard.setPlantableValues();
   s.update();
   s.display();
-} 
+}
 //=======
   //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
   //for (int x = 0; x < thingsToUpdate.size(); x++){
@@ -371,6 +361,9 @@ void gameOver(){
   // if any zombies make it to the end, display the game over screen
   PImage end = loadImage("images/gameover.jpg");
   end.resize(1334, 750);
+  ListOfZombies.clear();
+  ListOfPlant.clear();
+  
   thingsToUpdate.clear();
   thingsToDisplay.clear();
   delay(100);
