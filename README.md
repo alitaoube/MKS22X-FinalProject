@@ -1,5 +1,11 @@
 # Plants v. Zombies (PvZ)
 
+## Overview
+
+We have made a plants versus zombies game with two modes: adventure and demo. The adventure mode randomly spawns zombies and gives you limited sun, making it harder to survive. The demo mode lets you test out features by giving you a large amount of sun and the ability to place zombies.
+
+Neither of us are professional game developers, so we knew that we wouldn't be able to create a game that was completely realistic in terms of its difficulty level, so instead we focused on adding in as many features as we could. We made it so that all the processes in the game (the rate of zombie spawning, )
+
 ## Instructions
 
 ## Devlog
