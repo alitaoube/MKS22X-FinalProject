@@ -419,6 +419,7 @@ void gameOver(){
   end.resize(1334, 750);
   ListOfZombies.clear();
   ListOfPlant.clear();
+  ListOfSun.clear();
   
   thingsToUpdate.clear();
   thingsToDisplay.clear();
