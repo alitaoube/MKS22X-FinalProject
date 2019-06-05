@@ -1,8 +1,16 @@
 # Plants v. Zombies (PvZ)
 
-## Instructions
+### Instructions
 
-## Devlog
+Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essentially a remake of the popular game by PopCap Studios. You start off at the title screen. After pressing the start button, you can choose the mode you would like to choose - Demo, which allows you to test out all features, and the adventure mode, which puts you through a PvZ level. The game is fairly simple. Place plants in the path of the zombies to stop them from reaching the end. If they make it through all your defenses - including the lawnmowers, they win! Don't let that happen.
+
+### Key Features
+
+*Sprite System* - The Sprite System was one of the most challenging things to implement. Essentially how it works is that it loops through a master list of sprite names. This contains the names of every single sprite for all characters. These are then all loaded into a master arraylist of sprites in the setup function. This means that you only ever have to load these sprites once, which prevents the game from being slowed down. Next, in the constructor of each object, it loops through the master list of names and sprites, and if its type (e.g. "peashooter") is found, it will add it to its local arraylist of sprite images. Then, in the display method, it will cycle through these images, giving off the appearance of a sprite!
+
+*Tracking System* - To keep track of everything on the screen, we used two arraylists and one array. One arraylist was used to keep track of the plants, the other to keep track of the zombies, and the array to check if each position on the board is occupied. This allowed us to have each plant check if its specfic row was occupied, instead of the whole list of zombies.
+
+### Devlog
 
 ##### 2019/5/18
   *Ali*
