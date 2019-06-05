@@ -8,9 +8,13 @@ Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essen
 
 *A diverse array of characters* - We have implemented SEVEN - that's right *SEVEN* types of plants. These range from the basic sunflower and peashooter to the much more complex and nuanced Chomper Plant, which gobbles up one approaching zombie and then enters a cooldown, and the Snowpea, which, upon hitting any zombies, slows them down for a period of time and tints them blue. We have also implemented three types of zombies - your garden variety zombie, and the cone and bucket zombies , which have slightly more health until they drop their respective hats!
 
-*The Sprite System* - The Sprite System was one of the most challenging things to implement. Essentially how it works is that it loops through a master list of sprite names. This contains the names of every single sprite for all characters. These are then all loaded into a master arraylist of sprites in the setup function. This means that you only ever have to load these sprites once, which prevents the game from being slowed down. Next, in the constructor of each object, it loops through the master list of names and sprites, and if its type (e.g. "peashooter") is found, it will add it to its local arraylist of sprite images. Then, in the display method, it will cycle through these images, giving off the appearance of a sprite!
-
 *The Tracking System* - To keep track of everything on the screen, we used two arraylists and one array. One arraylist was used to keep track of the plants, the other to keep track of the zombies, and the array to check if each position on the board is occupied. This allowed us to have each plant check if its specfic row was occupied, instead of the whole list of zombies.
+
+*Multiple game modes* - There exist two gamemodes - adventure, and demo. Adventure is essentially one PvZ level, and features pre-spawned zombies coming right at you. The demo mode always you to relax, as you have 10000 sun, more than enough to plant anything you want. It also features three images at the top - one for each type of zombie. To create a zombie, all you have to do is drag and drop it onto the screen.
+
+##### And last, but *certainly* not least
+
+*The Sprite System* - The Sprite System was one of the most challenging things to implement. Essentially how it works is that it loops through a master list of sprite names. This contains the names of every single sprite for all characters. These are then all loaded into a master arraylist of sprites in the setup function. This means that you only ever have to load these sprites once, which prevents the game from being slowed down. Next, in the constructor of each object, it loops through the master list of names and sprites, and if its type (e.g. "peashooter") is found, it will add it to its local arraylist of sprite images. Then, in the display method, it will cycle through these images, giving off the appearance of a sprite!
 
 ### Devlog
 
@@ -151,5 +155,6 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
    - Began implementing the shovel, and allowed it be dragged. Implemented it removing the plant when it is dragged over it.
    - Fixed error that led the game to end if the zombies hit the lawnmowers, and didn't properly clear everything.
    - Added two images - one for the main menu, and another that was custom edited to allow you to choose a gamemode and also has our names on it. Very nice looking.
+   - Added the demo mode. This is essentially for testing out all features. It starts you off with 10000 sun, so you can plant whatever your heart desires. It also has three zombies at the top - garden, cone, and bucket - so that you can place whichever you please to see the interactions with the plant.
    
    
