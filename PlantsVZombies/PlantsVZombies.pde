@@ -59,7 +59,12 @@ void setup(){
   sunflowers = new ArrayList<Sunflower>();
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
-  new Lawnmower();
+//<<<<<<< HEAD
+//  new Lawnmower();
+//=======
+  new Lawnmower(); // There isn't a need to store the lawnmowers because the constructor just makes all 5 lawnmowers and places them, and adds them to update list
+//<<<<<<< HEAD
+//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
   removedFromList = false;
   s = new Shovel();
   for (int x = 0; x < spriteNames.length; x++){
@@ -72,8 +77,18 @@ void setup(){
   backyard.makeGardenZombie(0, 8);
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
+//<<<<<<< HEAD
   backyard.makeChomper(0, 0);
 }
+
+//void draw(){
+//  if (mode.equals("home")){
+//    background(home);
+//    displayMouse();
+//    startGame();
+//    return;
+//=======
+//}  
 
 void draw(){
   if (mode.equals("home")){
@@ -132,10 +147,40 @@ void draw(){
     s.display();
     return;
   }
+//<<<<<<< HEAD
   if (mode.equals("demo")){
     //codey stuff"
   }
 }
+
+
+//  noTint();
+//  background(board);
+//  displaySun();
+//  displayPlantsBar();
+//  displayMouse();
+//  collectSun();
+//  backyard.makeSunSky();
+//  selectPlant();
+//  placePlant();
+//  backyard.enterZombies();
+//  backyard.setPlantableValues();
+//  //gameOver();
+////<<<<<<< HEAD
+////<<<<<<< HEAD
+////=======
+//  imageMode(CENTER);
+  
+//  for (int x = 0; x < ListOfLawnmowers.size(); x++){
+//    ListOfLawnmowers.get(x).display();
+//    ListOfLawnmowers.get(x).update();
+//  }
+//  for (int x = 0; x < ListOfPlant.size(); x++){
+//    ListOfPlant.get(x).display(); 
+//    ListOfPlant.get(x).update();
+//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
+//  }
+
 
 void startGame(){
   if (mode.equals("home"))
@@ -170,7 +215,37 @@ void clearLists(){
 }
   
 
+//=======
+  for (int x = 0; x < peas.size(); x++){
+   peas.get(x).display();
+   peas.get(x).update(); 
+  }  
+  s.update();
+  s.display();
+  backyard.setPlantableValues();
+  s.update();
+  s.display();
+} 
+//=======
+  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
+  //for (int x = 0; x < thingsToUpdate.size(); x++){
+  // thingsToUpdate.get(x).update(); 
+  // if (removedFromList) x --;
+  // removedFromList = false;
+  //}
+  //for (int x = 0; x < peas.size(); x++){
+  // peas.get(x).display(); 
+//>>>>>>> genZombies
+//  board();
+//=======
+  
+
+ // board();
+//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
+
+//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
 void selectPlant(){
+  // if the mouse is pressed and is in the appropriate position, it selects the applicable plant (or shovel)
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
     if (mouseY > 610 && mouseY < 680 && sun >= 150 && backyard.plantable[3] == 0) {selectedPlant = "chomper"; return;}
@@ -184,30 +259,11 @@ void selectPlant(){
   }
   else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){System.out.println("HEEREREE");selectedPlant = "shovel"; s.selected = true; return;}
 }
-//=======
-//    if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
-//    if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
-//    if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
-//    if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
-//    if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
-//    if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
-//    if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}
-//>>>>>>> a32bfb656f221ba2e3a5e576f9d0db8c3329d035
-//=======
-    //s.selected = false;
-    //System.out.println("HERE3");
-//    if (mouseY > 610 && mouseY < 680) {selectedPlant = "chomper"; return;}
-//    else if (mouseY > 510 && mouseY < 580) {selectedPlant = "potato"; return;}
-//    else if (mouseY > 410 && mouseY < 480 && sun >= 150) {selectedPlant = "cherry"; return;}
-//    else if (mouseY > 310 && mouseY < 380 && sun >= 50) {selectedPlant = "walnut"; return;}
-//    else if (mouseY > 210 && mouseY < 280 && sun >= 175) {selectedPlant = "snowpea"; return;}
-//    else if (mouseY > 110 && mouseY < 180 && sun >= 100) {selectedPlant = "peashooter"; return;}
-//    else if (mouseY > 10 && mouseY < 80 && sun >= 50) {selectedPlant = "sunflower"; return;}    
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-//    else selected = false;
 
 void placePlant(){
+  // this places a plant based on what is selected using selectPlant
   if (!(selected && mousePressed && backyard.mouseOn())) return;
+  // if you are no longer clicking, or click something else, or aren't on the board, you exit
   int r = 0; int c = 0;
   float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
   for (int idx = 0; idx < backyard.board.length; idx ++){
@@ -219,6 +275,7 @@ void placePlant(){
       }
     }
   }
+  // create a plant (or shovel) based on what was selected in selectPlant
   if (selectedPlant.equals("peashooter") && !backyard.occupied(r, c)){
     backyard.makePea(r, c);
     backyard.plantable[1] = 1;
@@ -262,14 +319,17 @@ void placePlant(){
 
 void displaySun(){
   //PFont font = createFont("pvz.ttf", 32);
+  // display the sun image
   PImage Sun = loadImage("images/sun.jpg");  
   noTint();
   imageMode(CENTER);
   image(Sun, Sun.width /2 + 138 + 11, Sun.height / 2 + 7);
+  // cover it with a rectangle so we can overlay how much sun you have left
   fill(252, 237, 178);
   rect(210, 11, 130, 50);
   //textFont(font);
   fill(0, 0, 0);
+  // cover the rectangle with the amount of sun you have
   text(sun + "", 240, 48);
 }
 
@@ -296,8 +356,8 @@ void displayMouse(){
 }
 
 void collectSun(){
-//<<<<<<< HEAD
   for (int idx = 0; idx < ListOfSun.size(); idx ++){
+    // if the distance is low enough, you can grab the sun. this means you can hover over and collect it.
     if (dist(mouseX, mouseY, ListOfSun.get(idx).x, ListOfSun.get(idx).y) < 15){
       thingsToDisplay.remove(ListOfSun.get(idx));
       thingsToUpdate.remove(ListOfSun.get(idx));
@@ -305,21 +365,10 @@ void collectSun(){
     }
   }
 }
-//      //suns.remove(idx);
-//=======
-//  for (int idx = 0; idx < suns.size() - 1; idx ++){
-//    if (dist(mouseX, mouseY, suns.get(idx).x, suns.get(idx).y) < 15){
-//      thingsToDisplay.remove(suns.get(idx));
-//      suns.remove(idx);
-//>>>>>>> a32bfb656f221ba2e3a5e576f9d0db8c3329d035
-//      sun += 25;
-//      ListOfSun.remove(idx);
-//    }
-//  }
-//}
 
 void gameOver(){
  if (gameOver == true){
+  // if any zombies make it to the end, display the game over screen
   PImage end = loadImage("images/gameover.jpg");
   end.resize(1334, 750);
   thingsToUpdate.clear();
@@ -336,6 +385,8 @@ Coordinate[][] board(){
   fill(0, 0, 0);
   int x = 420;
   int y = 150;
+  // create a range of values that correspond to each tile on the board. this makes it much easier to place plants, as you can treat the board as an array of 5x9
+  // instead of a lot of pixels.
   for (int idx = 0; idx < 5; idx ++){
     for (int idx2 = 0; idx2 < 9; idx2 ++){
       output[idx][idx2] = new Coordinate(x,y);

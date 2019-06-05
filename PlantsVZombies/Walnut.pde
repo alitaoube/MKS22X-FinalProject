@@ -3,7 +3,7 @@ class Walnut extends Plant implements Updateable{
  PImage cracked2;
  
  Walnut(int r,int c, String type, int price){
-   super(r, c, "images/walnut.png", type, price);
+   super(r, c, type, price);
    health = 1000;
     for (int x = 0; x < spriteNames.length; x++){
      System.out.println(type);
