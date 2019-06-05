@@ -80,8 +80,10 @@ void draw(){
     startGame();
     return;
   }
-  if (currentImage == home){
-    background(home);
+  if (currentImage == menu){
+    background(237, 236, 225);
+    imageMode(CENTER);
+    image(menu, width/2, height/2);
     displayMouse();
     startGame();
     return;
