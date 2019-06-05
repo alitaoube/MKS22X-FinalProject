@@ -149,5 +149,7 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
    - Fixed an error that made potato mines invincible.
    - Began implemented the chomper, giving it three stages - idle, eating, and its recharge mode. Successfully implemented the chomper through this method.
    - Began implementing the shovel, and allowed it be dragged. Implemented it removing the plant when it is dragged over it.
+   - Fixed error that led the game to end if the zombies hit the lawnmowers, and didn't properly clear everything.
+   - Added two images - one for the main menu, and another that was custom edited to allow you to choose a gamemode and also has our names on it. Very nice looking.
    
    
