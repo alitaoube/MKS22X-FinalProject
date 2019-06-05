@@ -25,7 +25,6 @@ String[] spriteNames;
 ArrayList<PImage> sprites;
 //<<<<<<< HEAD
 boolean removedFromList;
-//=======
 Shovel s;
 PImage tint;
 String mode;
@@ -33,12 +32,10 @@ PImage home;
 PImage mainmenu;
 PImage menu;
 
+//setup methods sets up all of our various lists.
 void setup(){
   frameRate(60);
-//<<<<<<< HEAD
   sun = 10000;
-//=======
-//>>>>>>> 9a9b9ff160f3cebe5a75000e8493e40cd28bf302
   sunRate = 1;
   backyard = new Board();
   tint = loadImage("images/tintsquare.png");
@@ -73,12 +70,11 @@ void setup(){
   r = new Random();
   size(1334, 750);
   board = loadImage("images/board.jpg");
-  //backyard.makeGardenZombie(0, 8);
-  //backyard.makeConeZombie(0, 6);
-  //backyard.makeBucketZombie(0, 7);
 } 
 
+//draw method has different parts depending what mode you're on.
 void draw(){
+  //for home and menu modes it's pretty simple. The method displays the screen and allows you to click to move on.
   if (mode.equals("home")){
     background(home);
     displayMouse();
@@ -93,6 +89,7 @@ void draw(){
     startGame();
     return;
   }
+  //adventure mode allows you to test your skills in the game
   if (mode.equals("adventure")){
     sunRate = 7;
     startGame();
@@ -139,6 +136,7 @@ void draw(){
 
     return;
   }
+  //demo mode allows you to test out all the features without worrying about how to survive.
   if (mode.equals("demo")){
     sun = 10000;
     startGame();
@@ -191,6 +189,9 @@ void draw(){
     return;
   }
 }
+
+//method that allows you to move between different modes. 
+//you start at the home screen, then go to main menu, then go to either adventure or demo mode and you can go back to the main menu to switch choices.
 void startGame(){
   if (mode.equals("home")){
     if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) mode = "menu";
@@ -207,6 +208,7 @@ void startGame(){
   }
 }
 
+//clears the lists so that switching between modes doesn't leave residual plants and zombies.
 void clearLists(){
   gameOver = false;
   thingsToDisplay.clear();
@@ -229,6 +231,7 @@ void clearLists(){
   backyard.plantable = new int[7];
 }
 
+//method that determines which plant (or shovel or zombie for demo mode) you want to place on the board
 void selectPlant(){
   // if the mouse is pressed and is in the appropriate position, it selects the applicable plant (or shovel)
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
@@ -243,17 +246,19 @@ void selectPlant(){
     selected = false;
   }
   else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX < 430){selectedPlant = "shovel"; s.selected = true; return;}
-  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 450 && mouseX < 520){selected = true; selectedPlant = "garden"; return;}
-  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 550 && mouseX < 620){selected = true; selectedPlant = "cone"; return;}
-  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 650 && mouseX < 730){selected = true; selectedPlant = "bucket"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 450 && mouseX < 520 && mode.equals("demo")){selected = true; selectedPlant = "garden"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 550 && mouseX < 620 && mode.equals("demo")){selected = true; selectedPlant = "cone"; return;}
+  else if (mousePressed && mouseY > 0 && mouseY < 80 && mouseX > 650 && mouseX < 730 && mode.equals("demo")){selected = true; selectedPlant = "bucket"; return;}
 }
 
+//method that places the plant, shovel, or zombie on the board.
 void placePlant(){
   // this places a plant based on what is selected using selectPlant
   if (!(selected && mousePressed && backyard.mouseOn())) return;
   // if you are no longer clicking, or click something else, or aren't on the board, you exit
   int r = 0; int c = 0;
   float minDistance = dist(mouseX, mouseY, backyard.board[0][0].x, backyard.board[0][0].y);
+  //for loop determines which row and column is the closest
   for (int idx = 0; idx < backyard.board.length; idx ++){
     for (int idx2 = 0; idx2 < backyard.board[0].length; idx2 ++){
       float dis = dist(mouseX, mouseY, backyard.board[idx][idx2].x, backyard.board[idx][idx2].y);
@@ -339,7 +344,7 @@ void displayPlantsBar(){
   Plants.resize(138, 676);
   image(Plants, Plants.width / 2, Plants.height / 2);
 }
-  
+//method that allowed us to see the coordinates of the mouse so that we could figure out where to place things on the board.
 void displayMouse(){
   textSize(15);
   if (mouseX < 600 && mouseY > 300){
@@ -367,7 +372,7 @@ void collectSun(){
     }
   }
 }
-
+//ends the game if zombies get past your defenses (in adventure mode).
 void gameOver(){
  if (gameOver == true){
   // if any zombies make it to the end, display the game over screen
@@ -385,7 +390,7 @@ void gameOver(){
   board = end;
  }
 }
-
+//method used when building the program to determine where the centers of each square is. This method now belongs to the board class.
 Coordinate[][] board(){
   Coordinate[][] output = new Coordinate[5][9];
   fill(0, 0, 0);
@@ -398,7 +403,7 @@ Coordinate[][] board(){
       output[idx][idx2] = new Coordinate(x,y);
       //ellipse(x, y, 20, 20);
       x += 100;
-      ellipse(output[idx][idx2].getX(), output[idx][idx2].getY(), 20, 20);
+      //ellipse(output[idx][idx2].getX(), output[idx][idx2].getY(), 20, 20);
     }
     y += 130;
     x = 420;
