@@ -143,7 +143,6 @@ void draw(){
 
     return;
   }
-//<<<<<<< HEAD
   if (mode.equals("demo")){
     sun = 10000;
     startGame();

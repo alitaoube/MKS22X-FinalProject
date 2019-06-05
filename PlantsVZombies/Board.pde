@@ -56,10 +56,12 @@ int sunFrame;
   void enterZombies(){
     Random r = new Random();
     int zombieRate;
+    if (frameCount < 15 * 60) return; 
     if (frameCount < 3600) zombieRate = 270;
     else zombieRate = 180;
     if (frameCount % zombieRate == 0){
       int type = r.nextInt(3);
+      if (frameCount < 3600) type = 0;
       if (type == 0) makeGardenZombie(r.nextInt(5), 8);
       if (type == 1) makeConeZombie(r.nextInt(5), 8);
       if (type == 2) makeBucketZombie(r.nextInt(5), 8);
