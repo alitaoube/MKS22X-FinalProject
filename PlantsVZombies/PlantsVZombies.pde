@@ -127,7 +127,7 @@ void draw(){
     s.display();
     return;
   }
-  if (mode.equals("demo"){
+  if (mode.equals("demo")){
     //codey stuff"
   }
 }
