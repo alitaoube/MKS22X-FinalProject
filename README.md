@@ -78,7 +78,7 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
   - Moved the hitZombie method to the peas class, instead of the peashooter class.
   - Added an update method to the Peas class to detect when to update.
 
-##### 2019/5/30
+##### 2019/5/31
 
 *Ali*
   - Added a bucketHead class, as well as the createBucketHead method in the Board class. 
@@ -87,8 +87,60 @@ Sam - merged some of the newly created plant behavior with the zombie behavior.
   
  *Pair programming - updated the zombie update method so that it no longer takes in a plant parameter, and instead loops through the plantLanes. Also implemented a makeSunflower method, as well as an update method to the sunflower class so that it can be eaten by zombies. Also worked on fixing redundancies with the isTouching method.*
 
-##### 2019/5/31
+##### 2019/6/01
 
 *Ali*
   - Implemented the walnut class, properly resized image, and fixed the collision value.
   - Reworked collisions entirely, so that zombies check if *they* are touching the plant, instead of the other way around.
+  
+  
+##### 2019/6/02
+
+*Ali*
+  - Finished implementing the walnut class, and merged it with the cherry class implemented by Sam.
+  - Reintroduced the game ending feature.
+  - Added a new sunflower image, removed the white space, and centered it.
+  - Fixed an error that allowed cherry bombs to be planted regardless of sun amount.
+  - Added all images for peashooter to be implemented using the *Sprite System* (to be highlighted below
+  - Successfully cycled through all images for the peashooter using the sprite system.
+  - Began reworking the centering of the images. Instead of using imageMode(CORNER), which placed the corner at the given x y values, used imageMode(CENTER). Did this for zombie, peashooter, sun, and walnut. 
+  - Fixed the mismatched hitting of the zombies by the pea.
+  
+##### 2019/6/03
+
+*Ali*
+  - Completely removed the obselete modImage and replaced it with resize.
+  - Added all sunflower images for the sprite system.
+  - Fixed major lag caused by a hidden delay, that quickly racked up into a noticeable delay.
+  - Override the display method for zombies.
+  - Reworked how cone zombies are created. Instead of having their own sprites, they just use those of the garden zombie and place a hat on top.
+  - Added sunflower animation using the Sprite System.
+  - Reworked bucket zombies in a similar manner to cone zombies.
+  - Implemented the Sprite System for the Walnut.
+  - Added a kill method in the Zombie class to simplify the code substantially.
+  - Implemented the zombies' hats falling off when they are injured.
+  - Fixed the cherry bombs and implemented the sprite system for them.
+  - Implemented the lawnmower class, which had two constructors, one that made one lawnmower, and the other that made all 5 and implemented them.
+  - Implemented the moving of the lawnmower after they are triggered by the zombies, as well as them killing all the zombies in their path.
+  - Fixed an error that caused the lawnmowers to ignore certain zombies.
+  - Implemented the real image of the sun.
+  - Added a snowpea class, as well as an Spea class, the former extended the green peashooter and the later extended the Pea class. They differed based on the image used. Also, the snowpea has to make the zombies turn blue, as well as decrease their speed temporarily, which was achieved with a timer.
+  - Removed the type from the snowpea.
+
+##### 2019/06/04
+
+ *Ali*
+   - Successfully changed the values of the zombies when they were hit by peas.
+   - Reintroduced lawnmowers and the sun falling.
+   - Made the zombies only turn blue and slow down for a set period of time, as well as not turn the whole screen blue.
+   - Added Sprite System for snowpeas.
+   - Fixed an issue that caused peashooters to quickly change size when they were touched.
+   - Fixed collection of the sun by adding it to a ListOfSun.
+   - Fixed an error that caused the game to crash when the last zombie in the row was hit.
+   - Added potato mine class, allowed it some time to rearm, and then switch to the exploding version. The potato mine was fixed to kill itself and the zombies.
+   - Implemented an image that pops up after the potato mine is activated, and an image that pops up after the cherry bomb is detonated.
+   - Fixed an error that made potato mines invincible.
+   - Began implemented the chomper, giving it three stages - idle, eating, and its recharge mode. Successfully implemented the chomper through this method.
+   - Began implementing the shovel, and allowed it be dragged. Implemented it removing the plant when it is dragged over it.
+   
+   
