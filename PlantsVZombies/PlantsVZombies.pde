@@ -35,7 +35,10 @@ PImage menu;
 
 void setup(){
   frameRate(60);
+//<<<<<<< HEAD
   sun = 10000;
+//=======
+//>>>>>>> 9a9b9ff160f3cebe5a75000e8493e40cd28bf302
   sunRate = 1;
   backyard = new Board();
   tint = loadImage("images/tintsquare.png");
@@ -76,17 +79,7 @@ void setup(){
   backyard.makeConeZombie(0, 6);
   backyard.makeBucketZombie(0, 7);
 //<<<<<<< HEAD
-  backyard.makeChomper(0, 0);
-}
-
-//void draw(){
-//  if (mode.equals("home")){
-//    background(home);
-//    displayMouse();
-//    startGame();
-//    return;
-//=======
-//}  
+} 
 
 void draw(){
   if (mode.equals("home")){
@@ -118,12 +111,8 @@ void draw(){
     backyard.enterZombies();
     imageMode(CORNER);
     image(menu, width - 119, 0);
-    //gameOver();
+    gameOver();
     imageMode(CENTER);
-    for (int x = 0; x < ListOfLawnmowers.size(); x++){
-      ListOfLawnmowers.get(x).display();
-      ListOfLawnmowers.get(x).update();
-    }
     for (int x = 0; x < ListOfPlant.size(); x++){
       ListOfPlant.get(x).display(); 
       ListOfPlant.get(x).update();
@@ -142,45 +131,62 @@ void draw(){
       peas.get(x).update(); 
     }
     backyard.setPlantableValues();
-    s.update();
-    s.display();
+    if (!gameOver){
+      for (int x = 0; x < ListOfLawnmowers.size(); x++){
+        ListOfLawnmowers.get(x).display();
+        ListOfLawnmowers.get(x).update();
+      }
+      s.update();
+      s.display();
+    }
+
     return;
   }
 //<<<<<<< HEAD
   if (mode.equals("demo")){
-    //codey stuff"
+    sun = 10000;
+    startGame();
+    noTint();
+    background(board);
+    displaySun();
+    displayPlantsBar();
+    displayMouse();
+    collectSun();
+    backyard.makeSunSky();
+    selectPlant();
+    placePlant();
+    imageMode(CORNER);
+    image(menu, width - 119, 0);
+    imageMode(CENTER);
+    for (int x = 0; x < ListOfPlant.size(); x++){
+      ListOfPlant.get(x).display(); 
+      ListOfPlant.get(x).update();
+    }
+    for (int x = ListOfSun.size() - 1; x >= 0; x--){
+      ListOfSun.get(x).update(); 
+      ListOfSun.get(x).display(); 
+    }
+    for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
+      ListOfZombies.get(x).update();
+      ListOfZombies.get(x).display();
+      ListOfZombies.get(x).dead();
+    }
+    for (int x = 0; x < peas.size(); x++){
+      peas.get(x).display();
+      peas.get(x).update(); 
+    }
+    if (!gameOver){
+      for (int x = 0; x < ListOfLawnmowers.size(); x++){
+        ListOfLawnmowers.get(x).display();
+        ListOfLawnmowers.get(x).update();
+      }
+      s.update();
+      s.display();
+    }
+
+    return;
   }
 }
-
-
-//  noTint();
-//  background(board);
-//  displaySun();
-//  displayPlantsBar();
-//  displayMouse();
-//  collectSun();
-//  backyard.makeSunSky();
-//  selectPlant();
-//  placePlant();
-//  backyard.enterZombies();
-//  backyard.setPlantableValues();
-//  //gameOver();
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-////=======
-//  imageMode(CENTER);
-  
-//  for (int x = 0; x < ListOfLawnmowers.size(); x++){
-//    ListOfLawnmowers.get(x).display();
-//    ListOfLawnmowers.get(x).update();
-//  }
-//  for (int x = 0; x < ListOfPlant.size(); x++){
-//    ListOfPlant.get(x).display(); 
-//    ListOfPlant.get(x).update();
-//>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
-//  }
-
-
 void startGame(){
   if (mode.equals("home")){
     if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) mode = "menu";
@@ -216,7 +222,7 @@ void clearLists(){
   }
   backyard.plantable = new int[7];
 }
-  
+//<<<<<<< HEAD
 
 //=======
 //  for (int x = 0; x < peas.size(); x++){
@@ -245,6 +251,18 @@ void clearLists(){
 
  // board();
 //>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
+//=======
+//  for (int x = 0; x < peas.size(); x++){
+//   peas.get(x).display();
+//   peas.get(x).update(); 
+//  }  
+//  s.update();
+//  s.display();
+//  backyard.setPlantableValues();
+//  s.update();
+//  s.display();
+//}
+//>>>>>>> 9a9b9ff160f3cebe5a75000e8493e40cd28bf302
 
 //>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
 void selectPlant(){
@@ -362,6 +380,7 @@ void collectSun(){
   for (int idx = 0; idx < ListOfSun.size(); idx ++){
     // if the distance is low enough, you can grab the sun. this means you can hover over and collect it.
     if (dist(mouseX, mouseY, ListOfSun.get(idx).x, ListOfSun.get(idx).y) < 15){
+      sun+=25;
       thingsToDisplay.remove(ListOfSun.get(idx));
       thingsToUpdate.remove(ListOfSun.get(idx));
       ListOfSun.remove(idx);
@@ -375,6 +394,9 @@ void gameOver(){
   // if any zombies make it to the end, display the game over screen
   PImage end = loadImage("images/gameover.jpg");
   end.resize(1334, 750);
+  ListOfZombies.clear();
+  ListOfPlant.clear();
+  
   thingsToUpdate.clear();
   thingsToDisplay.clear();
   delay(100);
