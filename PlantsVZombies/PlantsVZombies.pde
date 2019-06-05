@@ -89,43 +89,46 @@ void draw(){
     return;
   }
   if (mode.equals("adventure")){
-  noTint();
-  background(board);
-  displaySun();
-  displayPlantsBar();
-  displayMouse();
-  collectSun();
-  backyard.makeSunSky();
-  selectPlant();
-  placePlant();
-  backyard.enterZombies();
-  //gameOver();
-  imageMode(CENTER);
-  for (int x = 0; x < ListOfLawnmowers.size(); x++){
-    ListOfLawnmowers.get(x).display();
-    ListOfLawnmowers.get(x).update();
+    noTint();
+    background(board);
+    displaySun();
+    displayPlantsBar();
+    displayMouse();
+    collectSun();
+    backyard.makeSunSky();
+    selectPlant();
+    placePlant();
+    backyard.enterZombies();
+    //gameOver();
+    imageMode(CENTER);
+    for (int x = 0; x < ListOfLawnmowers.size(); x++){
+      ListOfLawnmowers.get(x).display();
+      ListOfLawnmowers.get(x).update();
+    }
+    for (int x = 0; x < ListOfPlant.size(); x++){
+      ListOfPlant.get(x).display(); 
+      ListOfPlant.get(x).update();
+    }
+    for (int x = ListOfSun.size() - 1; x >= 0; x--){
+      ListOfSun.get(x).update(); 
+      ListOfSun.get(x).display(); 
+    }
+    for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
+      ListOfZombies.get(x).update();
+      ListOfZombies.get(x).display();
+      ListOfZombies.get(x).dead();
+    }
+    for (int x = 0; x < peas.size(); x++){
+      peas.get(x).display();
+      peas.get(x).update(); 
+    }
+    backyard.setPlantableValues();
+    s.update();
+    s.display();
+    return;
   }
-  for (int x = 0; x < ListOfPlant.size(); x++){
-    ListOfPlant.get(x).display(); 
-    ListOfPlant.get(x).update();
-  }
-  for (int x = ListOfSun.size() - 1; x >= 0; x--){
-    ListOfSun.get(x).update(); 
-    ListOfSun.get(x).display(); 
-  }
-  for (int x = ListOfZombies.size() - 1; x >= 0 ; x--){
-    ListOfZombies.get(x).update();
-    ListOfZombies.get(x).display();
-    ListOfZombies.get(x).dead();
-  }
-  for (int x = 0; x < peas.size(); x++){
-   peas.get(x).display();
-   peas.get(x).update(); 
-  }
-  backyard.setPlantableValues();
-  s.update();
-  s.display();
-  return;
+  if (mode.equals("demo"){
+    //codey stuff"
   }
 }
 
