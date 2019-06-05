@@ -30,8 +30,8 @@ boolean removedFromList;
 Shovel s;
 PImage tint;
 PImage currentImage;
-PImage homescreen;
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
+PImage home;
+PImage menu;
 
 void setup(){
   frameRate(60);
@@ -41,6 +41,9 @@ void setup(){
   backyard = new Board();
   tint = loadImage("images/tintsquare.png");
   tint.resize(130,  75);
+  home = loadImage("images/homescreen.JPG");
+  menu = loadImage("images/mainmenu.JPG");
+  currentImage = home;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -55,13 +58,8 @@ void setup(){
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
   new Lawnmower();
-  currentImage = homescreen;
-//<<<<<<< HEAD
   removedFromList = false;
-//=======
   s = new Shovel();
-  
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
   for (int x = 0; x < spriteNames.length; x++){
     sprites.add(loadImage("images/" + spriteNames[x] + ".png"));
   }
@@ -76,12 +74,19 @@ void setup(){
 }
 
 void draw(){
-  if (currentImage == homescreen){
-    background(homescreen)
+  if (currentImage == home){
+    background(home);
+    displayMouse();
     startGame();
     return;
   }
-  if currentImage = board){
+  if (currentImage == home){
+    background(home);
+    displayMouse();
+    startGame();
+    return;
+  }
+  if (currentImage == board){
   noTint();
   background(board);
   displaySun();
@@ -121,31 +126,18 @@ void draw(){
   return;
   }
 }
-//<<<<<<< HEAD
-//=======
-  //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
-  //for (int x = 0; x < thingsToUpdate.size(); x++){
-  // thingsToUpdate.get(x).update(); 
-  // if (removedFromList) x --;
-  // removedFromList = false;
-  //}
-  //for (int x = 0; x < peas.size(); x++){
-  // peas.get(x).display(); 
-//>>>>>>> genZombies
-//  board();
-//=======
-  
 
- // board();
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
-
-
+void startGame(){
+  if (currentImage == home)
+    if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) currentImage = menu;
+  if (currentImage == menu){
+    
+  }
+}
 
 void selectPlant(){
   if (mousePressed && mouseX > 10 && mouseX < 135 && mouseY < 675){
     selected = true;
-//<<<<<<< HEAD
-//<<<<<<< HEAD
     if (mouseY > 610 && mouseY < 680 && sun >= 150 && backyard.plantable[3] == 0) {selectedPlant = "chomper"; return;}
     if (mouseY > 510 && mouseY < 580 && sun >= 25 && backyard.plantable[4] == 0) {selectedPlant = "potato"; return;}
     if (mouseY > 410 && mouseY < 480 && sun >= 150 && backyard.plantable[5] == 0) {selectedPlant = "cherry"; return;}
