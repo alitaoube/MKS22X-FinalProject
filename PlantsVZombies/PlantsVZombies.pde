@@ -15,7 +15,6 @@ ArrayList<Sunflower> sunflowers;
 ArrayList<Updateable> thingsToUpdate;
 ArrayList<Lawnmower> ListOfLawnmowers;
 int sun, sunRate;
-int sunFrame;
 Random r;
 PImage board;
 boolean selected;
@@ -36,7 +35,6 @@ PImage menu;
 
 void setup(){
   frameRate(60);
-  sunFrame = 0;
   sun = 10000;
   sunRate = 1;
   backyard = new Board();
@@ -106,6 +104,7 @@ void draw(){
     return;
   }
   if (mode.equals("adventure")){
+    sunRate = 7;
     startGame();
     noTint();
     background(board);
@@ -183,11 +182,15 @@ void draw(){
 
 
 void startGame(){
-  if (mode.equals("home"))
+  if (mode.equals("home")){
     if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) mode = "menu";
+  }
   if (mode.equals("menu")){
     if (mouseX < 900 && mouseX > 400 && mouseY < 460 && mouseY > 330 && mousePressed) mode = "demo";
-    else if (mouseX < 920 && mouseX > 400 && mouseY < 290 && mouseY > 170 && mousePressed) mode = "adventure";
+    else if (mouseX < 920 && mouseX > 400 && mouseY < 290 && mouseY > 170 && mousePressed){
+      sun = 200;
+      mode = "adventure";
+    }
   }
   if (mode.equals("adventure") || mode.equals("demo")){
     if (mouseX > 1220 && mouseY < 35 && mousePressed)  {mode = "menu"; clearLists();}
@@ -216,16 +219,16 @@ void clearLists(){
   
 
 //=======
-  for (int x = 0; x < peas.size(); x++){
-   peas.get(x).display();
-   peas.get(x).update(); 
-  }  
-  s.update();
-  s.display();
-  backyard.setPlantableValues();
-  s.update();
-  s.display();
-} 
+//  for (int x = 0; x < peas.size(); x++){
+//   peas.get(x).display();
+//   peas.get(x).update(); 
+//  }  
+//  s.update();
+//  s.display();
+//  backyard.setPlantableValues();
+//  s.update();
+//  s.display();
+//} 
 //=======
   //for (Displayable thing: thingsToDisplay) if (!(thing instanceof Plant)) thing.display();   
   //for (int x = 0; x < thingsToUpdate.size(); x++){
@@ -362,6 +365,7 @@ void collectSun(){
       thingsToDisplay.remove(ListOfSun.get(idx));
       thingsToUpdate.remove(ListOfSun.get(idx));
       ListOfSun.remove(idx);
+      sun += 25;
     }
   }
 }
