@@ -44,7 +44,7 @@ void setup(){
   tint = loadImage("images/tintsquare.png");
   tint.resize(130,  75);
   home = loadImage("images/homescreen.JPG");
-  mainmenu = loadImage("images/mainmenu.JPG");
+  mainmenu = loadImage("images/mainmenu.png");
   mode = "home";
   menu = loadImage("images/menu.jpg");
   thingsToDisplay = new ArrayList<Displayable>();
@@ -315,7 +315,7 @@ void placePlant(){
     selected = false;
   }
   else if (selectedPlant.equals("bucket")){
-    backyard.makeConeZombie(r, c);
+    backyard.makeBucketZombie(r, c);
     selected = false;
   }
 }
