@@ -17,7 +17,7 @@ ArrayList<Lawnmower> ListOfLawnmowers;
 int sun, sunRate;
 int sunFrame;
 Random r;
-PImage board;
+PImage board, gardenZomb, coneZomb, bucketZomb;
 boolean selected;
 String selectedPlant;
 boolean gameOver;
@@ -59,9 +59,10 @@ void setup(){
   sunflowers = new ArrayList<Sunflower>();
   spriteNames = loadStrings("spriteNames.txt");
   sprites = new ArrayList<PImage>();
-//<<<<<<< HEAD
-//  new Lawnmower();
-//=======
+  gardenZomb = loadImage("images/zombie1.png");
+  coneZomb = loadImage("images/coneZomb.png");
+  bucketZomb = loadImage("images/bucketZomb.png");
+  
   new Lawnmower(); // There isn't a need to store the lawnmowers because the constructor just makes all 5 lawnmowers and places them, and adds them to update list
 //<<<<<<< HEAD
 //>>>>>>> 7cd534035d762c1c8748575e9daff9ee29dc2915
@@ -156,6 +157,14 @@ void draw(){
     imageMode(CORNER);
     image(menu, width - 119, 0);
     imageMode(CENTER);
+    gardenZomb.resize(100, 100);
+    coneZomb.resize(100, 100);
+    bucketZomb.resize(100, 100);
+    
+    image(gardenZomb, 500, 40);
+    image(coneZomb, 600, 40);
+    image(bucketZomb, 700, 40);
+
     for (int x = 0; x < ListOfPlant.size(); x++){
       ListOfPlant.get(x).display(); 
       ListOfPlant.get(x).update();
