@@ -26,12 +26,10 @@ int peaFrame;
   }
   
   void update(){
+    image.resize(80, 80);
     display();
-    makePea();
-    if (type == "peashooter") image.resize(80, 80);
-    
+    makePea();    
     if (health <= 0){
-//<<<<<<< HEAD
       backyard.occupied[this.row][this.col] = false;
       ListOfPlant.remove(this);
       thingsToDisplay.remove(this);
@@ -39,9 +37,7 @@ int peaFrame;
       peashooters.remove(this);
       backyard.plantLanes.get(this.row).remove(this);
       removedFromList = true;
-//=======
       kill();
-//>>>>>>> 857e4c3a090f86aa16baff26d6700853a84517f1
     }
   }
   
