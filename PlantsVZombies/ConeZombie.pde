@@ -10,6 +10,7 @@ class ConeZombie extends Zombies{
    }
    
    void dead(){
+     // cause the hat to fall off if health is low enough
     if (health <= 100 && health > 0){
       image = sprites.get(1);
       image.resize(70, 120);
@@ -20,10 +21,12 @@ class ConeZombie extends Zombies{
    }
    
    void display(){
+     // toggle between sprite images
      if (spriteFrame + 1 == localSprites.size()) spriteFrame = 0;
      else spriteFrame++;
      
      image(localSprites.get(spriteFrame), x, y);
+     // drop hat if health is low enough
      if (health >= 100){
        image(hat, x, y - hat.height);
      }

@@ -23,8 +23,8 @@ class CherryBomb extends Plant implements Updateable{
     else{
       imageMode(CENTER);
       image(image, x, y);
+      // remove the tint when it explodes
       noTint();
-      //hasExploded = true;
     }
   }
     
@@ -32,15 +32,19 @@ class CherryBomb extends Plant implements Updateable{
   void update(){
     display();
     if (!explode){
+      // if it hasn't yet exploded, increase the size and increase the frame
       getBig();
       explosionFrame ++;
     }
+    // once the size is great enough, toggle the explode
     if (image.width > 150 && image.height > 150){
      explode = true; 
     }
+    // this checks to see when / if it should getBig()
     if (!hasExploded && explode) {exploding(); hasExploded = true;}
     if (hasExploded && explode){
       if (timer < 30){
+        // this toggles the "powie" image for a short period of time
         image = powie;
         timer++;
       }
@@ -53,12 +57,12 @@ class CherryBomb extends Plant implements Updateable{
 }  
 
   void getBig(){
+    // simply increases the size of the cherry
     image.resize(1 + image.width, 1 + image.height);
-    //x -= .5;
-    //y-= .5;
   }
   
   void exploding(){
+    // this checks to see if any nearby zombies should cause the cherry to explode
     for (int idx = 0; idx < ListOfZombies.size(); idx ++){
       Zombies z = ListOfZombies.get(idx);
       if (abs(dist(this.x, this.y, z.x, z.y)) < 200) {

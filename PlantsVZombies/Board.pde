@@ -90,6 +90,8 @@ int sunFrame;
     }
   }
   
+  // All of the makeX functions simply make the appropriate plant and place it there on the board
+  
   Walnut makeWalnut(int r, int c){
     Walnut w = new Walnut(r, c, "walnut", 50);
     ListOfPlant.add(w);
@@ -221,10 +223,11 @@ int sunFrame;
     return s;
   }
   
+  // simply checks if anything is there
   boolean occupied(int r, int c){
     return occupied[r][c];
   }
-  
+
   boolean mouseOn(){
     return (mouseX < 1285 && mouseX > 380 && mouseY < 715 && mouseY > 100);
   }

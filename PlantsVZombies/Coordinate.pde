@@ -1,4 +1,6 @@
 class Coordinate{
+  // match up X Y pairs to the grid of array, so that you can use row and columns instead of a range of x and y values.
+  
   float x, y;
   float[] orderedPair;
   

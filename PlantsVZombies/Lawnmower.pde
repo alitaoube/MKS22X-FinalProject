@@ -6,6 +6,7 @@ class Lawnmower implements Updateable, Displayable{
   
   Lawnmower(){
     for (int x = 0; x < 5; x++){
+      // creates one lawnmower at each position across the side of the screen
      new Lawnmower(x, 0);
     }
   }
@@ -16,7 +17,7 @@ class Lawnmower implements Updateable, Displayable{
     image = loadImage("images/lawnmower.png");
     image.resize(110, 100);
   
-
+    // makes one specific lawnmower at the designated position. It makes it slightly before the 0th position in that row so that you can still put plants there
     x = backyard[r][c].getX() - image.width + 20;
     textSize(100);
     //text(image.width + "", 500, 500);
@@ -35,17 +36,10 @@ class Lawnmower implements Updateable, Displayable{
     x+=5;
   }
   
-  boolean touchingZombie(){
-    for (int idx = 0; idx < backyard.zombieLanes.get(this.row).size(); idx ++){
-      Zombies z = backyard.zombieLanes.get(this.row).get(idx);
-      if (z.x - this.x < 10) return true;
-    }
-    return false;
-  }
-  
   void update(){
    display();
    
+   // if it goes past the end of the screen, it gets deleted to prevent it from interfering with any zombies made in the future
    if (y > 1350){
     thingsToUpdate.remove(this);
     thingsToDisplay.remove(this);

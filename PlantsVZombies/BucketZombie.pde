@@ -19,6 +19,7 @@ class BucketZombie extends Zombies{
   
    image(localSprites.get(spriteFrame), x, y);
    
+   // you have to overload the method so you can place the helmet on top of the gardenZombie
    if (health >= 100){
     image(hat, x, y - hat.height + 20);
    }
