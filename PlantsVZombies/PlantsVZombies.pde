@@ -29,7 +29,7 @@ boolean removedFromList;
 //=======
 Shovel s;
 PImage tint;
-PImage currentImage;
+String mode;
 PImage home;
 PImage menu;
 
@@ -43,7 +43,7 @@ void setup(){
   tint.resize(130,  75);
   home = loadImage("images/homescreen.JPG");
   menu = loadImage("images/mainmenu.JPG");
-  currentImage = home;
+  mode = "home";
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   thingsToUpdate = new ArrayList<Updateable>();
@@ -74,13 +74,13 @@ void setup(){
 }
 
 void draw(){
-  if (currentImage == home){
+  if (mode.equals("home")){
     background(home);
     displayMouse();
     startGame();
     return;
   }
-  if (currentImage == menu){
+  if (mode.equals("menu")){
     background(237, 236, 225);
     imageMode(CENTER);
     image(menu, width/2, height/2);
@@ -88,7 +88,7 @@ void draw(){
     startGame();
     return;
   }
-  if (currentImage == board){
+  if (mode.equals("adventure")){
   noTint();
   background(board);
   displaySun();
@@ -130,10 +130,11 @@ void draw(){
 }
 
 void startGame(){
-  if (currentImage == home)
-    if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) currentImage = menu;
-  if (currentImage == menu){
-    
+  if (mode.equals("home"))
+    if (mouseX < 915 && mouseX > 410 && mouseY < 725 && mouseY > 660 && mousePressed) mode = "menu";
+  if (mode.equals("menu")){
+    if (mouseX < 900 && mouseX > 400 && mouseY < 460 && mouseY > 330 && mousePressed) mode = "demo";
+    else if (mouseX < 920 && mouseX > 400 && mouseY < 290 && mouseY > 170 && mousePressed) mode = "adventure";
   }
 }
 
