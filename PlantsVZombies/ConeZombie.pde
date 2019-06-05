@@ -18,14 +18,4 @@ class ConeZombie extends Zombies{
       kill();
     }
    }
-   
-   //void display(){
-   //  if (frameCount + 1 == localSprites.size()) frameCount = 0;
-   //  else frameCount++;
-     
-   //  image(localSprites.get(frameCount), x, y);
-   //  if (health >= 100){
-   //    image(hat, x, y - hat.height);
-   //  }
-   //}
 }
