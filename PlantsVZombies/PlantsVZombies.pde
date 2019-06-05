@@ -306,7 +306,7 @@ void placePlant(){
     s.selected = true;
     selected = false;
   }
-  else if (selectedPlant.equals("garden") && backyard.occupied(r, c)){
+  else if (selectedPlant.equals("garden")){
     backyard.makeGardenZombie(r, c);
     selected = false;
   }
