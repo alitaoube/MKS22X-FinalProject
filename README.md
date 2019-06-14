@@ -1,5 +1,5 @@
 # Plants v. Zombies (PvZ)
-
+Created by Ali Taoube and Sam Brink, for Mr. K's Spring Semester APCS class. 
 ### Instructions
 
 Welcome to Plants v. Zombies, created by Ali Taoube and Sam Brink. This is essentially a remake of the popular game by PopCap Studios. You start off at the title screen. After pressing the start button, you can choose the mode you would like to choose - Demo, which allows you to test out all of the features, and the adventure mode, which puts you through a PvZ level. The game is fairly simple. Place plants in the path of the zombies to stop them from reaching the end. If they make it through all your defenses - including the lawnmowers - they win! Don't let that happen.
